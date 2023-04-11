@@ -3,6 +3,7 @@
 [![Open Issues](https://img.shields.io/github/issues-raw/UdL-EPS-SoftArch/seedbank-gei?logo=github)](https://github.com/orgs/UdL-EPS-SoftArch/projects/16)
 [![CI/CD](https://github.com/UdL-EPS-SoftArch/seedbank-gei/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/UdL-EPS-SoftArch/seedbank-gei/actions)
 [![CypressE2E](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/4isjgp&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/4isjgp/runs)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f6f1cb3b-6082-47e9-8825-403cd846f331/deploy-status)](https://seedbank-gei.netlify.app)
 
 ## Development server
 
