@@ -9,3 +9,13 @@ import { User } from '../../login-basic/user';
   selector: 'app-propagator-delete',
   templateUrl: './propagator-delete.component.html'
 })
+export class PropagatorDeleteComponent implements OnInit {
+  public propagator: Propagator = new Propagator();
+  private id: string;
+
+  constructor(private route: ActivatedRoute,
+                private router: Router,
+                private userService: UserService,
+                private authenticationService: AuthenticationBasicService) {
+    }
+}
