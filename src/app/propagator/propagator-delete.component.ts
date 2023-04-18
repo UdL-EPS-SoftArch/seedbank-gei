@@ -5,3 +5,7 @@ import { AuthenticationBasicService } from '../../login-basic/authentication-bas
 import { UserService } from '../user.service';
 import { User } from '../../login-basic/user';
 
+@Component({
+  selector: 'app-user-delete',
+  templateUrl: './user-delete.component.html'
+})
