@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
-import { UserService } from '../user.service';
-import { User } from '../../login-basic/user';
+import { PropagatorService } from '../propagator.service';
+import { Propagator } from '../../login-basic/propagator';
 
 @Component({
   selector: 'app-propagator-delete',
@@ -15,7 +15,21 @@ export class PropagatorDeleteComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
                 private router: Router,
-                private userService: UserService,
+                private propagatorService: PropagatorService,
                 private authenticationService: AuthenticationBasicService) {
     }
+
+  ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.propagatorService.getResource(this.id).subscribe(
+      propagator => this.propagator = propagator);
+  }
+
+  delete(): void {
+    this.propagatorService.deleteResource(this.propagator).subscribe(
+      () => {
+        this.authenticationService.logout();
+        this.router.navigate(['']);
+      });
+  }
 }
