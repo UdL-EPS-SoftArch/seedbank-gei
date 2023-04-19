@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {UserService} from "../user/user.service";
+import {User} from "../login-basic/user";
 
 @Component({
   selector: 'app-take',
@@ -7,6 +9,11 @@ import {Component} from '@angular/core';
 })
 export class TakeComponent {
 
-  constructor() { }
+  user: User;
+
+  constructor(private userService: UserService) {
+    this.user = userService.getUser()
+    console.log(this.user)
+  }
 
 }
