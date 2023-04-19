@@ -16,4 +16,6 @@ export class TakeComponent {
     console.log(this.user)
   }
 
+
+
 }

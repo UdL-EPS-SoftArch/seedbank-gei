@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { HateoasResourceOperation, ResourceCollection } from '@lagoshny/ngx-hateoas-client';
 import { User } from '../login-basic/user';
 
 @Injectable({providedIn: 'root'})
-export class UserService extends HateoasResourceOperation<User> {
+export class UserService extends HateoasResourceOperation<User>{
 
+  private user: User
   constructor() {
     super(User);
   }
@@ -15,6 +16,15 @@ export class UserService extends HateoasResourceOperation<User> {
   }
 
   getUser(): User {
-    return JSON.parse(localStorage.getItem('currentUser'))
+    console.log(this.user)
+    return this.user
+  }
+
+  setUser() {
+    this.user = JSON.parse(localStorage.getItem('currentUser'))
+    console.log(this.user)
+  }
+  removeUser() {
+    this.user = undefined
   }
 }
