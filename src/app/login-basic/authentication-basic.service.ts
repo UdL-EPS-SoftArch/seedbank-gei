@@ -4,12 +4,11 @@ import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
-import {UserService} from "../user/user.service";
 
 @Injectable()
 export class AuthenticationBasicService {
 
-  constructor(private http: HttpClient, private userService: UserService) {
+  constructor(private http: HttpClient) {
   }
 
   login(username: string, password: string): Observable<User> {
@@ -35,7 +34,6 @@ export class AuthenticationBasicService {
 
   storeCurrentUser(user: User): void {
     localStorage.setItem('currentUser', JSON.stringify(user));
-    this.userService.setUser()
   }
 
   logout(): void {

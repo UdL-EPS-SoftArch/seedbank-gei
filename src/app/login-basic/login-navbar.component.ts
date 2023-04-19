@@ -28,7 +28,6 @@ export class LoginNavbarComponent {
   logout(event): void {
     event.preventDefault();
     this.authenticationService.logout();
-    this.userService.removeUser()
     this.router.navigate(['/login']);
   }
 }

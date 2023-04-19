@@ -9,11 +9,10 @@ import {User} from "../login-basic/user";
 })
 export class TakeComponent {
 
-  user: User;
+  constructor() {
+  }
 
-  constructor(private userService: UserService) {
-    this.user = userService.getUser()
-    console.log(this.user)
+  ngOnInit() {
   }
 
 

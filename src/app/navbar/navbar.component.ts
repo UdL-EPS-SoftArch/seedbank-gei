@@ -10,15 +10,12 @@ import {User} from "../login-basic/user";
 })
 export class NavbarComponent implements OnInit {
   public isCollapsed: boolean;
-  user: User
-  constructor(private authenticationService: AuthenticationBasicService,
-              private userService: UserService) {
+
+  constructor(private authenticationService: AuthenticationBasicService) {
   }
 
   ngOnInit(): void {
     this.isCollapsed = true;
-    this.user = this.userService.getUser()
-    console.log(this.user)
   }
 
   isLogged(): boolean {

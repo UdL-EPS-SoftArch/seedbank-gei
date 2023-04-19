@@ -18,7 +18,7 @@
              [routerLink]="['/users']"><span class="fas fa-user-circle"></span> List</a>
         </div>
       </li>
-      <li *ngIf="user" class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
+      <li *ngIf="isLogged()" class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
         <a class="nav-link" [routerLink]="['/take']">Take</a>
       </li>
     </ul>
