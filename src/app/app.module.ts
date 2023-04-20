@@ -23,7 +23,7 @@ import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
-import {TakeComponent} from "./take/take.component";
+//import {TakeComponent} from "./take/take.component";
 import { TakeListComponent } from './take/take-list/take-list.component';
 import { TakeDetailComponent } from './take/take-detail/take-detail.component';
 
@@ -32,7 +32,7 @@ import { TakeDetailComponent } from './take/take-detail/take-detail.component';
     AppComponent,
     NavbarComponent,
     AboutComponent,
-    TakeComponent,
+    //TakeComponent,
     NotFoundComponent,
     UserListComponent,
     UserDetailComponent,
