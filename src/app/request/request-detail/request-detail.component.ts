@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {RequestService} from "../request.service";
 import {firstValueFrom} from "rxjs";
 import {Propagator} from "../../propagator";
+import {Take} from "../../take";
 
 @Component({
   selector: 'app-request-detail',
@@ -23,5 +24,6 @@ export class RequestDetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.request = await firstValueFrom(this.requestService.getResource(id));
     this.request.propagator = await firstValueFrom(this.request.getRelation<Propagator>('propagator'));
+    this.request.fulfilledBy = await firstValueFrom(this.request.getRelation<Take>('fulfilledBy'));
   }
 }
