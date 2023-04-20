@@ -5,6 +5,7 @@ import { Donation } from './donation';
 import { Donor } from '../donor';
 import { Take } from '../take';
 import { Propagator } from '../propagator';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-donation',
@@ -23,21 +24,12 @@ export class DonationComponent implements OnInit {
     ) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.donationService.getResource(this.id).subscribe(donation => {
-      console.log(donation);
-      this.donation = donation;
-      this.donation.getRelation<Donor>("donor").subscribe(donor => {
-        console.log(`Donor: ${JSON.stringify(donor)}`);
-      });
-      this.donation.getRelation<Take>("takenBy").subscribe(takenBy => {
-        console.log(`TakenBy: ${JSON.stringify(takenBy)}`);
-        takenBy.getRelation<Propagator>("takePropagator").subscribe(propagator => {
-          console.log(`Propagator: ${JSON.stringify(propagator)}`);
-        })
-      })
-    });
+    this.donation = await firstValueFrom(this.donationService.getResource(this.id))
+    this.donation.donor = await firstValueFrom(this.donation.getRelation<Donor>("donor"))
+    this.donation.takeBy = await firstValueFrom(this.donation.getRelation<Take>("takenBy"))
+    this.donation.takeBy.propagator = await firstValueFrom(this.donation.takeBy.getRelation<Propagator>("takePropagator"))
   }
 
 }
