@@ -9,24 +9,27 @@ import { Take } from '../take-model';
   styleUrls: ['./take-list.component.css']
 })
 export class TakeListComponent implements OnInit {
-  public pageSize = 5;
-  public page = 1;
-  public totalTakes = 0;
-  takes:any[]=[]
+  pageSize = 5;
+  page = 1;
+  totalTakes = 0;
+  takes: Take [] = []
+
   constructor(public router: Router, public takeService:TakeService){
   }
+
   detail(take: any): void {
     this.router.navigate(['take', take.id]);
   }
+
   ngOnInit(){
     this.takeService.getPage({ pageParams:  { size: this.pageSize }, sort: { username: 'ASC' } }).subscribe(
       (page: PagedResourceCollection<Take>) => {
         this.takes = page.resources;
         console.log(page);
-        
         this.totalTakes = page.totalElements;
       });
   }
+
   changePage(): void {
     this.takeService.getPage({ pageParams: { page: this.page - 1, size: this.pageSize }, sort: { username: 'ASC' } }).subscribe(
       (page: PagedResourceCollection<Take>) => this.takes = page.resources);
