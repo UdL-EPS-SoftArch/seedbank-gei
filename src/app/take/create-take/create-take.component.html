@@ -1,6 +1,12 @@
 <form>
-    <input type="number" class="amount-input">
-    <input type="number" class="weight-input">
-    <input class="location-input">
-    <input class="date-input">
+    <input type="number" class="weight-input" [(ngModel)]="weight" name="weight">
+    <input class="location-input" [(ngModel)]="location" name="location">
+
+    <div class="form-group mb-3" [class.was-validated]="amountTemplate.dirty || amountTemplate.touched">
+        <label class="control-label" for="amount">Amount*</label>
+        <input id="amount" name="amount" type="number" class="form-control" required
+               [(ngModel)]="amount" #amountTemplate="ngModel">
+        <!--<div class="invalid-feedback">A username is required</div>-->
+      </div>
+
 </form>

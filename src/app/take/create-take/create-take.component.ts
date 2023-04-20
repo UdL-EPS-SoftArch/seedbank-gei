@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-take.component.css']
 })
 export class CreateTakeComponent {
-
+    amount: number;
+    weight: number;
+    location: string;
 }
