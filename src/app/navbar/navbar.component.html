@@ -19,8 +19,7 @@
         </div>
       </li>
 
-      <!-- For USER and ADMIN temporary-->
-      <li class="nav-item" *ngIf="isRole('user') || isRole('admin')" ngbDropdown>
+      <li class="nav-item" *ngIf="isRole('donor') || isRole('admin') || isRole('propagator')" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="playerDropdown" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Takes</a>
         <div class="dropdown-menu" aria-labelledby="playDropdown" ngbDropdownMenu>
@@ -28,9 +27,6 @@
              [routerLink]="['/take']"><span class="fas fa-user-circle"></span> List</a>
         </div>
       </li>
-      <!-- <li *ngIf="isLogged()" class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
-        <a class="nav-link" [routerLink]="['/take']">Take</a>
-      </li> -->
     </ul>
     <ul class="navbar-nav ms-auto me-3" app-login-navbar></ul>
   </div>

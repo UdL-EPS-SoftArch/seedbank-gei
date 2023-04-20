@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TakeService } from '../take-service';
-import { PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
+import { PagedGetOption, PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
 import { Take } from '../take-model';
 @Component({
   selector: 'app-take-list',
@@ -22,16 +22,17 @@ export class TakeListComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.takeService.getPage({ pageParams:  { size: this.pageSize }, sort: { username: 'ASC' } }).subscribe(
+    let options: PagedGetOption = { pageParams:  { size: this.pageSize }, sort: { username: 'ASC' } };
+    this.takeService.getPage(options).subscribe(
       (page: PagedResourceCollection<Take>) => {
         this.takes = page.resources;
-        console.log(page);
         this.totalTakes = page.totalElements;
       });
   }
 
   changePage(): void {
-    this.takeService.getPage({ pageParams: { page: this.page - 1, size: this.pageSize }, sort: { username: 'ASC' } }).subscribe(
+    let options: PagedGetOption = { pageParams: { page: this.page - 1, size: this.pageSize }, sort: { username: 'ASC' } };
+    this.takeService.getPage(options).subscribe(
       (page: PagedResourceCollection<Take>) => this.takes = page.resources);
   }
 
