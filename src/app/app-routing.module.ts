@@ -9,6 +9,7 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDeleteComponent } from './user/user-delete/user-delete.component';
 import { TakeListComponent } from './take/take-list/take-list.component';
+import { CreateTakeComponent } from './take/create-take/create-take.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
   { path: 'take', component: TakeListComponent, canActivate: [LoggedInGuard]},
+  { path: 'take/add', component: CreateTakeComponent, canActivate: [LoggedInGuard] },
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},

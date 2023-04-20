@@ -11,6 +11,7 @@ import { LoginBasicModule } from '../login-basic/login-basic.module';
 import { ErrorHandlerModule } from '../error-handler/error-handler.module';
 import { TakeDetailComponent } from './take-detail/take-detail.component';
 import { TakeListComponent } from './take-list/take-list.component';
+import { CreateTakeComponent } from './create-take/create-take.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -34,7 +35,8 @@ import { TakeListComponent } from './take-list/take-list.component';
   ],
   declarations: [
     TakeListComponent,
-    TakeDetailComponent
+    TakeDetailComponent,
+    CreateTakeComponent
     /* Other component declaration*/
   ],
   exports: [
