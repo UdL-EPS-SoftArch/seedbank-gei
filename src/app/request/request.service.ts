@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { HateoasResourceOperation, ResourceCollection } from '@lagoshny/ngx-hateoas-client';
-import { Propagator } from '../login-basic/propagator';
-import {User} from "../login-basic/user";
+import { User } from '../login-basic/user';
 
 @Injectable({providedIn: 'root'})
-export class PropagatorService extends HateoasResourceOperation<User> {
+export class UserService extends HateoasResourceOperation<User> {
 
   constructor() {
-    super(Propagator);
+    super(User);
   }
 
   public findByUsernameContaining(query: string): Observable<ResourceCollection<User>> {
