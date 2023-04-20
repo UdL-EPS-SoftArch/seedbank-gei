@@ -1,4 +1,8 @@
-<div class="jumbotron">
+<div class="jumbotron" *ngIf="isRole('admin')">
+  <p>Here you can find all takes</p>
+</div>
+
+<div class="jumbotron" *ngIf="isRole('propagator') || isRole('donor')">
   <p>Here you can find your takes</p>
 </div>
 

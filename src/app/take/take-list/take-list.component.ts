@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TakeService } from '../take-service';
 import { PagedGetOption, PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
 import { Take } from '../take-model';
+import { AuthenticationBasicService } from 'src/app/login-basic/authentication-basic.service';
 @Component({
   selector: 'app-take-list',
   templateUrl: './take-list.component.html',
@@ -14,7 +15,7 @@ export class TakeListComponent implements OnInit {
   totalTakes = 0;
   takes: Take [] = []
 
-  constructor(public router: Router, public takeService:TakeService){
+  constructor(public router: Router, public takeService:TakeService, private authenticationService: AuthenticationBasicService){
   }
 
   detail(take: any): void {
@@ -28,6 +29,10 @@ export class TakeListComponent implements OnInit {
         this.takes = page.resources;
         this.totalTakes = page.totalElements;
       });
+  }
+
+  isRole(role: string): boolean {
+    return this.authenticationService.isRole(role);
   }
 
   changePage(): void {
