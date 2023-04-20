@@ -23,6 +23,12 @@ import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
+import { PropagatorRegisterComponent } from './propagator-register/propagator-register.component';
+import { PropagatorDeleteComponent } from './propagator-delete/propagator-delete.component';
+import { PropagatorEditComponent } from './propagator-edit/propagator-edit.component';
+import { PropagatorListComponent } from './propagator-list/propagator-list.component';
+import { PropagatorDetailComponent } from './propagator-detail/propagator-detail.component';
+import { PropagatorSearchComponent } from './propagator-search/propagator-search.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,13 @@ import {UserService} from './user/user.service';
     UserRegisterComponent,
     UserEditComponent,
     UserDeleteComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    PropagatorRegisterComponent,
+    PropagatorDeleteComponent,
+    PropagatorEditComponent,
+    PropagatorListComponent,
+    PropagatorDetailComponent,
+    PropagatorSearchComponent
   ],
   imports: [
     BrowserModule,
