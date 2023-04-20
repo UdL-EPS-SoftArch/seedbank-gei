@@ -32,7 +32,6 @@ import { TakeDetailComponent } from './take/take-detail/take-detail.component';
     AppComponent,
     NavbarComponent,
     AboutComponent,
-    //TakeComponent,
     NotFoundComponent,
     UserListComponent,
     UserDetailComponent,
