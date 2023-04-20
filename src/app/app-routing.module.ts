@@ -10,6 +10,8 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDeleteComponent } from './user/user-delete/user-delete.component';
 import { TakeListComponent } from './take/take-list/take-list.component';
 import { CreateTakeComponent } from './take/create-take/create-take.component';
+import { TakeDetailComponent } from './take/take-detail/take-detail.component';
+import { TakeUpdateComponent } from './take/take-update/take-update.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'users/:id/edit', component: UserEditComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
+  { path: 'take/:id/edit', component: TakeUpdateComponent, canActivate: [LoggedInGuard]},
+  { path: 'take/:id', component: TakeDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'take', component: TakeListComponent, canActivate: [LoggedInGuard]},
   { path: 'take/add', component: CreateTakeComponent, canActivate: [LoggedInGuard] },
   { path: 'about', component: AboutComponent},
