@@ -6,5 +6,5 @@ export class Batch extends Resource {
     amount: number;
     weight: number;
     location: string;
-    date: string; // TODO: Is this a String? On the API has ZoneDateTime
+    date: Date;
 }
