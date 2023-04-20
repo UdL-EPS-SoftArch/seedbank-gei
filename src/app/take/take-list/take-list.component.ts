@@ -27,4 +27,9 @@ export class TakeListComponent implements OnInit {
         this.totalTakes = page.totalElements;
       });
   }
+  changePage(): void {
+    this.takeService.getPage({ pageParams: { page: this.page - 1, size: this.pageSize }, sort: { username: 'ASC' } }).subscribe(
+      (page: PagedResourceCollection<Take>) => this.takes = page.resources);
+  }
+
 }
