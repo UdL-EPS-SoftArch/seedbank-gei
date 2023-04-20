@@ -6,6 +6,7 @@
     <th>Weight</th>
     <th>Location</th>
     <th>Date</th>
+    <th>Taken:</th>
   </tr>
   </thead>
   <tbody>
@@ -14,6 +15,11 @@
     <td>{{ request.weight }}</td>
     <td>{{ request.location }}</td>
     <td>{{ request.date | date }}</td>
-  </tr>
+    <td *ngIf="request?.fulfilledBy, else not_fulfilled">Yes</td>
+
+    <ng-template #not_fulfilled>
+      <td>No</td>
+    </ng-template>
+
   </tbody>
 </table>
