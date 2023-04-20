@@ -1,1 +1,19 @@
-<p>request-detail works!</p>
+<h1>Request from {{request?.propagator?.id}} </h1>
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark">
+  <tr>
+    <th>Amount</th>
+    <th>Weight</th>
+    <th>Location</th>
+    <th>Date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{ request.amount }}</td>
+    <td>{{ request.weight }}</td>
+    <td>{{ request.location }}</td>
+    <td>{{ request.date }}</td>
+  </tr>
+  </tbody>
+</table>
