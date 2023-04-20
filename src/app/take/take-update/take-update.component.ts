@@ -10,15 +10,4 @@ export class TakeUpdateComponent {
 
   }
   onSubmit(){}
-
-  /*
-  [
-    "uri",
-    "amount",*
-    "weight",*
-    "location", *
-    "date",
-    "_links"
-] 
-  */
 }

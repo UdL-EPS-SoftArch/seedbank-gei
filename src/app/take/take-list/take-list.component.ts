@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { TakeService } from '../take-service';
 import { PagedGetOption, PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
 import { Take } from '../take-model';
@@ -18,7 +18,7 @@ export class TakeListComponent implements OnInit {
   constructor(public router: Router, public takeService:TakeService, private authenticationService: AuthenticationBasicService){
   }
 
-  detail(take: any): void {
+  detail(take: Take): void {
     this.router.navigate(['take', take.id]);
   }
 

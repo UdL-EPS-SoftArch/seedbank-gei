@@ -7,23 +7,26 @@
 </div>
 
 <div class="card mb-1" *ngFor="let t of takes">
-    <div class="card-block row m-1 col-12">
+    <div class="card-block row m-1 col-12" (click)="detail(t)">
       <div class="card-body row align-items-center">
+        <div class="col-6 mt-1">
+          <h6 class="card-subtitle text-muted">Take id</h6>
+          <p class="card-text">{{t.id}}</p>
+        </div>
         <div class="col-6 mt-1">
           <h6 class="card-subtitle text-muted">Amount</h6>
           <p class="card-text">{{t.amount}}</p>
-          <!-- <a class="card-text" [routerLink]="['/users', user.id]">{{user.id}}</a> -->
         </div>
         <div class="col-6 mt-1">
           <h6 class="card-subtitle text-muted">Date</h6>
           <p class="card-text">{{t.date}}</p>
         </div>
         <div class="col-6 mt-1">
-            <h6 class="card-subtitle text-muted">location</h6>
+            <h6 class="card-subtitle text-muted">Location</h6>
             <p class="card-text">{{t.location}}</p>
           </div>
           <div class="col-6 mt-1">
-            <h6 class="card-subtitle text-muted">weight</h6>
+            <h6 class="card-subtitle text-muted">Weight</h6>
             <p class="card-text">{{t.weight}}</p>
           </div>
       </div>
