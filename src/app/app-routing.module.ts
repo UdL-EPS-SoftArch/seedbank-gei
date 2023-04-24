@@ -11,7 +11,7 @@ import { UserDeleteComponent } from './user/user-delete/user-delete.component';
 import { DonationComponent } from './donation/donation.component';
 import { TakeListComponent } from './take/take-list/take-list.component';
 import { CreateTakeComponent } from './take/create-take/create-take.component';
-import { RequestDetailComponent } from "./request/request-detail/request-detail.component";
+import {RequestDetailComponent} from "./request/request-detail/request-detail.component";
 import { TakeDetailComponent } from './take/take-detail/take-detail.component';
 import { TakeUpdateComponent } from './take/take-update/take-update.component';
 import { TakeDeleteComponent } from './take/take-delete/take-delete.component';
@@ -25,9 +25,9 @@ const routes: Routes = [
   { path: 'users/:id/edit', component: UserEditComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'donations/:id', component: DonationComponent, canActivate: [LoggedInGuard]},
+  { path: 'requests/create', component: RequestCreateComponent, canActivate: [LoggedInGuard] },
   { path: 'requests/:id/delete', component: RequestDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard]},
-  { path: 'requests/create', component: RequestCreateComponent, canActivate: [LoggedInGuard]},
   { path: 'requests', component: RequestListComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
   { path: 'take/:id/delete', component: TakeDeleteComponent, canActivate: [LoggedInGuard]},
@@ -44,5 +44,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }
