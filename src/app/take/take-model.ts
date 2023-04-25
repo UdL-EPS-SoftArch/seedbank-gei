@@ -13,11 +13,6 @@ export class Take extends Resource {
     super();
     Object.assign(this as any, values);
   }
-
-  getPropagator(): string {
-    let uriArray=this.uri.split("/")
-    return uriArray.pop();
-  }
   
   public get id() : string {
     let uriArray=this.uri.split("/")

@@ -10,12 +10,12 @@ import { TakeService } from '../take-service';
 })
 export class TakeDetailComponent {
   takeDetail:Take
-  constructor(private route: ActivatedRoute,private userService: TakeService) {
+  constructor(private route: ActivatedRoute,private takeService: TakeService) {
   }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.userService.getResource(id).subscribe(take => { this.takeDetail = take;});
+    this.takeService.getResource(id).subscribe(take => { this.takeDetail = take;});
   }
   
 }
