@@ -41,4 +41,8 @@ export class TakeListComponent implements OnInit {
       (page: PagedResourceCollection<Take>) => this.takes = page.resources);
   }
 
+  goTo(to: string) {
+    this.router.navigateByUrl(to);
+  }
+
 }
