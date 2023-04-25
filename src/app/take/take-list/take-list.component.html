@@ -1,11 +1,10 @@
-
 <div class="jumbotron" *ngIf="isRole('admin')">
-  <p>Here you can find all takes</p>
+  <p class="takes-text">Here you can find all takes</p>
   <button class="btn ms-3 btn-success pull-right add-take">Add Take</button>
 </div>
 
 <div class="jumbotron" *ngIf="isRole('propagator') || isRole('donor')">
-  <p>Here you can find your takes</p>
+  <p class="takes-text">Here you can find your takes</p>
   <button class="btn ms-3 btn-success pull-right add-take">Add Take</button>
 </div>
 
