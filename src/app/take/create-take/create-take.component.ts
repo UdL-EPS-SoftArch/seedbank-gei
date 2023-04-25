@@ -9,4 +9,8 @@ export class CreateTakeComponent {
     amount: number;
     weight: number;
     location: string;
+
+  onSubmit(){
+
+  }
 }
