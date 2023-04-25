@@ -28,9 +28,9 @@
                [(ngModel)]="take.location" #location="ngModel">
         <div class="invalid-feedback">An amount is required</div>
       </div>
-      <!-- Location input -->
+      <!-- Weight input -->
       <div class="form-group mb-3" [class.was-validated]="weight.dirty || weight.touched">
-        <label class="control-label" for="location">Location*</label>
+        <label class="control-label" for="location">Weight*</label>
         <input id="weight" name="weight" type="number" class="form-control" required
                [(ngModel)]="take.weight" #weight="ngModel">
         <div class="invalid-feedback">An weight is required</div>
