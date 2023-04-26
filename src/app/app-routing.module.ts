@@ -17,7 +17,8 @@ import { TakeUpdateComponent } from './take/take-update/take-update.component';
 import { TakeDeleteComponent } from './take/take-delete/take-delete.component';
 import {RequestListComponent} from "./request/request-list/request-list.component";
 import {RequestDeleteComponent} from "./request/request-delete/request-delete.component";
-import {RequestCreateComponent} from "./request/request-create/request-create.component";
+import { RequestCreateComponent } from "./request/request-create/request-create.component";
+
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
