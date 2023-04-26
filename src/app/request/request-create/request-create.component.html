@@ -25,13 +25,6 @@
       <div class="invalid-feedback">A location is required</div>
     </div>
 
-    <!-- Date input -->
-    <div class="form-group mb-3" [class.was-validated]="date.dirty || date.touched">
-      <label class="control-label" for="date">Date*</label>
-      <input id="date" name="date" type="date" class="form-control" required [(ngModel)]="request.date" #date="ngModel">
-      <div class="invalid-feedback">A date is required</div>
-    </div>
-
     <!-- Button -->
     <div class="form-group fa-pull-right">
       <button id="listBtn" type="button" (click)="onCancel()" class="btn btn-outline-primary pull-right">Back</button>
