@@ -14,11 +14,6 @@ export class RequestCreateComponent implements OnInit {
 
   public request: Request;
 
-  @Input() amount: number;
-  @Input() weight: number;
-  @Input() location: string;
-  @Input() date: Date;
-
   constructor(
     private router: Router,
     private locationService: Location,
@@ -32,11 +27,9 @@ export class RequestCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.request.amount = this.amount;
-    this.request.weight = this.weight;
-    this.request.location = this.location;
-    this.request.date = this.date;
+    this.request.date = new Date(this.request.date.toISOString());
     this.request.propagator = this.authenticationBasicService.getCurrentUser()
+    console.log(this.request)
     this.requestService.createResource({ body: this.request }).subscribe(
       (request: Request) => {
         this.router.navigate(['requests', request.id]);
