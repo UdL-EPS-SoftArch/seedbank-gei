@@ -6,6 +6,7 @@ import {switchMap} from "rxjs/operators";
 import {Request} from "../request";
 import {Propagator} from "../../propagator";
 import {Take} from "../../take";
+import {RequestKeys} from "../request-keys";
 
 @Component({
   selector: 'app-request-list',
@@ -25,10 +26,10 @@ export class RequestListComponent implements OnInit {
     this.requestService.getPage(this.getPageOptions()).subscribe((page: PagedResourceCollection<Request>) => {
         this.requests = page.resources
         this.requests.map((request: Request) => {
-          request.getRelation<Propagator>('propagator').pipe(
+          request.getRelation<Propagator>(RequestKeys.Propagator).pipe(
               switchMap((propagator: Propagator) => {
                 request.propagator = propagator
-                return request.getRelation<Take>('fulfilledBy')
+                return request.getRelation<Take>(RequestKeys.FulfilledBy)
               }),
           ).subscribe((fulfilledBy: Take) => request.fulfilledBy = fulfilledBy)
           })

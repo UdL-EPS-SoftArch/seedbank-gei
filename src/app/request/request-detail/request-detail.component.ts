@@ -5,6 +5,7 @@ import {RequestService} from "../request.service";
 import {Propagator} from "../../propagator";
 import {Take} from "../../take";
 import {switchMap} from "rxjs/operators";
+import {RequestKeys} from "../request-keys";
 
 @Component({
   selector: 'app-request-detail',
