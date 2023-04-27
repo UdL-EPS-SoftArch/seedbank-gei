@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
 import {RequestService} from "../request.service";
-import {PagedGetOption, PagedResourceCollection, SortOrder} from "@lagoshny/ngx-hateoas-client";
+import {PagedGetOption, PagedResourceCollection} from "@lagoshny/ngx-hateoas-client";
 import {switchMap} from "rxjs/operators";
 import {Request} from "../request";
 import {Propagator} from "../../propagator";
@@ -17,7 +16,6 @@ export class RequestListComponent implements OnInit {
   public requests: Request[] = []
 
   constructor(
-    private route: ActivatedRoute,
     private requestService: RequestService,
   ) {
   }
