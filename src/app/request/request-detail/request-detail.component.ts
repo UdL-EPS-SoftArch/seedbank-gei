@@ -21,19 +21,15 @@ export class RequestDetailComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
-    const idKey = 'id';
-    const propagatorKey = 'propagator';
-    const fulfilledByKey = 'fulfilledBy';
-
-    const id = this.route.snapshot.paramMap.get(idKey);
+    const id = this.route.snapshot.paramMap.get(RequestKeys.Id);
     this.requestService.getResource(id).pipe(
       switchMap((request: Request) => {
         this.request = request;
-        return request.getRelation<Propagator>(propagatorKey);
+        return request.getRelation<Propagator>(RequestKeys.Propagator);
       }),
       switchMap((propagator: Propagator) => {
         this.request.propagator = propagator;
-        return this.request.getRelation<Take>(fulfilledByKey);
+        return this.request.getRelation<Take>(RequestKeys.FulfilledBy);
       })
     ).subscribe( (fulfilledBy: Take) => {
       this.request.fulfilledBy = fulfilledBy;
