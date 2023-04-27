@@ -38,7 +38,7 @@ import { RequestDetailComponent } from './request/request-detail/request-detail.
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
-    DonationComponent
+    DonationComponent,
     RequestDetailComponent,
   ],
   imports: [
