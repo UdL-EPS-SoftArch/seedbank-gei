@@ -24,6 +24,7 @@ import {AuthenticationBasicService} from './login-basic/authentication-basic.ser
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
+import { RequestListComponent } from './request/request-list/request-list.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { RequestDetailComponent } from './request/request-detail/request-detail.
     UserDeleteComponent,
     UserSearchComponent,
     RequestDetailComponent,
+    RequestListComponent,
   ],
   imports: [
     BrowserModule,
