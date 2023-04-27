@@ -24,16 +24,11 @@ export class RequestListComponent implements OnInit {
   ngOnInit(): void {
     this.requestService.getPage(this.getPageOptions()).subscribe((page: PagedResourceCollection<Request>) => {
         this.requests = page.resources
-        // const totalElements = page.page.totalElements
-        // const pagedResources = page
-        // this.requests.map((request: Request) => {
-        //
-        // })
         this.requests.map((request: Request) => {
           request.getRelation<Propagator>('propagator').pipe(
               switchMap((propagator: Propagator) => {
                 request.propagator = propagator
-                return request.getRelation<Take>('fulFilledBy')
+                return request.getRelation<Take>('fulfilledBy')
               }),
           ).subscribe((fulfilledBy: Take) => request.fulfilledBy = fulfilledBy)
           })
