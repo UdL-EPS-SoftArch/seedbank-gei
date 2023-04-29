@@ -24,6 +24,9 @@ import {AuthenticationBasicService} from './login-basic/authentication-basic.ser
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
 import { DonationComponent } from './donation/donation.component';
+import { TakeListComponent } from './take/take-list/take-list.component';
+import { TakeDetailComponent } from './take/take-detail/take-detail.component';
+import { TakeComponentsModule } from './take/take-components.module';
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
 
 @NgModule({
@@ -42,6 +45,7 @@ import { RequestDetailComponent } from './request/request-detail/request-detail.
     RequestDetailComponent,
   ],
   imports: [
+    TakeComponentsModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,

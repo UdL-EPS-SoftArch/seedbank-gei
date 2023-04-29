@@ -1,0 +1,37 @@
+<div class="jumbotron" *ngIf="isRole('admin')">
+  <p class="takes-text">Here you can find all takes</p>
+  <button class="btn ms-3 btn-success pull-right add-take" [routerLink]="['/take/add']" >Add Take</button>
+</div>
+
+<div class="jumbotron" *ngIf="isRole('propagator') || isRole('donor')">
+  <p class="takes-text">Here you can find your takes</p>
+  <button class="btn ms-3 btn-success pull-right add-take" [routerLink]="['/take/add']" >Add Take</button>
+</div>
+
+<div class="card mb-1" *ngFor="let t of takes">
+    <div class="card-block row m-1 col-12">
+      <div class="card-body row align-items-center">
+        <div class="col-6 mt-1">
+          <h6 class="card-subtitle text-muted">Amount</h6>
+          <p class="card-text">{{t.amount}}</p>
+          <!-- <a class="card-text" [routerLink]="['/users', user.id]">{{user.id}}</a> -->
+        </div>
+        <div class="col-6 mt-1">
+          <h6 class="card-subtitle text-muted">Date</h6>
+          <p class="card-text">{{t.date}}</p>
+        </div>
+        <div class="col-6 mt-1">
+            <h6 class="card-subtitle text-muted">location</h6>
+            <p class="card-text">{{t.location}}</p>
+          </div>
+          <div class="col-6 mt-1">
+            <h6 class="card-subtitle text-muted">weight</h6>
+            <p class="card-text">{{t.weight}}</p>
+          </div>
+      </div>
+    </div>
+  </div>
+
+<ngb-pagination class="d-flex justify-content-center"
+  [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalTakes"
+  (pageChange)="changePage()"></ngb-pagination>

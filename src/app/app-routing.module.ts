@@ -9,6 +9,8 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDeleteComponent } from './user/user-delete/user-delete.component';
 import { DonationComponent } from './donation/donation.component';
+import { TakeListComponent } from './take/take-list/take-list.component';
+import { CreateTakeComponent } from './take/create-take/create-take.component';
 import {RequestDetailComponent} from "./request/request-detail/request-detail.component";
 
 const routes: Routes = [
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'donations/:id', component: DonationComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
+  { path: 'take', component: TakeListComponent, canActivate: [LoggedInGuard]},
+  { path: 'take/add', component: CreateTakeComponent, canActivate: [LoggedInGuard] },
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
