@@ -12,6 +12,7 @@ import { DonationComponent } from './donation/donation.component';
 import { TakeListComponent } from './take/take-list/take-list.component';
 import { CreateTakeComponent } from './take/create-take/create-take.component';
 import {RequestDetailComponent} from "./request/request-detail/request-detail.component";
+import {RequestListComponent} from "./request/request-list/request-list.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'donations/:id', component: DonationComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard]},
+  { path: 'requests', component: RequestListComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
   { path: 'take', component: TakeListComponent, canActivate: [LoggedInGuard]},
   { path: 'take/add', component: CreateTakeComponent, canActivate: [LoggedInGuard] },
