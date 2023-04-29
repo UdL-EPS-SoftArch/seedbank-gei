@@ -2,19 +2,19 @@
   <div class="form-group mb-3" [class.was-validated]="amountTemplate.dirty || amountTemplate.touched">
     <label class="control-label" for="amount">Amount*</label>
     <input id="amount" name="amount" type="number" placeholder="Enter the amount in number" class="form-control" required
-           [(ngModel)]="amount" #amountTemplate="ngModel">
+           [(ngModel)]="take.amount" #amountTemplate="ngModel">
     <!--<div class="invalid-feedback">A username is required</div>-->
   </div>
   <div class="form-group mb-3" [class.was-validated]="weightTemplate.dirty || weightTemplate.touched">
     <label class="control-label" for="weight">Weight*</label>
     <input id="weight" name="weight" type="number" placeholder="Enter the weight in number" class="form-control" required
-           [(ngModel)]="weight" #weightTemplate="ngModel">
+           [(ngModel)]="take.weight" #weightTemplate="ngModel">
     <!--<div class="invalid-feedback">A username is required</div>-->
   </div>
   <div class="form-group mb-3" [class.was-validated]="locationTemplate.dirty || locationTemplate.touched">
     <label class="control-label" for="location">Location*</label>
     <input id="location" name="location" type="text" placeholder="Enter the location in text" class="form-control" required
-           [(ngModel)]="location" #locationTemplate="ngModel">
+           [(ngModel)]="take.location" #locationTemplate="ngModel">
     <!--<div class="invalid-feedback">A username is required</div>-->
   </div>
   <div class="form-group fa-pull-right">

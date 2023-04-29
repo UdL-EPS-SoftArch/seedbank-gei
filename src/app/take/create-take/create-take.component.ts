@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {TakeService} from "../take.service";
 import {Router} from "@angular/router";
+import { Take } from '../take-model';
 
 @Component({
   selector: 'app-create-take',
@@ -8,9 +9,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./create-take.component.css']
 })
 export class CreateTakeComponent {
-  amount: number;
-  weight: number;
-  location: string;
+  take = new Take();
 
   constructor(private takeService: TakeService, private router: Router) {}
 
