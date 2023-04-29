@@ -14,14 +14,10 @@ export class CreateTakeComponent {
   constructor(private takeService: TakeService, private router: Router) {}
 
   onSubmit() {
-    this.takeService.createTake(this.amount, this.weight, this.location).then(
-      (success) => {
-        console.log(success);
-        this.router.navigateByUrl('/take');
-      },
-      (error) => {
-        console.log(error);
-      },
+    this.takeService.createResource({ body: this.take }).subscribe(
+      () => {
+        this.router.navigate(['/take']);
+      }
     );
   }
 }

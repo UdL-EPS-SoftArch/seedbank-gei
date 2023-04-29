@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TakeService } from '../take-service';
+import { TakeService } from '../take.service';
 import { PagedGetOption, PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
 import { Take } from '../take-model';
 import { AuthenticationBasicService } from 'src/app/login-basic/authentication-basic.service';
@@ -15,7 +15,9 @@ export class TakeListComponent implements OnInit {
   totalTakes = 0;
   takes: Take [] = []
 
-  constructor(public router: Router, public takeService:TakeService, private authenticationService: AuthenticationBasicService){
+  constructor(public router: Router,
+              public takeService: TakeService,
+              private authenticationService: AuthenticationBasicService){
   }
 
   detail(take: any): void {
