@@ -4,5 +4,5 @@ import { Propagator } from "./propagator";
 
 @HateoasResource('takes')
 export class Take extends Batch {
-  propagator: Propagator;
+    propagator: Propagator;
 }

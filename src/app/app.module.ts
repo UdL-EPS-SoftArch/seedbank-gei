@@ -23,6 +23,7 @@ import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
+import { DonationComponent } from './donation/donation.component';
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
 
 @NgModule({
@@ -37,6 +38,7 @@ import { RequestDetailComponent } from './request/request-detail/request-detail.
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
+    DonationComponent,
     RequestDetailComponent,
   ],
   imports: [

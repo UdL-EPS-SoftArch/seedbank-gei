@@ -7,4 +7,5 @@ export class Propagator extends User {
     super();
     Object.assign(this as any, values);
   }
+  
 }
