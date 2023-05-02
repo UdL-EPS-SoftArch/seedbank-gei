@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Take } from '../take-model';
-import { TakeService } from '../take-service';
+import { TakeService } from '../take.service';
 import { AuthenticationBasicService } from 'src/app/login-basic/authentication-basic.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthenticationBasicService } from 'src/app/login-basic/authentication-b
   templateUrl: './take-detail.component.html',
   styleUrls: ['./take-detail.component.css']
 })
-export class TakeDetailComponent {
+export class TakeDetailComponent implements OnInit {
   takeDetail:Take
   constructor(private route: ActivatedRoute,private takeService: TakeService,private authenticationService: AuthenticationBasicService) {
   }
@@ -21,5 +21,5 @@ export class TakeDetailComponent {
   isRole(role: string): boolean {
     return this.authenticationService.isRole(role);
   }
-  
+
 }

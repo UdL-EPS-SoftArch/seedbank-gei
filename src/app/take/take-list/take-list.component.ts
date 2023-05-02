@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TakeService } from '../take.service';
-import { NavigationExtras, Router } from '@angular/router';
-import { TakeService } from '../take-service';
 import { PagedGetOption, PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
 import { Take } from '../take-model';
 import { AuthenticationBasicService } from 'src/app/login-basic/authentication-basic.service';
