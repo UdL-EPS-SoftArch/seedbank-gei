@@ -15,6 +15,7 @@ import {RequestDetailComponent} from "./request/request-detail/request-detail.co
 import { TakeDetailComponent } from './take/take-detail/take-detail.component';
 import { TakeUpdateComponent } from './take/take-update/take-update.component';
 import { TakeDeleteComponent } from './take/take-delete/take-delete.component';
+import {RequestListComponent} from "./request/request-list/request-list.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'donations/:id', component: DonationComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard]},
+  { path: 'requests', component: RequestListComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
   { path: 'take/:id/delete', component: TakeDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'take/:id/edit', component: TakeUpdateComponent, canActivate: [LoggedInGuard]},

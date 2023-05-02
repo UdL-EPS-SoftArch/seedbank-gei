@@ -28,6 +28,7 @@ import { TakeListComponent } from './take/take-list/take-list.component';
 import { TakeDetailComponent } from './take/take-detail/take-detail.component';
 import { TakeComponentsModule } from './take/take-components.module';
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
+import { RequestListComponent } from './request/request-list/request-list.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { RequestDetailComponent } from './request/request-detail/request-detail.
     UserSearchComponent,
     DonationComponent,
     RequestDetailComponent,
+    RequestListComponent,
   ],
   imports: [
     TakeComponentsModule,
