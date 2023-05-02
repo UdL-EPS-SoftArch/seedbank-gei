@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {Request} from "../request";
 import {ActivatedRoute} from "@angular/router";
 import {RequestService} from "../request.service";
-import {firstValueFrom} from "rxjs";
 import {Propagator} from "../../propagator";
 import {Take} from "../../take";
+import {switchMap} from "rxjs/operators";
+import {RequestKeys} from "../request-keys";
 
 @Component({
   selector: 'app-request-detail',
@@ -19,11 +20,19 @@ export class RequestDetailComponent implements OnInit {
     private requestService: RequestService,
   ) {
   }
-
-  async ngOnInit(): Promise<void> {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.request = await firstValueFrom(this.requestService.getResource(id));
-    this.request.propagator = await firstValueFrom(this.request.getRelation<Propagator>('propagator'));
-    this.request.fulfilledBy = await firstValueFrom(this.request.getRelation<Take>('fulfilledBy'));
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get(RequestKeys.Id);
+    this.requestService.getResource(id).pipe(
+      switchMap((request: Request) => {
+        this.request = request;
+        return request.getRelation<Propagator>(RequestKeys.Propagator);
+      }),
+      switchMap((propagator: Propagator) => {
+        this.request.propagator = propagator;
+        return this.request.getRelation<Take>(RequestKeys.FulfilledBy);
+      })
+    ).subscribe( (fulfilledBy: Take) => {
+      this.request.fulfilledBy = fulfilledBy;
+    })
   }
 }
