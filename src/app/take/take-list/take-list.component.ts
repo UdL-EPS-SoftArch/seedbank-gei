@@ -20,7 +20,7 @@ export class TakeListComponent implements OnInit {
               private authenticationService: AuthenticationBasicService){
   }
 
-  detail(take: any): void {
+  detail(take: Take): void {
     this.router.navigate(['take', take.id]);
   }
 
@@ -42,9 +42,4 @@ export class TakeListComponent implements OnInit {
     this.takeService.getPage(options).subscribe(
       (page: PagedResourceCollection<Take>) => this.takes = page.resources);
   }
-
-  goTo(to: string) {
-    this.router.navigateByUrl(to);
-  }
-
 }
