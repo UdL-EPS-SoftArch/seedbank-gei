@@ -12,6 +12,8 @@ import { ErrorHandlerModule } from '../error-handler/error-handler.module';
 import { TakeDetailComponent } from './take-detail/take-detail.component';
 import { TakeListComponent } from './take-list/take-list.component';
 import { CreateTakeComponent } from './create-take/create-take.component';
+import { TakeDeleteComponent } from './take-delete/take-delete.component';
+import { TakeUpdateComponent } from './take-update/take-update.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -36,12 +38,17 @@ import { CreateTakeComponent } from './create-take/create-take.component';
   declarations: [
     TakeListComponent,
     TakeDetailComponent,
-    CreateTakeComponent
+    CreateTakeComponent,
+    TakeDeleteComponent,
+    TakeUpdateComponent,
     /* Other component declaration*/
   ],
   exports: [
     TakeListComponent,
-    TakeDetailComponent
+    TakeDetailComponent,
+    CreateTakeComponent,
+    TakeDeleteComponent,
+    TakeUpdateComponent,
     /* Other component exports*/
   ],
 })

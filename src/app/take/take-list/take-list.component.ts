@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TakeService } from '../take.service';
+import { NavigationExtras, Router } from '@angular/router';
+import { TakeService } from '../take-service';
 import { PagedGetOption, PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
 import { Take } from '../take-model';
 import { AuthenticationBasicService } from 'src/app/login-basic/authentication-basic.service';
@@ -20,7 +22,7 @@ export class TakeListComponent implements OnInit {
               private authenticationService: AuthenticationBasicService){
   }
 
-  detail(take: any): void {
+  detail(take: Take): void {
     this.router.navigate(['take', take.id]);
   }
 
@@ -42,9 +44,4 @@ export class TakeListComponent implements OnInit {
     this.takeService.getPage(options).subscribe(
       (page: PagedResourceCollection<Take>) => this.takes = page.resources);
   }
-
-  goTo(to: string) {
-    this.router.navigateByUrl(to);
-  }
-
 }
