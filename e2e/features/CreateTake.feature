@@ -29,3 +29,9 @@ Feature: Create Take
     When I'm in take list page
     Then "Add Take" button is present
 
+  Scenario: Add Take button is present when logged in as donor
+    Given I'm in the homepage
+    And I log in as "donor" with password "password"
+    Then I'm logged in as user "donor"
+    When I'm in take list page
+    Then "Add Take" button is present
