@@ -35,3 +35,9 @@ Feature: Create Take
     Then I'm logged in as user "donor"
     When I'm in take list page
     Then "Add Take" button is present
+
+  Scenario: Add Take button is present when logged in as user
+    Given I'm in the homepage
+    When I log in as "test" with password "password"
+    And I'm logged in as user "test"
+    Then The "Take" menu is not present
