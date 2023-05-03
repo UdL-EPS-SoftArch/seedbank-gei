@@ -1,1 +1,20 @@
 <p>propagator-list works!</p>
+<app-propagator-search (emitResults)="detail($event)"></app-propagator-search>
+
+<div class="card mb-1" *ngFor="let propagator of propagators">
+  <div class="card-block row m-1 col-12">
+    <div class="card-body row align-items-center">
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Username</h6>
+        <a class="card-text" [routerLink]="['/propagators', propagator.id]">{{propagator.id}}</a>
+      </div>
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">E-mail</h6>
+        <p class="card-text">{{propagator.email}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<ngb-pagination class="d-flex justify-content-center"
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalPropagators"
+                (pageChange)="changePage()"></ngb-pagination>

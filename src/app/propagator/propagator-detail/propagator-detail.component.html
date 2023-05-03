@@ -1,1 +1,27 @@
 <p>propagator-detail works!</p>
+<div class="card mb-4">
+  <div class="card-block">
+    <h4 class="card-title col-md-12 p-3">{{propagator.id}}</h4>
+    <div class="card-body row m-1">
+      <div class="col-md-6 p-3">
+        <h6 class="card-subtitle text-muted">Username</h6>
+        <p class="card-text">{{propagator.username}}</p>
+      </div>
+      <div class="col-md-6 p-3">
+        <h6 class="card-subtitle text-muted">E-Mail</h6>
+        <p class="card-text">{{propagator.email}}</p>
+      </div>
+    </div>
+    <div class="card-footer text-right">
+      <button id="listBtn" type="button" [routerLink]="['/propagators']"
+              class="btn m-1 btn-outline-primary">Propagator List
+      </button>
+      <button id="editBtn" type="button" *ngIf="getCurrentUser().id === propagator.id" [routerLink]="['edit']"
+              class="btn m-1 btn-outline-success">Edit
+      </button>
+      <button id="deleteBtn" type="button" *ngIf="getCurrentUser().id === propagator.id" [routerLink]="['delete']"
+              class="btn m-1 btn-outline-danger">Delete
+      </button>
+    </div>
+  </div>
+</div>
