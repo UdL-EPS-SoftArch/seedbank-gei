@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import { Propagator } from '../login-basic/propagator';
+import { Propagator } from '../propagator';
 import {PropagatorService} from "../propagator.service";
 import {Observable, of, OperatorFunction} from "rxjs";
 import {catchError, debounceTime, distinctUntilChanged, map, switchMap, tap} from "rxjs/operators";
