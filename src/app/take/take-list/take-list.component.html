@@ -5,7 +5,7 @@
 
 <div class="jumbotron" *ngIf="isRole('propagator') || isRole('donor')">
   <p class="takes-text">Here you can find your takes</p>
-  <button class="btn ms-3 btn-success pull-right add-take" [routerLink]="['/take/add']" >Add Take</button>
+  <button *ngIf="!isRole('donor')" class="btn ms-3 btn-success pull-right add-take" [routerLink]="['/take/add']" >Add Take</button>
 </div>
 
 <div class="card mb-1" *ngFor="let t of takes">
