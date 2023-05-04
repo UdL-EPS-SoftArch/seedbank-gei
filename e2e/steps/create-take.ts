@@ -8,6 +8,10 @@ Then("I'm in take list page", () => {
   cy.visit('http://localhost:4200/take');
 })
 
+Then("I'm in add take page", () => {
+  cy.visit('http://localhost:4200/take/add');
+})
+
 Then("The {string} button is present", (option) => {
   cy.get('.jumbotron').contains(option)
     .should('exist');
