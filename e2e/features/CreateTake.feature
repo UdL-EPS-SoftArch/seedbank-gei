@@ -54,3 +54,16 @@ Feature: Create Take
       | location  | lleida      |
     And I click the "Submit" button
     Then The "Add Take" button is present
+
+    Scenario: Create new Take as propagator
+    Given I'm in the homepage
+    And I log in as "propagator" with password "password"
+    Then I'm logged in as user "propagator"
+    When I'm in add take page    
+    And I fill the form with
+      | FIELD     | VALUE       |
+      | amount    | 15          |
+      | weight    | 35          |
+      | location  | zaragoza    |
+    And I click the "Submit" button
+    Then The "Add Take" button is present
