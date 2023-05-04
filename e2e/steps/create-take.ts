@@ -8,7 +8,12 @@ Then("I'm in take list page", () => {
   cy.visit('http://localhost:4200/take');
 })
 
-Then("{string} button is present", (option) => {
-  cy.get('.add-take').contains(option)
+Then("The {string} button is present", (option) => {
+  cy.get('.jumbotron').contains(option)
     .should('exist');
 })
+
+Then('The {string} button is not present', (option) => {
+  cy.get('.jumbotron').contains(option)
+    .should('not.exist');
+});

@@ -20,21 +20,21 @@ Feature: Create Take
     And I log in as "admintest" with password "password"
     Then I'm logged in as user "admintest"
     When I'm in take list page
-    Then "Add Take" button is present
+    Then The "Add Take" button is present
 
   Scenario: Add Take button is present when logged in as propagator
     Given I'm in the homepage
     And I log in as "propagator" with password "password"
     Then I'm logged in as user "propagator"
     When I'm in take list page
-    Then "Add Take" button is present
+    Then The "Add Take" button is present
 
   Scenario: Add Take button is present when logged in as donor
     Given I'm in the homepage
     And I log in as "donor" with password "password"
     Then I'm logged in as user "donor"
     When I'm in take list page
-    Then "Add Take" button is present
+    Then The "Add Take" button is not present
 
   Scenario: Add Take button is present when logged in as user
     Given I'm in the homepage
