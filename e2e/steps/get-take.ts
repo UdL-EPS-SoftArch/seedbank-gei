@@ -1,4 +1,4 @@
-import { Then } from "@cucumber/cucumber";
+import { Then } from "cypress-cucumber-preprocessor/steps";
 
 Then("I'm in take list page for admin", () => {
     cy.get('.jumbotron').contains('Here you can find all takes');
