@@ -29,3 +29,11 @@ Feature: Get Take
     And I click the "Take" menu
     And I click the "List" dropdown menu
     Then I'm in take list page for propagator and donor
+
+  Scenario: Get Take when logged in as donor
+    Given I'm in the homepage
+    And I log in as "donor" with password "password"
+    When I'm logged in as user "donor"
+    And I click the "Take" menu
+    And I click the "List" dropdown menu
+    Then I'm in take list page for propagator and donor
