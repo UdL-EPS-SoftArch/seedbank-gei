@@ -25,4 +25,7 @@ Then('I can see confirmation page', ()=>{
 Then('I got redirected to take list',()=>{
   cy.url().should("be.equals", 'http://localhost:4200/take')
 })
+And('I cant find the Take menu', () => {
+  cy.get('.nav-link').contains('Takes').should('not.exist');
 
+});
