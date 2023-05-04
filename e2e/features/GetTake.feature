@@ -17,6 +17,7 @@ Feature: Get Take
   Scenario: Get Take when logged in as admin
     Given I'm in the homepage
     And I log in as "admintest" with password "password"
-    Then I'm logged in as user "admintest"
+    When I'm logged in as user "admintest"
     And I click the "Take" menu
     And I click the "List" dropdown menu
+    Then I'm in take list page for admin
