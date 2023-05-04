@@ -1,5 +1,5 @@
 Feature: Delete Take
-  Scenario: Create a new Take when logged in as admin
+  Scenario: Delete a new Take when logged in as admin
     Given I'm in the homepage
     And I log in as "admintest" with password "password"
     Then I'm logged in as user "admintest"
