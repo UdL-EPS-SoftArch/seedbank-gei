@@ -27,7 +27,6 @@ export class RequestCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.request.date = new Date(this.request.date.toISOString());
     this.request.propagator = this.authenticationBasicService.getCurrentUser()
     console.log(this.request)
     this.requestService.createResource({ body: this.request }).subscribe(
