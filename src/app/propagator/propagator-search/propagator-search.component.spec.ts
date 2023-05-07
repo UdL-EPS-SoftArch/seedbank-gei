@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PropagatorSearchComponent } from './propagator-search.component';
 
 describe('PropagatorSearchComponent', () => {
