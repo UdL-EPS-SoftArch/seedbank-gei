@@ -28,6 +28,6 @@ export class PropagatorDetailComponent implements OnInit {
   }
 
   getCurrentUser(): Propagator {
-    return this.authenticationService.getCurrentPropagator();
+    return this.authenticationService.getCurrentUser();
   }
 }
