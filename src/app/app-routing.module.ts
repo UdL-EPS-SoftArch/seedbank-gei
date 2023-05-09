@@ -20,6 +20,7 @@ import { RequestCreateComponent } from "./request/request-create/request-create.
 import { RequestUpdateComponent } from "./request/request-update/request-update.component";
 import { DonationDetailsComponent } from './donation/donation-details/donation-details.component';
 import {DonationListComponent} from "./donation/donation-list/donation-list.component";
+import {DonationDeleteComponent} from "./donation/donation-delete/donation-delete.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -27,14 +28,13 @@ const routes: Routes = [
   { path: 'users/:id/edit', component: UserEditComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/create', component: RequestCreateComponent, canActivate: [LoggedInGuard] },
-  { path: 'donations/:id', component: DonationDetailsComponent, canActivate: [LoggedInGuard]},
   { path: 'donations', component: DonationListComponent, canActivate: [LoggedInGuard]},
+  { path: 'donations/:id', component: DonationDetailsComponent, canActivate: [LoggedInGuard]},
+  { path: 'donations/:id/delete', component: DonationDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/:id/delete', component: RequestDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/:id/edit', component: RequestUpdateComponent, canActivate: [LoggedInGuard] },
   { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'requests', component: RequestListComponent, canActivate: [LoggedInGuard]},
-  { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard]},
-  { path: 'donations/:id', component: DonationDetailsComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
   { path: 'take/:id/delete', component: TakeDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'take/:id/edit', component: TakeUpdateComponent, canActivate: [LoggedInGuard]},
