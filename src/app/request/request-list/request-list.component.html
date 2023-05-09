@@ -14,7 +14,7 @@
     <td>{{ request.amount }}</td>
     <td>{{ request.weight }}</td>
     <td>{{ request.location }}</td>
-    <td>{{ request.date | date }}</td>
+    <td><a class="card-text" [routerLink]="['/requests', request.id]">{{ request.date | date }}</a></td>
     <td *ngIf="request?.fulfilledBy, else not_fulfilled">Yes</td>
 
     <ng-template #not_fulfilled>

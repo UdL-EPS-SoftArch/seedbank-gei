@@ -23,13 +23,15 @@ import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
-import { DonationComponent } from './donation/donation.component';
-import { TakeListComponent } from './take/take-list/take-list.component';
-import { TakeDetailComponent } from './take/take-detail/take-detail.component';
-import { TakeComponentsModule } from './take/take-components.module';
-import { RequestDetailComponent } from './request/request-detail/request-detail.component';
-import { RequestListComponent } from './request/request-list/request-list.component';
-import { RequestDeleteComponent } from './request/request-delete/request-delete.component';
+import {DonationComponent} from './donation/donation.component';
+import {TakeListComponent} from './take/take-list/take-list.component';
+import {TakeDetailComponent} from './take/take-detail/take-detail.component';
+import {TakeComponentsModule} from './take/take-components.module';
+import {RequestDetailComponent} from './request/request-detail/request-detail.component';
+import {RequestListComponent} from './request/request-list/request-list.component';
+import {RequestDeleteComponent} from './request/request-delete/request-delete.component';
+import {RequestCreateComponent} from './request/request-create/request-create.component';
+import { RequestUpdateComponent } from './request/request-update/request-update.component';
 
 @NgModule({
   declarations: [
@@ -45,8 +47,10 @@ import { RequestDeleteComponent } from './request/request-delete/request-delete.
     UserSearchComponent,
     DonationComponent,
     RequestDetailComponent,
+    RequestCreateComponent,
     RequestListComponent,
     RequestDeleteComponent,
+    RequestUpdateComponent,
   ],
   imports: [
     TakeComponentsModule,
@@ -64,8 +68,8 @@ import { RequestDeleteComponent } from './request/request-delete/request-delete.
     ReactiveFormsModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true},
     AuthenticationBasicService, LoggedInGuard, UserService
   ],
   bootstrap: [AppComponent]
