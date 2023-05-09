@@ -6,4 +6,8 @@ Given(/^I'm in the homepage logged in as a propagator$/, function () {
   cy.get('.nav-link').contains('Login').click();
   cy.get('#username').type('propagator1').blur();
   cy.get('#password').type('password').blur();
+  cy.get('button').contains('Submit').click();
+});
+When(/^I click the requests dropdown$/, function () {
+  cy.get('.nav-link').contains('Requests').click();
 });
