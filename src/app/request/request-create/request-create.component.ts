@@ -28,7 +28,6 @@ export class RequestCreateComponent implements OnInit {
 
   onSubmit(): void {
     this.request.propagator = this.authenticationBasicService.getCurrentUser()
-    console.log(this.request)
     this.requestService.createResource({ body: this.request }).subscribe(
       (request: Request) => {
         this.router.navigate(['requests', request.id]);
