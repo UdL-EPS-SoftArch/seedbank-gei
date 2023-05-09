@@ -1,15 +1,22 @@
 import {Component, OnInit} from '@angular/core';
-import {PagedGetOption, PagedResourceCollection} from "@lagoshny/ngx-hateoas-client";
+import {
+  HateoasResourceOperation,
+  PagedGetOption,
+  PagedResourceCollection,
+  Resource
+} from "@lagoshny/ngx-hateoas-client";
 import {DonationService} from "../../donation.service";
 import {firstValueFrom} from "rxjs";
 import {Donor} from "../../donor";
 import {Donation} from "../donation";
 import {Propagator} from "../../propagator";
 import {Take} from "../../take";
+import {Router} from "@angular/router";
 
 const pageSize: number = 5;
 
 export interface DonationInformation {
+  uri: string;
   donorName: string;
   propagatorName: string;
   amount: number;
@@ -27,7 +34,7 @@ export class DonationListComponent implements OnInit {
   numberDonations: number = 0;
   page: number = 1;
 
-  constructor(private donationService: DonationService) { }
+  constructor(private router: Router, private donationService: DonationService) { }
 
   async ngOnInit(): Promise<void> {
     const options: PagedGetOption = {pageParams: {size: pageSize}, sort: {username: 'ASC'}};
@@ -48,12 +55,18 @@ export class DonationListComponent implements OnInit {
         const donor = (await firstValueFrom(donation.getRelation<Donor>("donor")));
         const takes = (await firstValueFrom(donation.getRelation<Take>("takenBy")));
         const propagator = (await firstValueFrom(takes.getRelation<Propagator>("takePropagator")));
+        const uri = (donation as any).uri;
         return {
+          uri: uri,
           donorName: donor.id,
           propagatorName: propagator.id,
           amount: donation.amount,
         }
       }));
+    }
+
+    private goToDonation(donation: DonationInformation): void {
+      this.router.navigate([donation.uri]);
     }
 
 }
