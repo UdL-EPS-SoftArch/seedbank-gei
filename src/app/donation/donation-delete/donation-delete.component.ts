@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Donation} from "../donation";
 import {DonationService} from "../donation.service";
@@ -9,7 +9,7 @@ import {donationIdParameter, donationsResource} from "../donation-keys";
   templateUrl: './donation-delete.component.html',
   styleUrls: ['./donation-delete.component.scss']
 })
-export class DonationDeleteComponent {
+export class DonationDeleteComponent implements OnInit {
   public donation: Donation
 
   constructor(

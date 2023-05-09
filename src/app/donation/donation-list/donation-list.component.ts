@@ -62,7 +62,7 @@ export class DonationListComponent implements OnInit {
   }
 
   goToDonation(donation: DonationInformation): void {
-    this.router.navigate([donation.uri]);
+    this.router.navigate([donation.uri]).then();
   }
 
 }
