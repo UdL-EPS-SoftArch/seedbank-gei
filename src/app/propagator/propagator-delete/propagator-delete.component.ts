@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 import { PropagatorService } from '../propagator.service';
-import { Propagator } from '../../login-basic/propagator';
+import { Propagator } from '../propagator';
 
 @Component({
   selector: 'app-propagator-delete',

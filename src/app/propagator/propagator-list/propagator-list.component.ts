@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../propagator.service';
-import { User } from '../propagator';
+import { PropagatorService } from '../propagator.service';
+import { Propagator } from '../propagator';
 import { PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
 
 @Component({
