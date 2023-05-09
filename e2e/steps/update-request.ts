@@ -34,3 +34,7 @@ When(/^I clear each field and fill the form with$/, function (table: DataTable) 
     cy.get('#' + pair[0]).clear().type(pair[1]).blur());
   cy.get('button').contains('Submit').click();
 });
+When(/^I clear each field and fill the form with and I don't submit$/, function (table: DataTable) {
+  table.rows().forEach((pair: string[]) =>
+    cy.get('#' + pair[0]).clear().type(pair[1]).blur());
+});

@@ -31,7 +31,7 @@ Feature: Create a request
       | location | Lleida        |
     When I go to requests page and click on the last request
     And I click on edit
-    And I fill the form with
+    And I clear each field and fill the form with and I don't submit
       | FIELD    | VALUE         |
       | amount   | abc           |
       | weight   | 456           |
