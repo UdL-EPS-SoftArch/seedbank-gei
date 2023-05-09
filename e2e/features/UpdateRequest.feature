@@ -39,3 +39,7 @@ Feature: Create a request
     Then Submit button should be disabled
 
 
+  Scenario: Edit a request when not logged in as the owner
+    Given I'm in the homepage logged in as a donor
+    When I go to requests page and click on the last request
+    Then I should not see the edit button
