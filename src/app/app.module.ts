@@ -23,15 +23,15 @@ import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
-import {DonationComponent} from './donation/donation.component';
-import {TakeListComponent} from './take/take-list/take-list.component';
-import {TakeDetailComponent} from './take/take-detail/take-detail.component';
 import {TakeComponentsModule} from './take/take-components.module';
 import {RequestDetailComponent} from './request/request-detail/request-detail.component';
 import {RequestListComponent} from './request/request-list/request-list.component';
 import {RequestDeleteComponent} from './request/request-delete/request-delete.component';
 import {RequestCreateComponent} from './request/request-create/request-create.component';
 import { RequestUpdateComponent } from './request/request-update/request-update.component';
+import { TakeListComponent } from './take/take-list/take-list.component';
+import { TakeDetailComponent } from './take/take-detail/take-detail.component';
+import { DonationDetailsComponent } from './donation/donation-details/donation-details.component';
 
 @NgModule({
   declarations: [
@@ -45,12 +45,12 @@ import { RequestUpdateComponent } from './request/request-update/request-update.
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
-    DonationComponent,
     RequestDetailComponent,
     RequestCreateComponent,
     RequestListComponent,
     RequestDeleteComponent,
     RequestUpdateComponent,
+    DonationDetailsComponent
   ],
   imports: [
     TakeComponentsModule,
