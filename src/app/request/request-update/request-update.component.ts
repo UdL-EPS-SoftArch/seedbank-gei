@@ -3,7 +3,7 @@ import {Request} from "../request";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RequestService} from "../request.service";
 import {AuthenticationBasicService} from "../../login-basic/authentication-basic.service";
-import {User} from "../../login-basic/user";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-request-update',
@@ -17,6 +17,7 @@ export class RequestUpdateComponent {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private locationService: Location,
     private requestService: RequestService,
     private authenticationBasicService: AuthenticationBasicService
   ) {
@@ -34,5 +35,9 @@ export class RequestUpdateComponent {
       (patchedRequest: Request) => {
           this.router.navigate(['requests', patchedRequest.id]);
       });
+  }
+
+  onCancel(): void {
+    this.locationService.back();
   }
 }
