@@ -5,7 +5,7 @@ import {
   PagedResourceCollection,
   Resource
 } from "@lagoshny/ngx-hateoas-client";
-import {DonationService} from "../../donation.service";
+import {DonationService} from "../donation.service";
 import {firstValueFrom} from "rxjs";
 import {Donor} from "../../donor";
 import {Donation} from "../donation";

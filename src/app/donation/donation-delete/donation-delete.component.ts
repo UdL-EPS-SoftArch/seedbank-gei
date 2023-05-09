@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Donation} from "../donation";
-import {DonationService} from "../../donation.service";
+import {DonationService} from "../donation.service";
 
 @Component({
   selector: 'app-donation-delete',

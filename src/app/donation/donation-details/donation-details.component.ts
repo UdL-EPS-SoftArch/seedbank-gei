@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {DonationService} from '../../donation.service';
+import {DonationService} from '../donation.service';
 import {Donation} from '../donation';
 import {Donor} from '../../donor';
 import {Take} from '../../take';
