@@ -9,3 +9,10 @@ Feature: Update Take
     Then I'm logged in as user "donor"
     When I'm in take details page
     Then The "Edit" button is not present
+
+  Scenario: Edit Take button is present when logged in as a admin
+    Given I'm in the homepage
+    And I log in as "admintest" with password "password"
+    Then I'm logged in as user "admintest"
+    When I'm in take details page
+    Then The "Edit" button is present
