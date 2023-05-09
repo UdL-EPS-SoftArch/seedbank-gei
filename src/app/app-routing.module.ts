@@ -21,6 +21,7 @@ import { RequestUpdateComponent } from "./request/request-update/request-update.
 import { DonationDetailsComponent } from './donation/donation-details/donation-details.component';
 import {DonationListComponent} from "./donation/donation-list/donation-list.component";
 import {DonationDeleteComponent} from "./donation/donation-delete/donation-delete.component";
+import {DonationCreateComponent} from "./donation/donation-create/donation-create.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/create', component: RequestCreateComponent, canActivate: [LoggedInGuard] },
   { path: 'donations', component: DonationListComponent, canActivate: [LoggedInGuard]},
+  { path: 'donations/create', component: DonationCreateComponent, canActivate: [LoggedInGuard]},
   { path: 'donations/:id', component: DonationDetailsComponent, canActivate: [LoggedInGuard]},
   { path: 'donations/:id/delete', component: DonationDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/:id/delete', component: RequestDeleteComponent, canActivate: [LoggedInGuard]},

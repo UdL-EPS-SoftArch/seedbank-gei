@@ -34,6 +34,7 @@ import { TakeDetailComponent } from './take/take-detail/take-detail.component';
 import { DonationDetailsComponent } from './donation/donation-details/donation-details.component';
 import { DonationListComponent } from './donation/donation-list/donation-list.component';
 import { DonationDeleteComponent } from './donation/donation-delete/donation-delete.component';
+import { DonationCreateComponent } from './donation/donation-create/donation-create.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { DonationDeleteComponent } from './donation/donation-delete/donation-del
     DonationDetailsComponent,
     DonationListComponent,
     DonationDeleteComponent,
+    DonationCreateComponent,
   ],
   imports: [
     TakeComponentsModule,
