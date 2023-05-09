@@ -1,9 +1,12 @@
 import {firstValueFrom} from "rxjs";
 import {Donor} from "../donor";
-import {donorResource, propagatorResource, takeResource} from "./donation-keys";
 import {Donation} from "./donation";
 import {Propagator} from "../propagator";
 import {Take} from "../take";
+
+const donorResource: string = "donor";
+const takeResource: string = "takenBy";
+const propagatorResource: string = "takePropagator";
 
 
 export async function getDonorFrom(donation: Donation): Promise<Donor> {
@@ -15,8 +18,8 @@ export async function getPropagatorFrom(donation: Donation): Promise<Propagator>
   return getPropagatorFor(takes);
 }
 
-export async function getPropagatorFor(take: Take): Promise<Propagator> {
-  return(await firstValueFrom(take.getRelation<Propagator>(propagatorResource)))
+async function getPropagatorFor(take: Take): Promise<Propagator> {
+  return (await firstValueFrom(take.getRelation<Propagator>(propagatorResource)))
 }
 
 export async function getTakeFrom(donation: Donation): Promise<Take> {

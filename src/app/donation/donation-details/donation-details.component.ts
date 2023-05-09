@@ -2,11 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DonationService} from '../donation.service';
 import {Donation} from '../donation';
-import {Donor} from '../../donor';
-import {Take} from '../../take';
-import {Propagator} from '../../propagator';
 import {firstValueFrom} from 'rxjs';
-import {donationIdParameter, donorResource, propagatorResource, takeResource} from "../donation-keys";
+import {donationIdParameter} from "../donation-keys";
 import {loadResourcesRecursivelyFor} from "../donation-resources";
 
 @Component({
