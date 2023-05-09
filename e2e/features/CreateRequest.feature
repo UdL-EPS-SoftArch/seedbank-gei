@@ -44,3 +44,8 @@ Feature: Create a request
       | amount   | 123           |
       | weight   | 123           |
     Then Submit button should be disabled
+
+  Scenario: Create a new request without being a propagator
+    Given I'm in the homepage logged in as a donor
+    When I click the requests dropdown
+    Then I should not see the create button
