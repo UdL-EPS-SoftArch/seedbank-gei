@@ -23,3 +23,19 @@ Feature: Create a request
       | weight   | 456           |
       | location | Barcelona     |
 
+  Scenario: Update a request with invalid data
+    Given I'm in the homepage logged in as a propagator and I create a request with
+      | FIELD    | VALUE         |
+      | amount   | 123           |
+      | weight   | 123           |
+      | location | Lleida        |
+    When I go to requests page and click on the last request
+    And I click on edit
+    And I fill the form with
+      | FIELD    | VALUE         |
+      | amount   | abc           |
+      | weight   | 456           |
+      | location | Barcelona     |
+    Then Submit button should be disabled
+
+
