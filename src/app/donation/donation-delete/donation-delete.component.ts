@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Donation} from "../donation";
 import {DonationService} from "../donation.service";
+import {donationIdParameter, donationsResource} from "../donation-keys";
 
 @Component({
   selector: 'app-donation-delete',
@@ -18,7 +19,7 @@ export class DonationDeleteComponent {
   ) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get(donationIdParameter);
     this.donationService.getResource(id).subscribe((donation: Donation) => {
       this.donation = donation;
     });
@@ -26,7 +27,7 @@ export class DonationDeleteComponent {
 
   delete() {
     this.donationService.deleteResource(this.donation).subscribe(() => {
-      this.router.navigate(['/donations']).then();
+      this.router.navigate(['/' + donationsResource]).then();
     });
   }
 
