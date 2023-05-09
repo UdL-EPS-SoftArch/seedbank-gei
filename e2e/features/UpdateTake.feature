@@ -1,0 +1,11 @@
+Feature: Update Take
+  In order to update Take
+  As a admin, propagator, donor
+  I want to udpate a Take
+
+  Scenario: Edit Take button is not present when logged in as a donor
+    Given I'm in the homepage
+    And I log in as "donor" with password "password"
+    Then I'm logged in as user "donor"
+    When I'm in take details page
+    Then The "Edit" button is not present
