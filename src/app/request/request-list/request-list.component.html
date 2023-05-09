@@ -11,11 +11,27 @@
   </thead>
   <tbody>
   <tr *ngFor="let request of requests">
-    <td>{{ request.amount }}</td>
-    <td>{{ request.weight }}</td>
-    <td>{{ request.location }}</td>
-    <td>{{ request.date | date }}</td>
-    <td *ngIf="request?.fulfilledBy, else not_fulfilled">Yes</td>
+      <td>
+        <a class="card-text" [routerLink]="['/requests', request.id]">
+        {{ request.amount }}
+        </a>
+      </td>
+      <td>
+        <a class="card-text" [routerLink]="['/requests', request.id]">
+        {{ request.weight }}
+        </a>
+      </td>
+      <td>
+        <a class="card-text" [routerLink]="['/requests', request.id]">
+        {{ request.location }}
+        </a>
+      </td>
+      <td>
+        <a class="card-text" [routerLink]="['/requests', request.id]">
+        {{ request.date | date }}
+        </a>
+      </td>
+      <td *ngIf="request?.fulfilledBy, else not_fulfilled">Yes</td>
 
     <ng-template #not_fulfilled>
       <td>No</td>
