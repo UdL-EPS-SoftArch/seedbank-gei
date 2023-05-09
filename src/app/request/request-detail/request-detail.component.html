@@ -26,8 +26,8 @@
 <div class="card-footer text-right">
   <button id="listBtn" type="button" [routerLink]="['/requests']" class="btn m-1 btn-outline-primary">See all requests
   </button>
-  <button id="editBtn" type="button" *ngIf="isRole('propagator') && currentUserEdit()" [routerLink]="['edit']" class="btn m-1 btn-outline-success">Edit
+  <button id="editBtn" type="button" *ngIf="(isRole('propagator') && currentUserEdit()) || isRole('admin')" [routerLink]="['edit']" class="btn m-1 btn-outline-success">Edit
   </button>
-  <button id="deleteBtn" type="button" *ngIf="isRole('propagator') && currentUserEdit()" [routerLink]="['delete']" class="btn m-1 btn-outline-danger">Delete
+  <button id="deleteBtn" type="button" *ngIf="(isRole('propagator') && currentUserEdit()) || isRole('admin')" [routerLink]="['delete']" class="btn m-1 btn-outline-danger">Delete
   </button>
 </div>
