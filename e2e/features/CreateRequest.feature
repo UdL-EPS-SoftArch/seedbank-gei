@@ -13,4 +13,4 @@ Feature: Create a request
       | weight   | 123           |
       | location | Lleida        |
     And I click the "Submit" button
-#    Then I am redirected to the request details page
+    Then I am redirected to the request details page
