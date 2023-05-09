@@ -19,6 +19,7 @@ import {RequestDeleteComponent} from "./request/request-delete/request-delete.co
 import { RequestCreateComponent } from "./request/request-create/request-create.component";
 import { RequestUpdateComponent } from "./request/request-update/request-update.component";
 import { DonationDetailsComponent } from './donation/donation-details/donation-details.component';
+import {DonationListComponent} from "./donation/donation-list/donation-list.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -26,6 +27,8 @@ const routes: Routes = [
   { path: 'users/:id/edit', component: UserEditComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/create', component: RequestCreateComponent, canActivate: [LoggedInGuard] },
+  { path: 'donations/:id', component: DonationDetailsComponent, canActivate: [LoggedInGuard]},
+  { path: 'donations', component: DonationListComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/:id/delete', component: RequestDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/:id/edit', component: RequestUpdateComponent, canActivate: [LoggedInGuard] },
   { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard]},
