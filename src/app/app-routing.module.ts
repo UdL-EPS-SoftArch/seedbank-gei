@@ -17,6 +17,7 @@ import { TakeUpdateComponent } from './take/take-update/take-update.component';
 import { TakeDeleteComponent } from './take/take-delete/take-delete.component';
 import {RequestListComponent} from "./request/request-list/request-list.component";
 import {TakeGuard} from "./take/take-basic/take.guard";
+import {RequestDeleteComponent} from "./request/request-delete/request-delete.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'users/:id/edit', component: UserEditComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'donations/:id', component: DonationComponent, canActivate: [LoggedInGuard]},
+  { path: 'requests/:id/delete', component: RequestDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'requests', component: RequestListComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
