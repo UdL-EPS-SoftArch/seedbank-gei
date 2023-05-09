@@ -34,7 +34,7 @@ export class RequestUpdateComponent {
     if (this.authenticationBasicService.getCurrentUser().id == this.request.propagator.id) {
     this.requestService.patchResource(this.request).subscribe(
       (patchedRequest: Request) => {
-          this.router.navigate(['requests', patchedRequest.id]);
+          this.router.navigate(['requests', patchedRequest.id]).then();
       });
     }
   }
