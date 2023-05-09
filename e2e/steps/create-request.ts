@@ -12,7 +12,7 @@ When(/^I click the requests dropdown$/, function () {
   cy.get('.nav-link').contains('Requests').click();
 });
 When(/^I click on create$/, function () {
-  cy.get('.nav-link').contains('Create').click();
+  cy.get('#createRequest').click();
 });
 Then(/^I am redirected to the request details page$/, function () {
   cy.url().should('match', /\/requests\/\d+/);
