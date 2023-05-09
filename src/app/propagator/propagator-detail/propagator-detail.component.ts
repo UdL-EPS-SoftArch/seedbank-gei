@@ -27,7 +27,7 @@ export class PropagatorDetailComponent implements OnInit {
       });
   }
 
-  getCurrentUser(): Propagator {
-    return this.authenticationService.getCurrentUser();
+  getCurrentPropagator(): Propagator {
+    return this.authenticationService.getCurrentPropagator();
   }
 }

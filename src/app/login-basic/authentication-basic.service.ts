@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
+import { Propagator } from '../propagator/propagator'
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -46,6 +47,10 @@ export class AuthenticationBasicService {
 
   getCurrentUser(): User {
     return new User(JSON.parse(localStorage.getItem('currentUser')));
+  }
+
+  getCurrentPropagator(): Propagator {
+    return new Propagator(JSON.parse(localStorage.getItem('currentPropagator')));
   }
 
   isRole(role: string): boolean {

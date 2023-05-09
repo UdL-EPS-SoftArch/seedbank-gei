@@ -16,10 +16,10 @@
       <button id="listBtn" type="button" [routerLink]="['/propagators']"
               class="btn m-1 btn-outline-primary">Propagator List
       </button>
-      <button id="editBtn" type="button" *ngIf="getCurrentUser().id === propagator.id" [routerLink]="['edit']"
+      <button id="editBtn" type="button" *ngIf="getCurrentPropagator().id === propagator.id" [routerLink]="['edit']"
               class="btn m-1 btn-outline-success">Edit
       </button>
-      <button id="deleteBtn" type="button" *ngIf="getCurrentUser().id === propagator.id" [routerLink]="['delete']"
+      <button id="deleteBtn" type="button" *ngIf="getCurrentPropagator().id === propagator.id" [routerLink]="['delete']"
               class="btn m-1 btn-outline-danger">Delete
       </button>
     </div>

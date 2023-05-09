@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import {Propagator} from '../propagator';
+import { PropagatorService } from '../propagator.service';
+import { Propagator } from '../propagator';
 import { PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
-import {PropagatorService} from "../propagator.service";
 
 @Component({
   selector: 'app-propagator-list',
