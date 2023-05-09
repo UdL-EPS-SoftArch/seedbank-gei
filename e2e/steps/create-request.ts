@@ -11,3 +11,6 @@ Given(/^I'm in the homepage logged in as a propagator$/, function () {
 When(/^I click the requests dropdown$/, function () {
   cy.get('.nav-link').contains('Requests').click();
 });
+When(/^I click on create$/, function () {
+  cy.get('.nav-link').contains('Create').click();
+});

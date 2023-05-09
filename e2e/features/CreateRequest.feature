@@ -6,7 +6,7 @@ Feature: Create a request
   Scenario: Create a new request
     Given I'm in the homepage logged in as a propagator
     When I click the requests dropdown
-#    And I click on create
+    And I click on create
 #    And I fill the form with
 #      | FIELD    | VALUE         |
 #      | amount   | 123           |
