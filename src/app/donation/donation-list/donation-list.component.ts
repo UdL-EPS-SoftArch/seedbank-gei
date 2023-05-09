@@ -13,6 +13,7 @@ import {Propagator} from "../../propagator";
 import {Take} from "../../take";
 import {Router} from "@angular/router";
 import {donorResource, propagatorResource, takeResource} from "../donation-keys";
+import {getDonorFrom, getPropagatorFrom, getTakeFrom} from "../donation-resources";
 
 const pageSize: number = 5;
 
@@ -53,9 +54,8 @@ export class DonationListComponent implements OnInit {
 
     private toDonationInformation(collection: PagedResourceCollection<Donation>): Promise<DonationInformation[]> {
       return Promise.all(collection.resources.map(async (donation) => {
-        const donor = (await firstValueFrom(donation.getRelation<Donor>(donorResource)));
-        const takes = (await firstValueFrom(donation.getRelation<Take>(takeResource)));
-        const propagator = (await firstValueFrom(takes.getRelation<Propagator>(propagatorResource)));
+        const donor = await getDonorFrom(donation);
+        const propagator = await getPropagatorFrom(donation);
         const uri = (donation as any).uri;
         return {
           uri: uri,
