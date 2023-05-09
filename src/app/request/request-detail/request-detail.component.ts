@@ -6,6 +6,7 @@ import {Propagator} from "../../propagator";
 import {Take} from "../../take";
 import {switchMap} from "rxjs/operators";
 import {RequestKeys} from "../request-keys";
+import {AuthenticationBasicService} from "../../login-basic/authentication-basic.service";
 
 @Component({
   selector: 'app-request-detail',
@@ -18,6 +19,7 @@ export class RequestDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private requestService: RequestService,
+    private authenticationService: AuthenticationBasicService,
   ) {
   }
   ngOnInit(): void {
@@ -34,5 +36,17 @@ export class RequestDetailComponent implements OnInit {
     ).subscribe( (fulfilledBy: Take) => {
       this.request.fulfilledBy = fulfilledBy;
     })
+  }
+
+  isRole(role: string): boolean {
+    return this.authenticationService.isRole(role);
+  }
+
+  getCurrentUserName(): string {
+    return this.authenticationService.getCurrentUser().id;
+  }
+
+  currentUserEdit(){
+    return this.getCurrentUserName() == this.request.propagator.id;
   }
 }
