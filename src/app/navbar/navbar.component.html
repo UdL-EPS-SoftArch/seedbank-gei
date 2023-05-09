@@ -31,6 +31,10 @@
       <li class="nav-item" *ngIf="isRole('propagator') || isRole('admin') || isRole('donor') || isRole('user')" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="requestsDropdown" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Requests</a>
+        <div class="dropdown-menu" aria-labelledby="listTakesDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/requests']"><span class="fas fa-user-circle"></span>List</a>
+        </div>
       </li>
 
 
