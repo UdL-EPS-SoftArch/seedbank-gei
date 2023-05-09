@@ -27,6 +27,18 @@
              [routerLink]="['/take']"><span class="fas fa-user-circle"></span> List</a>
         </div>
       </li>
+
+
+      <li class="nav-item" *ngIf="isRole('propagator') || isRole('admin') || isRole('donor') || isRole('user')" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="donationsDropdown" role="button"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Donations</a>
+        <div class="dropdown-menu" aria-labelledby="listDonationsDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" id="listDonations" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/donations']"><span class="fas fa-user-circle"></span>List</a>
+          <a class="dropdown-item" id="createDonation" *ngIf="isRole('propagator') || isRole('admin')" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/donations/create']"><span class="fas fa-user-circle"></span>Create</a>
+        </div>
+      </li>
     </ul>
     <ul class="navbar-nav ms-auto me-3" app-login-navbar></ul>
   </div>
