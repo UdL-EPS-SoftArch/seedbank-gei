@@ -14,3 +14,13 @@ Feature: Create a request
       | location | Lleida        |
     And I click the "Submit" button
     Then I am redirected to the request details page
+
+    Scenario: Create a new request without an amount
+      Given I'm in the homepage logged in as a propagator
+      When I click the requests dropdown
+      And I click on create
+      And I fill the form with
+        | FIELD    | VALUE         |
+        | weight   | 123           |
+        | location | Lleida        |
+      Then Submit button should be disabled

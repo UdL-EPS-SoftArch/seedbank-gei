@@ -17,3 +17,6 @@ When(/^I click on create$/, function () {
 Then(/^I am redirected to the request details page$/, function () {
   cy.url().should('match', /\/requests\/\d+/);
 });
+Then(/^Submit button should be disabled$/, function () {
+  cy.get('button').contains('Submit').should('be.disabled');
+});
