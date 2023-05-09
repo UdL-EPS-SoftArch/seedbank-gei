@@ -31,10 +31,12 @@ export class RequestUpdateComponent {
   }
 
   onSubmit(): void {
+    if (this.authenticationBasicService.getCurrentUser().id == this.request.propagator.id) {
     this.requestService.patchResource(this.request).subscribe(
       (patchedRequest: Request) => {
           this.router.navigate(['requests', patchedRequest.id]);
       });
+    }
   }
 
   onCancel(): void {
