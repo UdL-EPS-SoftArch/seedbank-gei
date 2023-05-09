@@ -22,6 +22,7 @@ import { DonationDetailsComponent } from './donation/donation-details/donation-d
 import {DonationListComponent} from "./donation/donation-list/donation-list.component";
 import {DonationDeleteComponent} from "./donation/donation-delete/donation-delete.component";
 import {DonationCreateComponent} from "./donation/donation-create/donation-create.component";
+import {DonationUpdateComponent} from "./donation/donation-update/donation-update.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -31,8 +32,10 @@ const routes: Routes = [
   { path: 'requests/create', component: RequestCreateComponent, canActivate: [LoggedInGuard] },
   { path: 'donations', component: DonationListComponent, canActivate: [LoggedInGuard]},
   { path: 'donations/create', component: DonationCreateComponent, canActivate: [LoggedInGuard]},
-  { path: 'donations/:id', component: DonationDetailsComponent, canActivate: [LoggedInGuard]},
   { path: 'donations/:id/delete', component: DonationDeleteComponent, canActivate: [LoggedInGuard]},
+  { path: 'donations/:id/edit', component: DonationUpdateComponent, canActivate: [LoggedInGuard]},
+  { path: 'donations/:id', component: DonationDetailsComponent, canActivate: [LoggedInGuard]},
+  { path: 'donations', component: DonationListComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/:id/delete', component: RequestDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/:id/edit', component: RequestUpdateComponent, canActivate: [LoggedInGuard] },
   { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard]},
