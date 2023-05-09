@@ -24,3 +24,23 @@ Feature: Create a request
         | weight   | 123           |
         | location | Lleida        |
       Then Submit button should be disabled
+
+  Scenario: Create a new request without a weight
+    Given I'm in the homepage logged in as a propagator
+    When I click the requests dropdown
+    And I click on create
+    And I fill the form with
+      | FIELD    | VALUE         |
+      | amount   | 123           |
+      | location | Lleida        |
+    Then Submit button should be disabled
+
+  Scenario: Create a new request without a location
+    Given I'm in the homepage logged in as a propagator
+    When I click the requests dropdown
+    And I click on create
+    And I fill the form with
+      | FIELD    | VALUE         |
+      | amount   | 123           |
+      | weight   | 123           |
+    Then Submit button should be disabled
