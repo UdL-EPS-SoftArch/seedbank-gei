@@ -3,6 +3,7 @@ import {Request} from "../request";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RequestService} from "../request.service";
 import {AuthenticationBasicService} from "../../login-basic/authentication-basic.service";
+import {User} from "../../login-basic/user";
 
 @Component({
   selector: 'app-request-update',
@@ -26,5 +27,12 @@ export class RequestUpdateComponent {
     const id = this.route.snapshot.paramMap.get('id');
     this.requestService.getResource(id).subscribe(
       (request: Request) => this.request = request);
+  }
+
+  onSubmit(): void {
+    this.requestService.patchResource(this.request).subscribe(
+      (patchedRequest: Request) => {
+          this.router.navigate(['requests', patchedRequest.id]);
+      });
   }
 }
