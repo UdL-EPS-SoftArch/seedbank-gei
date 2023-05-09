@@ -31,6 +31,7 @@ import {RequestDetailComponent} from './request/request-detail/request-detail.co
 import {RequestListComponent} from './request/request-list/request-list.component';
 import {RequestDeleteComponent} from './request/request-delete/request-delete.component';
 import {RequestCreateComponent} from './request/request-create/request-create.component';
+import { RequestUpdateComponent } from './request/request-update/request-update.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import {RequestCreateComponent} from './request/request-create/request-create.co
     RequestCreateComponent,
     RequestListComponent,
     RequestDeleteComponent,
+    RequestUpdateComponent,
   ],
   imports: [
     TakeComponentsModule,
