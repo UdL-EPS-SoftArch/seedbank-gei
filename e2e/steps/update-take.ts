@@ -10,6 +10,8 @@ Then("I'm in take edit page", () => {
 })
 
 When('I replace the form with', (table: DataTable) => {
+  // The original form values should be present before replacing them
+  cy.get('input').first().should('not.have.value', '');
   table.rows().forEach((pair: string[]) =>
     cy.get('#' + pair[0]).clear().clear().clear().type(pair[1]).blur() );
 });
