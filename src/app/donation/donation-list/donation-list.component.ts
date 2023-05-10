@@ -7,13 +7,15 @@ import {DonationService} from "../donation.service";
 import {Donation} from "../donation";
 import {Router} from "@angular/router";
 import {getDonorFrom, getPropagatorFrom} from "../donation-resources";
+import {Propagator} from "../../propagator";
+import {Donor} from "../../donor";
 
 const pageSize: number = 5;
 
 export interface DonationInformation {
   uri: string;
   donorName: string;
-  propagatorName: string;
+  propagatorName: string | undefined | null;
   amount: number;
 }
 
@@ -49,13 +51,13 @@ export class DonationListComponent implements OnInit {
 
   private toDonationInformation(collection: PagedResourceCollection<Donation>): Promise<DonationInformation[]> {
     return Promise.all(collection.resources.map(async (donation) => {
-      const donor = await getDonorFrom(donation);
-      const propagator = await getPropagatorFrom(donation);
+      const donor: Donor = await getDonorFrom(donation);
+      const propagator : Propagator | null = await getPropagatorFrom(donation);
       const uri = (donation as any).uri;
       return {
         uri: uri,
         donorName: donor.id,
-        propagatorName: propagator.id,
+        propagatorName: propagator?.id,
         amount: donation.amount,
       }
     }));
