@@ -19,6 +19,10 @@ export class TakeGuard {
       else if(this.authenticationService.isRole('user')) return false
       else return true
     }
+    else if(path.includes("take")) {
+      if(this.authenticationService.isRole('user')) return false;
+      else return true;
+    }
     return true;
   }
 
