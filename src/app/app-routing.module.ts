@@ -15,6 +15,7 @@ import { TakeDetailComponent } from './take/take-detail/take-detail.component';
 import { TakeUpdateComponent } from './take/take-update/take-update.component';
 import { TakeDeleteComponent } from './take/take-delete/take-delete.component';
 import {RequestListComponent} from "./request/request-list/request-list.component";
+import {TakeGuard} from "./take/take-basic/take.guard";
 import {RequestDeleteComponent} from "./request/request-delete/request-delete.component";
 import { RequestCreateComponent } from "./request/request-create/request-create.component";
 import { RequestUpdateComponent } from "./request/request-update/request-update.component";
@@ -41,11 +42,11 @@ const routes: Routes = [
   { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'requests', component: RequestListComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
-  { path: 'take/:id/delete', component: TakeDeleteComponent, canActivate: [LoggedInGuard]},
-  { path: 'take/:id/edit', component: TakeUpdateComponent, canActivate: [LoggedInGuard]},
-  { path: 'take/:id', component: TakeDetailComponent, canActivate: [LoggedInGuard]},
-  { path: 'take', component: TakeListComponent, canActivate: [LoggedInGuard]},
-  { path: 'take/add', component: CreateTakeComponent, canActivate: [LoggedInGuard] },
+  { path: 'take', component: TakeListComponent, canActivate: [LoggedInGuard, TakeGuard]},
+  { path: 'take/add', component: CreateTakeComponent, canActivate: [LoggedInGuard, TakeGuard] },
+  { path: 'take/:id/delete', component: TakeDeleteComponent, canActivate: [LoggedInGuard, TakeGuard]},
+  { path: 'take/:id/edit', component: TakeUpdateComponent, canActivate: [LoggedInGuard, TakeGuard]},
+  { path: 'take/:id', component: TakeDetailComponent, canActivate: [LoggedInGuard, TakeGuard]},
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},

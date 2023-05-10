@@ -11,7 +11,9 @@ import { Take } from '../take-model';
 export class CreateTakeComponent {
   take = new Take();
 
-  constructor(private takeService: TakeService, private router: Router) {}
+  constructor(private takeService: TakeService, private router: Router) {
+    console.log(this.take);
+  }
 
   onSubmit() {
     this.takeService.createResource({ body: this.take }).subscribe(
