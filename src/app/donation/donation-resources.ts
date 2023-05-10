@@ -15,7 +15,7 @@ export async function getDonorFrom(donation: Donation): Promise<Donor> {
 
 export async function getPropagatorFrom(donation: Donation): Promise<Propagator> {
   const takes = await getTakeFrom(donation);
-  return getPropagatorFor(takes);
+  return await getPropagatorFor(takes);
 }
 
 async function getPropagatorFor(take: Take): Promise<Propagator> {
