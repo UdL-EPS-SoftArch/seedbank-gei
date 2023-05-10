@@ -18,7 +18,8 @@ export class DonationCreateComponent implements OnInit {
     private locationService: Location,
     private donationService: DonationService,
     private authenticationBasicService: AuthenticationBasicService,
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.donation = new Donation();
@@ -27,7 +28,8 @@ export class DonationCreateComponent implements OnInit {
   onSubmit(): void {
     this.donation.donor = this.authenticationBasicService.getCurrentUser();
     this.donationService.createResource({body: this.donation}).subscribe((donation: Donation) => {
-      this.router.navigate(['/donations', donation.id]).then();
+      const uri = (donation as any).uri;
+      this.router.navigate([uri]).then();
     });
   }
 
