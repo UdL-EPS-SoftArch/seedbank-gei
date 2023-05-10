@@ -31,7 +31,8 @@ export class DonationUpdateComponent {
   onSubmit(): void {
     this.donationService.patchResource(this.donation).subscribe(
       (modifiedDonation: Donation) => {
-        this.router.navigate(['donations', modifiedDonation.id]).then();
+        const uri = (modifiedDonation as any).uri;
+        this.router.navigate([uri]).then();
       });
   }
 

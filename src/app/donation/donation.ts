@@ -7,5 +7,5 @@ import {donationsResource} from "./donation-keys";
 @HateoasResource(donationsResource)
 export class Donation extends Batch {
   donor: Donor
-  takeBy: Take
+  takeBy: Take | null
 }
