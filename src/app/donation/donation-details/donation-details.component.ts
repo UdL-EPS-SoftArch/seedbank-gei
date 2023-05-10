@@ -5,6 +5,7 @@ import {Donation} from '../donation';
 import {firstValueFrom} from 'rxjs';
 import {donationIdParameter} from "../donation-keys";
 import {loadResourcesRecursivelyFor} from "../donation-resources";
+import {AuthenticationBasicService} from "../../login-basic/authentication-basic.service";
 
 @Component({
   selector: 'app-donation',
@@ -19,7 +20,8 @@ export class DonationDetailsComponent implements OnInit {
   constructor(
     public router: Router,
     private route: ActivatedRoute,
-    private donationService: DonationService
+    private donationService: DonationService,
+    private authenticationService: AuthenticationBasicService,
   ) {
   }
 
@@ -27,6 +29,18 @@ export class DonationDetailsComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get(donationIdParameter);
     this.donation = await firstValueFrom(this.donationService.getResource(this.id))
     await loadResourcesRecursivelyFor(this.donation);
+  }
+
+  isRole(role: string): boolean {
+    return this.authenticationService.isRole(role);
+  }
+
+  getCurrentUserName(): string {
+    return this.authenticationService.getCurrentUser().id;
+  }
+
+  currentUserEdit() {
+    return this.getCurrentUserName() == this.donation.donor.id;
   }
 
 }
