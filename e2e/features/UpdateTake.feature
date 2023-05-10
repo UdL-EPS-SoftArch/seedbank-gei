@@ -28,7 +28,7 @@ Feature: Update Take
     Given I'm in the homepage
     And I log in as "propagator" with password "password"
     Then I'm logged in as user "propagator"
-    When I'm in take edit page
+    And I'm in take edit page
     And I fill the form with
       | FIELD    | VALUE   |
       | amount   |  user   |
