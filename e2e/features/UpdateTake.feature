@@ -29,7 +29,7 @@ Feature: Update Take
     And I log in as "propagator" with password "password"
     Then I'm logged in as user "propagator"
     And I'm in take edit page
-    And I fill the form with
+    And I replace the form with
       | FIELD    | VALUE   |
       | amount   |  120   |
       | location | Madrid  |
@@ -42,7 +42,7 @@ Feature: Update Take
     And I log in as "admintest" with password "password"
     Then I'm logged in as user "admintest"
     And I'm in take edit page
-    And I fill the form with
+    And I replace the form with
       | FIELD    | VALUE   |
       | amount   |  310   |
       | location | Sevilla  |

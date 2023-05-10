@@ -1,4 +1,5 @@
-import {And, Then} from "cypress-cucumber-preprocessor/steps";
+import {And, Then, When} from "cypress-cucumber-preprocessor/steps";
+import {DataTable} from "@cucumber/cucumber";
 
 Then("I'm in take details page", () => {
     cy.visit('http://localhost:4200/take/1');
@@ -7,3 +8,8 @@ Then("I'm in take details page", () => {
 Then("I'm in take edit page", () => {
   cy.visit('http://localhost:4200/take/1/edit');
 })
+
+When('I replace the form with', (table: DataTable) => {
+  table.rows().forEach((pair: string[]) =>
+    cy.get('#' + pair[0]).clear().type(pair[1]).blur() );
+});
