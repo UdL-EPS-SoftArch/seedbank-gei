@@ -24,7 +24,7 @@ Feature: Update Take
     When I'm in take details page
     Then The "Edit" button is present
 
-  Scenario:
+  Scenario: Update Take when logged in as a propagator
     Given I'm in the homepage
     And I log in as "propagator" with password "password"
     Then I'm logged in as user "propagator"
