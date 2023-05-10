@@ -8,7 +8,6 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDeleteComponent } from './user/user-delete/user-delete.component';
-import { DonationComponent } from './donation/donation.component';
 import { TakeListComponent } from './take/take-list/take-list.component';
 import { CreateTakeComponent } from './take/create-take/create-take.component';
 import {RequestDetailComponent} from "./request/request-detail/request-detail.component";
@@ -20,15 +19,24 @@ import {TakeGuard} from "./take/take-basic/take.guard";
 import {RequestDeleteComponent} from "./request/request-delete/request-delete.component";
 import { RequestCreateComponent } from "./request/request-create/request-create.component";
 import { RequestUpdateComponent } from "./request/request-update/request-update.component";
-
+import { DonationDetailsComponent } from './donation/donation-details/donation-details.component';
+import {DonationListComponent} from "./donation/donation-list/donation-list.component";
+import {DonationDeleteComponent} from "./donation/donation-delete/donation-delete.component";
+import {DonationCreateComponent} from "./donation/donation-create/donation-create.component";
+import {DonationUpdateComponent} from "./donation/donation-update/donation-update.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
   { path: 'users/:id/delete', component: UserDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id/edit', component: UserEditComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
-  { path: 'donations/:id', component: DonationComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/create', component: RequestCreateComponent, canActivate: [LoggedInGuard] },
+  { path: 'donations', component: DonationListComponent, canActivate: [LoggedInGuard]},
+  { path: 'donations/create', component: DonationCreateComponent, canActivate: [LoggedInGuard]},
+  { path: 'donations/:id/delete', component: DonationDeleteComponent, canActivate: [LoggedInGuard]},
+  { path: 'donations/:id/edit', component: DonationUpdateComponent, canActivate: [LoggedInGuard]},
+  { path: 'donations/:id', component: DonationDetailsComponent, canActivate: [LoggedInGuard]},
+  { path: 'donations', component: DonationListComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/:id/delete', component: RequestDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'requests/:id/edit', component: RequestUpdateComponent, canActivate: [LoggedInGuard] },
   { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard]},

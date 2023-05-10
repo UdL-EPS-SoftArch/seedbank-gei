@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Donation } from './donation/donation';
+import { Donation } from './donation';
 import { HateoasResourceOperation } from '@lagoshny/ngx-hateoas-client';
 
 @Injectable({

@@ -57,3 +57,6 @@ Then('I see input field feedback message {string}', (message) => {
     .invoke('text')
     .should('contains', message);
 });
+Given(/^I logout$/, function () {
+  cy.get('.nav-link').contains('Logout').click();
+});
