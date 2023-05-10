@@ -5,30 +5,30 @@ Feature: Create Take
 
   Scenario: Add Take button is present when logged in as admin
     Given I'm in the homepage
-    And I log in as "admintest" with password "password"
-    Then I'm logged in as user "admintest"
+    And I log in as "admin1" with password "password"
+    Then I'm logged in as user "admin1"
     When I'm in take list page
     Then The "Add Take" button is present
 
   Scenario: Add Take button is present when logged in as propagator
     Given I'm in the homepage
-    And I log in as "propagator" with password "password"
-    Then I'm logged in as user "propagator"
+    And I log in as "propagator1" with password "password"
+    Then I'm logged in as user "propagator1"
     When I'm in take list page
     Then The "Add Take" button is present
 
   Scenario: Add Take button is not present when logged in as donor
     Given I'm in the homepage
-    And I log in as "donor" with password "password"
-    Then I'm logged in as user "donor"
+    And I log in as "donor1" with password "password"
+    Then I'm logged in as user "donor1"
     When I'm in take list page
     Then The "Add Take" button is not present
 
   Scenario: Create new Take as admin
     Given I'm in the homepage
-    And I log in as "admintest" with password "password"
-    Then I'm logged in as user "admintest"
-    When I'm in add take page    
+    And I log in as "admin1" with password "password"
+    Then I'm logged in as user "admin1"
+    When I'm in add take page
     And I fill the form with
       | FIELD     | VALUE       |
       | amount    | 5           |
@@ -39,9 +39,9 @@ Feature: Create Take
 
     Scenario: Create new Take as propagator
     Given I'm in the homepage
-    And I log in as "propagator" with password "password"
-    Then I'm logged in as user "propagator"
-    When I'm in add take page    
+    And I log in as "propagator1" with password "password"
+    Then I'm logged in as user "propagator1"
+    When I'm in add take page
     And I fill the form with
       | FIELD     | VALUE       |
       | amount    | 15          |
