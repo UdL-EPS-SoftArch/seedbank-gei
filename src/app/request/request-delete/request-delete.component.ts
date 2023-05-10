@@ -11,6 +11,7 @@ import {RequestService} from "../request.service";
 })
 export class RequestDeleteComponent implements OnInit {
   public request: Request = new Request();
+  id: string
 
   constructor(
     private route : ActivatedRoute,
@@ -19,8 +20,8 @@ export class RequestDeleteComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get(RequestKeys.Id);
-    this.requestService.getResource(id).subscribe((request: Request) => {
+    this.id = this.route.snapshot.paramMap.get(RequestKeys.Id);
+    this.requestService.getResource(this.id).subscribe((request: Request) => {
       this.request = request;
     });
   }
