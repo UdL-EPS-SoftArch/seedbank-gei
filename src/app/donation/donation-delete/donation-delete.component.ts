@@ -11,6 +11,7 @@ import {donationIdParameter, donationsResource} from "../donation-keys";
 })
 export class DonationDeleteComponent implements OnInit {
   public donation: Donation
+  id: string
 
   constructor(
     private route : ActivatedRoute,
@@ -19,8 +20,8 @@ export class DonationDeleteComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get(donationIdParameter);
-    this.donationService.getResource(id).subscribe((donation: Donation) => {
+    this.id = this.route.snapshot.paramMap.get(donationIdParameter);
+    this.donationService.getResource(this.id).subscribe((donation: Donation) => {
       this.donation = donation;
     });
   }
