@@ -33,7 +33,7 @@ const routes: Routes = [
   { path: 'take/add', component: CreateTakeComponent, canActivate: [LoggedInGuard, TakeGuard] },
   { path: 'take/:id/delete', component: TakeDeleteComponent, canActivate: [LoggedInGuard, TakeGuard]},
   { path: 'take/:id/edit', component: TakeUpdateComponent, canActivate: [LoggedInGuard, TakeGuard]},
-  { path: 'take/:id', component: TakeDetailComponent, canActivate: [LoggedInGuard]},
+  { path: 'take/:id', component: TakeDetailComponent, canActivate: [LoggedInGuard, TakeGuard]},
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
