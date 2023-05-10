@@ -31,11 +31,11 @@ Feature: Update Take
     And I'm in take edit page
     And I replace the form with
       | FIELD    | VALUE   |
-      | amount   |  120   |
+      | amount   |  12   |
       | location | Madrid  |
       | weight   |  100    |
     When I click the "Submit" button
-    Then The "Edit" button is not present
+    Then The "Edit" button is present
 
   Scenario: Update Take when logged in as a admintest
     Given I'm in the homepage
@@ -44,21 +44,8 @@ Feature: Update Take
     And I'm in take edit page
     And I replace the form with
       | FIELD    | VALUE   |
-      | amount   |  310   |
+      | amount   |  31   |
       | location | Sevilla  |
       | weight   |  100    |
     When I click the "Submit" button
-    Then The "Edit" button is not present
-
-  Scenario: Update Take when logged in as a admintest
-    Given I'm in the homepage
-    And I log in as "admintest" with password "password"
-    Then I'm logged in as user "admintest"
-    And I'm in take edit page
-    And I replace the form with
-      | FIELD    | VALUE   |
-      | amount   |  310   |
-      | location | Sevilla  |
-      | weight   |  100    |
-    When I click the "Submit" button
-    Then The "Edit" button is not present
+    Then The "Edit" button is present

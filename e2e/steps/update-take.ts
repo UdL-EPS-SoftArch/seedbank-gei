@@ -11,5 +11,5 @@ Then("I'm in take edit page", () => {
 
 When('I replace the form with', (table: DataTable) => {
   table.rows().forEach((pair: string[]) =>
-    cy.get('#' + pair[0]).clear().type(pair[1]).blur() );
+    cy.get('#' + pair[0]).clear().clear().clear().type(pair[1]).blur() );
 });
