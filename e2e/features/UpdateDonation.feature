@@ -1,7 +1,7 @@
 Feature: Create a request
   In order to use the app
-  As a propagator
-  I want to modify requests
+  As a donor
+  I want to modify donations
 
   Scenario: Update a request with valid data
     Given I'm in the homepage logged in as a donor and I create a donation with
