@@ -60,7 +60,7 @@ import { DonationUpdateComponent } from './donation/donation-update/donation-upd
     PropagatorEditComponent,
     PropagatorListComponent,
     PropagatorDetailComponent,
-    PropagatorSearchComponent
+    PropagatorSearchComponent,
     UserSearchComponent,
     RequestDetailComponent,
     RequestCreateComponent,

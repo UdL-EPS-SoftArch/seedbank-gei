@@ -32,8 +32,8 @@ Feature: Delete Propagator
 
   Scenario: Delete existing propagator not as admin or propagator
     Given I'm in the homepage
-    And I log in as "user" with password "password"
-    When I'm logged in as user "user"
+    And I log in as "test" with password "password"
+    When I'm logged in as user "test"
     And I click the "Users" menu
     And I click the "List" dropdown menu
     Then I'm in the Users list

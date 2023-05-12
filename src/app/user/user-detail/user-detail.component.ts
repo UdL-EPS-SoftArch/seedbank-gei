@@ -27,4 +27,8 @@ export class UserDetailComponent implements OnInit {
   getCurrentUser(): User {
     return this.authenticationService.getCurrentUser();
   }
+
+  isRole(role: string): boolean {
+        return this.authenticationService.isRole(role);
+      }
 }

@@ -30,4 +30,8 @@ export class PropagatorDetailComponent implements OnInit {
   getCurrentPropagator(): Propagator {
     return this.authenticationService.getCurrentPropagator();
   }
+
+  isRole(role: string): boolean {
+      return this.authenticationService.isRole(role);
+    }
 }

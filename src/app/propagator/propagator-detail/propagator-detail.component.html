@@ -19,10 +19,10 @@
       <button id="listBtn" type="button" [routerLink]="['/users']"
               class="btn m-1 btn-outline-primary">User List
       </button>
-      <button id="editBtn" type="button" *ngIf="getCurrentPropagator().id === propagator.id" [routerLink]="['edit']"
+      <button id="editBtn" type="button" *ngIf="getCurrentPropagator().id === propagator.id || isRole('admin')" [routerLink]="['edit']"
               class="btn m-1 btn-outline-success">Edit
       </button>
-      <button id="deleteBtn" type="button" *ngIf="getCurrentPropagator().id === propagator.id" [routerLink]="['delete']"
+      <button id="deleteBtn" type="button" *ngIf="getCurrentPropagator().id === propagator.id || isRole('admin')" [routerLink]="['delete']"
               class="btn m-1 btn-outline-danger">Delete
       </button>
     </div>
