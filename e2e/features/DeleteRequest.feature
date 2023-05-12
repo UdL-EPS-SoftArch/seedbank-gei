@@ -4,7 +4,6 @@ Feature: Delete a request
   I want to be able to delete a request
 
   Scenario: Delete a request
-    # FIXME: Implement ferrana'ls steps
     Given I'm in the homepage logged in as a propagator and I create a request with
       | FIELD    | VALUE         |
       | amount   | 123           |
