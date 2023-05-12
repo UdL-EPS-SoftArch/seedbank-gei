@@ -20,4 +20,7 @@ export class User extends Resource {
   getRoles(): string[] {
     return this.authorities.map(a => a.authority.split('_')[1].toLowerCase());
   }
+  setRoles(roles: string) {
+    this.authorities = roles.split(',').map(role => new Authority({ authority: 'ROLE_' + role.toUpperCase().trim() }));
+  }
 }

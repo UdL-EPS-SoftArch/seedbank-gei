@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 import { UserService } from '../user.service';
 import { User } from '../../login-basic/user';
+import {Authority} from "../../login-basic/authority";
 
 @Component({
   selector: 'app-user-edit',
@@ -11,6 +12,7 @@ import { User } from '../../login-basic/user';
 })
 export class UserEditComponent implements OnInit {
   public user: User = new User();
+  @ViewChild('inputRole') inputRole!: ElementRef<HTMLInputElement>;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -28,6 +30,7 @@ export class UserEditComponent implements OnInit {
     this.user.password = this.user.passwordReset ? this.user.password : undefined; // Don't edit if not a reset
     this.userService.patchResource(this.user).subscribe(
       (patchedUser: User) => {
+        console.log('User after update: ', patchedUser);
         if (this.user.passwordReset) {
           this.authenticationService.logout();
           this.authenticationService.login(this.user.id, this.user.password).subscribe(
@@ -37,7 +40,10 @@ export class UserEditComponent implements OnInit {
         }
       });
   }
-
+  onRolesChange(event: any): void {
+    const roles = event.split(",");
+    this.user.authorities = roles.map(role => new Authority({ authority: "ROLE_" + role.trim().toUpperCase() }));
+  }
   getCurrentUserName(): string {
     return this.authenticationService.getCurrentUser().id;
   }

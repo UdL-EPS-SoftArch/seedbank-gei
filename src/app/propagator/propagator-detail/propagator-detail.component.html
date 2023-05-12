@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="card-footer text-right">
-      <button id="listBtn" type="button" [routerLink]="['/propagators']"
+      <button id="listBtn" type="button" [routerLink]="['/propagator']"
               class="btn m-1 btn-outline-primary">Propagator List
       </button>
       <button id="editBtn" type="button" *ngIf="getCurrentPropagator().id === propagator.id" [routerLink]="['edit']"

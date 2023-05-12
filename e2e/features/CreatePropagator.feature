@@ -27,7 +27,14 @@ Feature: Create a Propagator User
     Then I'm logged in as user "userpropagator"
 
     Scenario: Add role propagator
-      Given I'm in the user detail page
+      Given I'm in the home page
+      And I'm not logged in
+      When I click the "Login" menu
+      And I fill the form with
+        | FIELD    | VALUE                   |
+        | username | userpropagator          |
+        | password | password                |
+      And I click the "Submit" button
       When I click the "Edit" button
       And I fill the form with
         | FIELD    | VALUE                   |
