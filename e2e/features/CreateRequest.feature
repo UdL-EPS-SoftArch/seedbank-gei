@@ -6,7 +6,7 @@ Feature: Create a request
   Scenario: Create a new request
     Given I'm in the homepage logged in as a propagator
     When I click the requests dropdown
-    And I click on create
+    And I click on create new request
     And I fill the form with
       | FIELD    | VALUE         |
       | amount   | 123           |
@@ -18,7 +18,7 @@ Feature: Create a request
     Scenario: Create a new request without an amount
       Given I'm in the homepage logged in as a propagator
       When I click the requests dropdown
-      And I click on create
+      And I click on create new request
       And I fill the form with
         | FIELD    | VALUE         |
         | weight   | 123           |
@@ -28,7 +28,7 @@ Feature: Create a request
   Scenario: Create a new request without a weight
     Given I'm in the homepage logged in as a propagator
     When I click the requests dropdown
-    And I click on create
+    And I click on create new request
     And I fill the form with
       | FIELD    | VALUE         |
       | amount   | 123           |
@@ -38,7 +38,7 @@ Feature: Create a request
   Scenario: Create a new request without a location
     Given I'm in the homepage logged in as a propagator
     When I click the requests dropdown
-    And I click on create
+    And I click on create new request
     And I fill the form with
       | FIELD    | VALUE         |
       | amount   | 123           |
@@ -48,7 +48,7 @@ Feature: Create a request
   Scenario: Create a new request with badly formatted field
     Given I'm in the homepage logged in as a propagator
     When I click the requests dropdown
-    And I click on create
+    And I click on create new request
     And I fill the form with
       | FIELD    | VALUE         |
       | amount   | abc           |
