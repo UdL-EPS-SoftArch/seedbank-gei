@@ -27,5 +27,5 @@ Then("I'm in the Users list", () => {
 });
 
 Then("I'm in the delete confirmation page", () => {
-  cy.visit('http://localhost:4200/users/propagator1/delete');
+  cy.visit('http://localhost:4200/propagator/propagator1/delete');
 });

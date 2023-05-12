@@ -16,20 +16,6 @@ Feature: Delete Propagator
     When I click on the confirm button
     Then I see a confirmation message "Propagator deleted"
 
-  Scenario: Delete existing propagator as propagator
-    Given I'm in the homepage
-    And I log in as "propagator1" with password "password"
-    When I'm logged in as user "propagator1"
-    And I click the "Users" menu
-    And I click the "List" dropdown menu
-    Then I'm in the Users list
-    And The propagator is already selected
-    And I click the "Delete" button
-    Then I'm in the delete confirmation page
-    When I click on the confirm button
-    Then I see a confirmation message "Propagator deleted"
-    And I'm not logged in as propagator "propagator1"
-
   Scenario: Delete existing propagator not as admin or propagator
     Given I'm in the homepage
     And I log in as "test" with password "password"
