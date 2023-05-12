@@ -33,14 +33,14 @@ export class PropagatorEditComponent {
           if (this.propagator.passwordReset) {
             this.authenticationService.logout();
             this.authenticationService.login(this.propagator.id, this.propagator.password).subscribe(
-              (propagator: Propagator) => this.router.navigate(['propagators', propagator.id]));
+              (propagator: Propagator) => this.router.navigate(['propagator', propagator.id]));
           } else {
-            this.router.navigate(['propagators', patchedPropagator.id]);
+            this.router.navigate(['propagator', patchedPropagator.id]);
           }
         });
     }
 
   getCurrentUserName(): string {
-    return this.authenticationService.getCurrentUser().id;
+    return this.authenticationService.getCurrentPropagator().id;
   }
 }

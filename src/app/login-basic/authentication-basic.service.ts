@@ -50,7 +50,7 @@ export class AuthenticationBasicService {
   }
 
   getCurrentPropagator(): Propagator {
-    return new Propagator(JSON.parse(localStorage.getItem('currentPropagator')));
+    return new Propagator(JSON.parse(localStorage.getItem('currentUser')));
   }
 
   isRole(role: string): boolean {

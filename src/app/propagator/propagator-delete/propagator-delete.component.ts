@@ -26,6 +26,10 @@ export class PropagatorDeleteComponent implements OnInit {
         propagator => this.propagator = propagator);
     }
 
+  getCurrentUserName(): string {
+    return this.authenticationService.getCurrentPropagator().id;
+  }
+
     delete(): void {
       this.propagatorService.deleteResource(this.propagator).subscribe(
         () => {

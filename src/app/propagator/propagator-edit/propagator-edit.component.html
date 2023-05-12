@@ -1,4 +1,3 @@
-<p>propagator-edit works!</p>
 <form id="propagator-form" (ngSubmit)="onSubmit()" #form="ngForm">
   <fieldset>
 
@@ -38,7 +37,7 @@
 
     <!-- Button -->
     <div class="form-group fa-pull-right">
-      <button id="propagatorDetail" type="button" [routerLink]="['/propagators/'+getCurrentUserName()]"
+      <button id="propagatorDetail" type="button" [routerLink]="['/propagator/'+getCurrentUserName()]"
               class="btn btn-outline-primary">Back</button>
       <button id="submit" type="submit" [disabled]="!form.form.valid"
               class="btn btn-success ms-3">Submit</button>
