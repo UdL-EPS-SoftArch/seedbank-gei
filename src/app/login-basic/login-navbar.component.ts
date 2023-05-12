@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {AuthenticationBasicService} from './authentication-basic.service';
 import {User} from './user';
 import {Router} from '@angular/router';
+import {UserService} from "../user/user.service";
 
 @Component({
   selector: 'app-login-navbar,[app-login-navbar]',
@@ -10,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class LoginNavbarComponent {
 
-  constructor(private authenticationService: AuthenticationBasicService, private router: Router) {}
+  constructor(private authenticationService: AuthenticationBasicService, private router: Router, private userService: UserService) {}
 
   getCurrentUser(): User {
     return this.authenticationService.getCurrentUser();

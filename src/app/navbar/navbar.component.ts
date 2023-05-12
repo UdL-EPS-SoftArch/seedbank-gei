@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationBasicService } from '../login-basic/authentication-basic.service';
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

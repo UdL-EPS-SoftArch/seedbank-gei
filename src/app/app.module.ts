@@ -23,6 +23,19 @@ import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
+import {TakeComponentsModule} from './take/take-components.module';
+import {RequestDetailComponent} from './request/request-detail/request-detail.component';
+import {RequestListComponent} from './request/request-list/request-list.component';
+import {RequestDeleteComponent} from './request/request-delete/request-delete.component';
+import {RequestCreateComponent} from './request/request-create/request-create.component';
+import { RequestUpdateComponent } from './request/request-update/request-update.component';
+import { TakeListComponent } from './take/take-list/take-list.component';
+import { TakeDetailComponent } from './take/take-detail/take-detail.component';
+import { DonationDetailsComponent } from './donation/donation-details/donation-details.component';
+import { DonationListComponent } from './donation/donation-list/donation-list.component';
+import { DonationDeleteComponent } from './donation/donation-delete/donation-delete.component';
+import { DonationCreateComponent } from './donation/donation-create/donation-create.component';
+import { DonationUpdateComponent } from './donation/donation-update/donation-update.component';
 import { PropagatorRegisterComponent } from './propagator/propagator-register/propagator-register.component';
 import { PropagatorDeleteComponent } from './propagator/propagator-delete/propagator-delete.component';
 import { PropagatorEditComponent } from './propagator/propagator-edit/propagator-edit.component';
@@ -42,6 +55,16 @@ import { PropagatorSearchComponent } from './propagator/propagator-search/propag
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
+    RequestDetailComponent,
+    RequestCreateComponent,
+    RequestListComponent,
+    RequestDeleteComponent,
+    RequestUpdateComponent,
+    DonationDetailsComponent,
+    DonationListComponent,
+    DonationDeleteComponent,
+    DonationCreateComponent,
+    DonationUpdateComponent,
     PropagatorRegisterComponent,
     PropagatorDeleteComponent,
     PropagatorEditComponent,
@@ -50,6 +73,7 @@ import { PropagatorSearchComponent } from './propagator/propagator-search/propag
     PropagatorSearchComponent
   ],
   imports: [
+    TakeComponentsModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -64,8 +88,8 @@ import { PropagatorSearchComponent } from './propagator/propagator-search/propag
     ReactiveFormsModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true},
     AuthenticationBasicService, LoggedInGuard, UserService
   ],
   bootstrap: [AppComponent]

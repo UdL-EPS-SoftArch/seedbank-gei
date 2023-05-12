@@ -1,0 +1,36 @@
+<form id="request-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+
+    <!-- Amount input -->
+    <div class="form-group mb-3" [class.was-validated]="amount.dirty || amount.touched">
+      <label class="control-label" for="amount">Amount*</label>
+      <input id="amount" name="amount" type="number" class="form-control" required [(ngModel)]="request.amount"
+             #amount="ngModel">
+      <div class="invalid-feedback">An amount is required</div>
+    </div>
+
+    <!-- Weight input -->
+    <div class="form-group mb-3" [class.was-validated]="weight.dirty || weight.touched">
+      <label class="control-label" for="weight">Weight*</label>
+      <input id="weight" name="weight" type="number" class="form-control" required [(ngModel)]="request.weight"
+             #weight="ngModel">
+      <div class="invalid-feedback">A weight is required</div>
+    </div>
+
+    <!-- Location input -->
+    <div class="form-group mb-3" [class.was-validated]="location.dirty || location.touched">
+      <label class="control-label" for="location">Location*</label>
+      <input id="location" name="location" type="text" class="form-control" required [(ngModel)]="request.location"
+             #location="ngModel">
+      <div class="invalid-feedback">A location is required</div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group fa-pull-right">
+      <button id="listBtn" type="button" (click)="onCancel()" class="btn btn-outline-primary pull-right">Back</button>
+      <button id="submit" type="submit" [disabled]="!form.form.valid"
+              class="btn ms-3 btn-success pull-right">Submit</button>
+    </div>
+
+  </fieldset>
+</form>
