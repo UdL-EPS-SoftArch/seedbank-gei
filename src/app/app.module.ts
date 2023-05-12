@@ -29,6 +29,19 @@ import { PropagatorEditComponent } from './propagator/propagator-edit/propagator
 import { PropagatorListComponent } from './propagator/propagator-list/propagator-list.component';
 import { PropagatorDetailComponent } from './propagator/propagator-detail/propagator-detail.component';
 import { PropagatorSearchComponent } from './propagator/propagator-search/propagator-search.component';
+import {TakeComponentsModule} from './take/take-components.module';
+import {RequestDetailComponent} from './request/request-detail/request-detail.component';
+import {RequestListComponent} from './request/request-list/request-list.component';
+import {RequestDeleteComponent} from './request/request-delete/request-delete.component';
+import {RequestCreateComponent} from './request/request-create/request-create.component';
+import { RequestUpdateComponent } from './request/request-update/request-update.component';
+import { TakeListComponent } from './take/take-list/take-list.component';
+import { TakeDetailComponent } from './take/take-detail/take-detail.component';
+import { DonationDetailsComponent } from './donation/donation-details/donation-details.component';
+import { DonationListComponent } from './donation/donation-list/donation-list.component';
+import { DonationDeleteComponent } from './donation/donation-delete/donation-delete.component';
+import { DonationCreateComponent } from './donation/donation-create/donation-create.component';
+import { DonationUpdateComponent } from './donation/donation-update/donation-update.component';
 
 @NgModule({
   declarations: [
@@ -48,8 +61,20 @@ import { PropagatorSearchComponent } from './propagator/propagator-search/propag
     PropagatorListComponent,
     PropagatorDetailComponent,
     PropagatorSearchComponent
+    UserSearchComponent,
+    RequestDetailComponent,
+    RequestCreateComponent,
+    RequestListComponent,
+    RequestDeleteComponent,
+    RequestUpdateComponent,
+    DonationDetailsComponent,
+    DonationListComponent,
+    DonationDeleteComponent,
+    DonationCreateComponent,
+    DonationUpdateComponent,
   ],
   imports: [
+    TakeComponentsModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -64,8 +89,8 @@ import { PropagatorSearchComponent } from './propagator/propagator-search/propag
     ReactiveFormsModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true},
     AuthenticationBasicService, LoggedInGuard, UserService
   ],
   bootstrap: [AppComponent]

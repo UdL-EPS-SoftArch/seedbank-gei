@@ -1,0 +1,33 @@
+<h1>Request from {{request?.propagator?.id}} </h1>
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark">
+  <tr>
+    <th>Amount</th>
+    <th>Weight</th>
+    <th>Location</th>
+    <th>Date</th>
+    <th>Taken:</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{ request.amount }}</td>
+    <td>{{ request.weight }}</td>
+    <td>{{ request.location }}</td>
+    <td>{{ request.date | date }}</td>
+    <td *ngIf="request?.fulfilledBy, else not_fulfilled">Yes</td>
+
+    <ng-template #not_fulfilled>
+      <td>No</td>
+    </ng-template>
+
+  </tbody>
+</table>
+<div class="card-footer text-right">
+  <button id="listBtn" type="button" [routerLink]="['/requests']" class="btn m-1 btn-outline-primary">See all requests
+  </button>
+  <button id="editBtn" type="button" *ngIf="(isRole('propagator') && currentUserEdit()) || isRole('admin')" [routerLink]="['edit']" class="btn m-1 btn-outline-success">Edit
+  </button>
+  <button id="deleteBtn" type="button" *ngIf="(isRole('propagator') && currentUserEdit()) || isRole('admin')" [routerLink]="['delete']" class="btn m-1 btn-outline-danger">Delete
+  </button>
+</div>

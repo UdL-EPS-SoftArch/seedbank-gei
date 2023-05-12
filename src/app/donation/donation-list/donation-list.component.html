@@ -1,0 +1,24 @@
+
+<div class="card mb-1" *ngFor="let d of donations">
+  <table class="table table-striped table-bordered" (click)="goToDonation(d)">
+    <thead class="thead-dark">
+    <tr>
+      <th>Donor</th>
+      <th>Propagator (empty if none)</th>
+      <th>Amount (empty if none)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{ d.donorName }}</td>
+      <td>{{ d?.propagatorName }}</td>
+      <td>{{d?.amount }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<ngb-pagination class="d-flex justify-content-center"
+  [(page)]="page" [pageSize]="pageSize" [collectionSize]="numberDonations"
+  (pageChange)="changePage()"></ngb-pagination>
