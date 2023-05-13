@@ -12,6 +12,10 @@ And("I click on the first item list", () => {
   cy.get(".card-text").first().click();
 });
 
+And("I click on the last item list", () => {
+  cy.get(".card-text").last().click();
+});
+
 Then("The delete button exist", () => {
   cy.get("#deleteBtn").should("exist");
 });
