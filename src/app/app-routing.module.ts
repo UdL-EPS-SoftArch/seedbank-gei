@@ -8,6 +8,9 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDeleteComponent } from './user/user-delete/user-delete.component';
+import {PropagatorDetailComponent} from "./propagator/propagator-detail/propagator-detail.component";
+import {PropagatorDeleteComponent} from "./propagator/propagator-delete/propagator-delete.component";
+import {PropagatorEditComponent} from "./propagator/propagator-edit/propagator-edit.component";
 import { TakeListComponent } from './take/take-list/take-list.component';
 import { CreateTakeComponent } from './take/create-take/create-take.component';
 import {RequestDetailComponent} from "./request/request-detail/request-detail.component";
@@ -42,6 +45,9 @@ const routes: Routes = [
   { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'requests', component: RequestListComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
+  { path: 'propagator/:id', component: PropagatorDetailComponent, canActivate: [LoggedInGuard]},
+  { path: 'propagator/:id/delete', component: PropagatorDeleteComponent, canActivate: [LoggedInGuard]},
+  { path: 'propagator/:id/edit', component: PropagatorEditComponent, canActivate: [LoggedInGuard]},
   { path: 'take', component: TakeListComponent, canActivate: [LoggedInGuard, TakeGuard]},
   { path: 'take/add', component: CreateTakeComponent, canActivate: [LoggedInGuard, TakeGuard] },
   { path: 'take/:id/delete', component: TakeDeleteComponent, canActivate: [LoggedInGuard, TakeGuard]},

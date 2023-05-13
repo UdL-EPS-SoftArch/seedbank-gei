@@ -10,8 +10,8 @@
       <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
         <a class="nav-link" [routerLink]="['/about']">About</a>
       </li>
-      <li class="nav-item" *ngIf="isRole('user')" ngbDropdown>
-        <a class="nav-link dropdown-toggle" id="usersDropdown" role="button"
+      <li class="nav-item" *ngIf="isRole('user') || isRole('propagator') || isRole('admin')" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="playerDropdown" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Users</a>
         <div class="dropdown-menu" aria-labelledby="listUsersDropdown" ngbDropdownMenu>
           <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"

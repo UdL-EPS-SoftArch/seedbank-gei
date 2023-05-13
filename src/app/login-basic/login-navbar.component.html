@@ -1,7 +1,13 @@
-<li class="nav-item" *ngIf="isLoggedIn()" id="currentUser">
+<!--<li class="nav-item" *ngIf="isLoggedIn()" id="currentUser">
   <a class="nav-link" [routerLink]="['/users', getCurrentUser().id]">
     <span class="fas fa-user-circle"></span> {{getCurrentUser().id}}</a>
+</li>-->
+
+<li class="nav-item" *ngIf="isLoggedIn()" id="currentUser">
+  <a class="nav-link" [routerLink]="getProfileLink()">
+    <span class="fas fa-user-circle"></span> {{getCurrentUser().id}}</a>
 </li>
+
 
 <li class="nav-item" *ngIf="isLoggedIn()">
   <a class="nav-link" href="#" (click)="logout($event)">

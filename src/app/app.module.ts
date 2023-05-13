@@ -23,6 +23,12 @@ import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
+import { PropagatorRegisterComponent } from './propagator/propagator-register/propagator-register.component';
+import { PropagatorDeleteComponent } from './propagator/propagator-delete/propagator-delete.component';
+import { PropagatorEditComponent } from './propagator/propagator-edit/propagator-edit.component';
+import { PropagatorListComponent } from './propagator/propagator-list/propagator-list.component';
+import { PropagatorDetailComponent } from './propagator/propagator-detail/propagator-detail.component';
+import { PropagatorSearchComponent } from './propagator/propagator-search/propagator-search.component';
 import {TakeComponentsModule} from './take/take-components.module';
 import {RequestDetailComponent} from './request/request-detail/request-detail.component';
 import {RequestListComponent} from './request/request-list/request-list.component';
@@ -48,6 +54,13 @@ import { DonationUpdateComponent } from './donation/donation-update/donation-upd
     UserRegisterComponent,
     UserEditComponent,
     UserDeleteComponent,
+    UserSearchComponent,
+    PropagatorRegisterComponent,
+    PropagatorDeleteComponent,
+    PropagatorEditComponent,
+    PropagatorListComponent,
+    PropagatorDetailComponent,
+    PropagatorSearchComponent,
     UserSearchComponent,
     RequestDetailComponent,
     RequestCreateComponent,
