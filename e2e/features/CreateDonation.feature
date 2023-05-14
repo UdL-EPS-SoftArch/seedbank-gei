@@ -59,4 +59,4 @@ Feature: Create a donation
   Scenario: Create a new request without being a donor
     Given I'm in the homepage logged in as a propagator
     When I click the donations dropdown
-    Then I should not see the create button
+    Then I should not see the donation create button

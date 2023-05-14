@@ -31,13 +31,11 @@ export class RequestUpdateComponent {
   }
 
   onSubmit(): void {
-    if (this.authenticationBasicService.getCurrentUser().id == this.request.propagator.id || this.authenticationBasicService.isRole('admin') ) {
     this.requestService.patchResource(this.request).subscribe(
       (patchedRequest: Request) => {
         const uri = (patchedRequest as any).uri;
         this.router.navigate([uri]).then();
       });
-    }
   }
 
   onCancel(): void {
