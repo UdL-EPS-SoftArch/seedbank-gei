@@ -1,1 +1,53 @@
-<p>seed-create works!</p>
+<form id="user-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+    <!-- Scientific name input -->
+    <div
+      class="form-group mb-3"
+      [class.was-validated]="scientificName.dirty || scientificName.touched"
+    >
+      <label class="control-label" for="scientificName">Scientific name*</label>
+      <input
+        id="scientificName"
+        name="scientificName"
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="seed.scientificName"
+        #scientificName="ngModel"
+      />
+      <div class="invalid-feedback">A scientific name is required</div>
+    </div>
+
+    <!-- Common names input -->
+    <div class="form-group mb-3">
+      <label class="control-label" for="commonName">Common names</label>
+      <input
+        id="commonName"
+        name="commonName"
+        type="text"
+        class="form-control"
+        [(ngModel)]="commonNames"
+        #commonName="ngModel"
+      />
+    </div>
+
+    <div class="form-group fa-pull-right">
+      <button
+        id="listBtn"
+        type="button"
+        [routerLink]="['..']"
+        class="btn btn-outline-primary pull-right"
+      >
+        Back
+      </button>
+      <button
+        id="submit"
+        type="submit"
+        [disabled]="!form.form.valid"
+        class="btn btn-success ms-3"
+      >
+        Submit
+      </button>
+    </div>
+  </fieldset>
+</form>
