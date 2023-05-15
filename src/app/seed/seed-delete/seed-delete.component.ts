@@ -21,7 +21,7 @@ export class SeedDeleteComponent implements OnInit {
     this.seedService.deleteResourceById(this.idSeed).subscribe({
       next: (e) => {
         console.log(e);
-        this.router.navigateByUrl('/seed');
+        this.router.navigateByUrl('/seeds');
       },
       error: (err) => {
         console.log(err);
