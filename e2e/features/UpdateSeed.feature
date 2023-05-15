@@ -1,50 +1,40 @@
-Feature: Update Seed
-  In order to update Seed
-  As a admin, propagator, donor and user
-  I want to udpate a Seed
+Feature: Update a seed
+  In order to update a seed
+  As a admin
+  I want to modify seeds
 
-  Scenario: Edit Seed button is present when logged in as a admin
-    Given I'm in the homepage
-    And I log in as "admin1" with password "password"
-    Then I'm logged in as user "admin1"
-    When I'm in Seed details page
-    Then The "Edit" button is present
+  Scenario: Update a seed with valid data
+    Given I'm in the homepage logged in as an admin and I create a seed with
+      | FIELD            | VALUE         |
+      | scientificName   | Allium cepa   |
+      | commonName       | Onion,Cebolla |
+    When I go to seeds page and click on the last seed
+    And I click on edit
+    And I clear each field and fill the form with
+      | FIELD            | VALUE          |
+      | scientificName   | Allium sativum |
+      | commonName       | Garlic         |
+    Then I am redirected to the seed details page
+    And I should see the seed with
+      | FIELD            | VALUE          |
+      | scientificName   | Allium sativum |
+      | commonName       | Garlic         |
 
-  Scenario: Edit Seed button is not present when logged in as a donor
-    Given I'm in the homepage
-    And I log in as "donor1" with password "password"
-    Then I'm logged in as user "donor1"
-    When I'm in Seed details page
-    Then The "Edit" button is not present
+  Scenario: Update a seed with invalid data
+    Given I'm in the homepage logged in as an admin and I create a seed with
+      | FIELD            | VALUE         |
+      | scientificName   | Allium cepa   |
+      | commonName       | Onion,Cebolla |
+    When I go to seeds page and click on the last seed
+    And I click on edit
+    And I clear each field and fill the form with and I don't submit
+      | FIELD            | VALUE  |
+      | scientificName   | 123    |
+      | commonName       | Garlic |
+    Then Submit button should be disabled
 
-  Scenario: Edit Seed button is not present when logged in as a propagator
-    Given I'm in the homepage
-    And I log in as "propagator1" with password "password"
-    Then I'm logged in as user "propagator1"
-    When I'm in Seed details page
-    Then The "Edit" button is not present
 
-  Scenario: Edit Seed button is not present when logged in as a donor
-    Given I'm in the homepage
-    And I log in as "donor1" with password "password"
-    Then I'm logged in as user "donor1"
-    When I'm in Seed details page
-    Then The "Edit" button is not present
-
-  Scenario: Edit Seed button is not present when logged in as a user
-    Given I'm in the homepage
-    And I log in as "user1" with password "password"
-    Then I'm logged in as user "user1"
-    When I'm in Seed details page
-    Then The "Edit" button is not present
-
-  Scenario: Update Seed when logged in as a admin
-    Given I'm in the homepage
-    And I log in as "admin1" with password "password"
-    Then I'm logged in as user "admin1"
-    And I'm in Seed edit page
-    And I replace the form with
-      | FIELD          | VALUE         |
-      | scientificName | Allium cepa   |
-      | commonName     | Onion,Cebolla |
-    When I click the "Submit" button
+  Scenario: Edit a seed when not logged in as an admin
+    Given I'm in the homepage logged in as a user
+    When I go to seeds page and click on the last seed
+    Then I should not see the edit button
