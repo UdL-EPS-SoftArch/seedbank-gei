@@ -1,0 +1,11 @@
+.card:hover {
+  background-color: #599afa;
+  transition: all 0.5s;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.card-text {
+  color: #000000;
+  text-decoration: none;
+}

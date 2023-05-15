@@ -1,6 +1,6 @@
 <h1>Seeds</h1>
 <div class="card mb-1" *ngFor="let seed of seeds">
-  <div class="card-block row m-1 col-12">
+  <div class="card-block row m-1 col-12" (click)="detail(seed)">
     <div class="card-body row align-items-center">
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">ID</h6>

@@ -1,1 +1,50 @@
-<p>seed-detail works!</p>
+<div class="card mb-4">
+  <div class="card-block">
+    <h4 class="card-title col-md-12 p-3">Seed {{ seedDetail.id }}</h4>
+    <div class="card-body row m-1">
+      <div class="col-md-4 p-3">
+        <h6 class="card-subtitle text-muted">Scientific name</h6>
+        <p class="card-text">{{ seedDetail.scientificName }}</p>
+      </div>
+      <div class="col-md-4 p-3">
+        <h6 class="card-subtitle text-muted">Common names</h6>
+        <p class="card-text">{{ seedDetail.commonName }}</p>
+      </div>
+      <div class="col-md-4 p-3">
+        <h6 class="card-subtitle text-muted">Beneficial for</h6>
+        <p *ngIf="seedDetail.beneficialFor" class="card-text">
+          {{ seedDetail.beneficialFor }}
+        </p>
+        <p *ngIf="!seedDetail.beneficialFor" class="card-text">None</p>
+      </div>
+      <div class="card-footer text-right jumbotron">
+        <button
+          id="listBtn"
+          type="button"
+          [routerLink]="['/seeds']"
+          class="btn m-1 btn-outline-primary"
+        >
+          Seeds List
+        </button>
+        <button
+          id="editBtn"
+          type="button"
+          [routerLink]="['edit']"
+          *ngIf="isRole('admin')"
+          class="btn m-1 btn-outline-success"
+        >
+          Edit
+        </button>
+        <button
+          id="deleteBtn"
+          type="button"
+          *ngIf="isRole('admin')"
+          [routerLink]="['delete']"
+          class="btn m-1 btn-outline-danger"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
