@@ -7,6 +7,7 @@ import { Seed } from '../seed';
 @Component({
   selector: 'app-seed-list',
   templateUrl: './seed-list.component.html',
+  styleUrls: ['./seed-list.component.css'],
 })
 export class SeedListComponent {
   public seeds: Seed[] = [];
@@ -23,9 +24,7 @@ export class SeedListComponent {
         sort: { scientificName: 'ASC' },
       })
       .subscribe((page: PagedResourceCollection<Seed>) => {
-        console.log(page.resources);
         this.seeds = page.resources;
-        console.log(this.seeds);
         this.totalSeeds = page.totalElements;
       });
   }
@@ -39,5 +38,9 @@ export class SeedListComponent {
       .subscribe(
         (page: PagedResourceCollection<Seed>) => (this.seeds = page.resources)
       );
+  }
+
+  detail(seed: Seed): void {
+    this.router.navigate(['seeds', seed.id]);
   }
 }
