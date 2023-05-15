@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Seed } from 'src/app/seed';
 import { SeedService } from '../seed.service';
 import { PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
+import { Seed } from '../seed';
 
 @Component({
   selector: 'app-seed-list',
@@ -23,7 +23,9 @@ export class SeedListComponent {
         sort: { scientificName: 'ASC' },
       })
       .subscribe((page: PagedResourceCollection<Seed>) => {
+        console.log(page.resources);
         this.seeds = page.resources;
+        console.log(this.seeds);
         this.totalSeeds = page.totalElements;
       });
   }

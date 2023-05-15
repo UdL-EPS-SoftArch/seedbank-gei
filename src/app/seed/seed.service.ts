@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Seed } from './seed';
-import {
-  HateoasResourceOperation,
-  ResourceCollection,
-} from '@lagoshny/ngx-hateoas-client';
+import { HateoasResourceOperation } from '@lagoshny/ngx-hateoas-client';
 
 @Injectable({
   providedIn: 'root',
