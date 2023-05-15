@@ -2,7 +2,7 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 import { DataTable } from '@cucumber/cucumber';
 
 Given(
-  /^I'm in the homepage logged in as an admin and I create a donation with$/,
+  /^I'm in the homepage logged in as an admin and I create a seed with$/,
   function (table: DataTable) {
     cy.visit('http://localhost:4200');
     cy.get('.nav-link').contains('Login').click();
