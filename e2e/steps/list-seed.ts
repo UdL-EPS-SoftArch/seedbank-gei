@@ -24,5 +24,5 @@ When(/^I go to the seeds list page$/, function () {
 });
 
 Then(/^I'm in the seeds list$/, function () {
-  cy.url().contains('/seeds');
+  cy.url().should('match', /\/seeds/);
 });

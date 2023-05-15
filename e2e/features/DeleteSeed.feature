@@ -11,8 +11,8 @@ Feature: Delete a seed
     When I click the seeds dropdown
     And I click the seed list button
     And I click on the first item
-    And I click on the "Delete" button
-    And I click on the "Confirm" button
+    And I click on the delete button
+    And I click on the confirm button
     Then I am redirected to the seed list page
 
   Scenario: Delete a seed without being an admin
@@ -24,4 +24,4 @@ Feature: Delete a seed
     And I log in as "donor1" with password "password"
     When I click the seeds dropdown
     And I click the seed list button
-    Then I should not see the seed delete button
+    Then I should not see the delete seed button
