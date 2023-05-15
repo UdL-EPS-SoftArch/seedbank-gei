@@ -5,6 +5,7 @@ export class Seed extends Resource {
   uri: string;
   scientificName: string;
   commonName: string[];
+  beneficialFor: Seed[];
   _links: any;
 
   constructor(values: object = {}) {
