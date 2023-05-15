@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-seed-delete',
   templateUrl: './seed-delete.component.html',
-  styleUrls: ['./seed-delete.component.scss'],
+  styleUrls: ['./seed-delete.component.css'],
 })
 export class SeedDeleteComponent implements OnInit {
   idSeed: string;
