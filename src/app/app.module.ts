@@ -44,6 +44,7 @@ import { DonationCreateComponent } from './donation/donation-create/donation-cre
 import { DonationUpdateComponent } from './donation/donation-update/donation-update.component';
 import { SeedListComponent } from './seed/seed-list/seed-list.component';
 import { SeedDetailComponent } from './seed/seed-detail/seed-detail.component';
+import { SeedDeleteComponent } from './seed/seed-delete/seed-delete.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { SeedDetailComponent } from './seed/seed-detail/seed-detail.component';
     DonationUpdateComponent,
     SeedListComponent,
     SeedDetailComponent,
+    SeedDeleteComponent,
   ],
   imports: [
     TakeComponentsModule,
