@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SeedService } from '../seed.service';
 import { PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
 import { Seed } from '../seed';
+import { AuthenticationBasicService } from 'src/app/login-basic/authentication-basic.service';
 
 @Component({
   selector: 'app-seed-list',
@@ -15,7 +16,11 @@ export class SeedListComponent {
   public page = 1;
   public totalSeeds = 0;
 
-  constructor(public router: Router, private seedService: SeedService) {}
+  constructor(
+    public router: Router,
+    private seedService: SeedService,
+    private authenticationService: AuthenticationBasicService
+  ) {}
 
   ngOnInit(): void {
     this.seedService
@@ -42,5 +47,9 @@ export class SeedListComponent {
 
   detail(seed: Seed): void {
     this.router.navigate(['seeds', seed.id]);
+  }
+
+  isRole(role: string): boolean {
+    return this.authenticationService.isRole(role);
   }
 }
