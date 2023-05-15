@@ -30,6 +30,7 @@ import {DonationUpdateComponent} from "./donation/donation-update/donation-updat
 import { SeedListComponent } from './seed/seed-list/seed-list.component';
 import { SeedDetailComponent } from './seed/seed-detail/seed-detail.component';
 import { SeedDeleteComponent } from './seed/seed-delete/seed-delete.component';
+import { SeedUpdateComponent } from './seed/seed-update/seed-update.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -59,6 +60,7 @@ const routes: Routes = [
   { path: 'seeds', component: SeedListComponent, canActivate: [LoggedInGuard]},
   { path: 'seeds/:id', component: SeedDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'seeds/:id/delete', component: SeedDeleteComponent, canActivate: [LoggedInGuard]},
+  { path: 'seeds/:id/edit', component: SeedUpdateComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
