@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Seed } from '../seed';
 import { Router } from '@angular/router';
-import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
-import { Location } from '@angular/common';
 import { SeedService } from '../seed.service';
 
 @Component({
