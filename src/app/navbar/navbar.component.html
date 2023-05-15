@@ -50,6 +50,15 @@
              [routerLink]="['/donations/create']"><span class="fas fa-user-circle"></span>Create</a>
         </div>
       </li>
+
+      <li class="nav-item" *ngIf="isRole('propagator') || isRole('admin') || isRole('donor') || isRole('user')" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="seedsDropdown" role="button"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Seeds</a>
+        <div class="dropdown-menu" aria-labelledby="listSeedsDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" id="listSeeds" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/seeds']"><span class="fas fa-user-circle"></span>List</a>
+        </div>
+      </li>
     </ul>
     <ul class="navbar-nav ms-auto me-3" app-login-navbar></ul>
   </div>
