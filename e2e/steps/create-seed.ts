@@ -4,13 +4,13 @@ import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps';
 Given(/^I'm in the homepage logged in as an admin$/, function () {
   cy.visit('http://localhost:4200');
   cy.get('.nav-link').contains('Login').click();
-  cy.get('#username').type('admin').blur();
+  cy.get('#username').type('admin1').blur();
   cy.get('#password').type('password').blur();
   cy.get('button').contains('Submit').click();
 });
 When(/^I go to the seed list page$/, function () {
   cy.get('.nav-link').contains('Seed').click();
-  cy.get('#listSeed').click();
+  cy.get('#listSeeds').click();
 });
 When(/^I click on add seed button$/, function () {
   cy.get('#createSeed').click();
@@ -24,7 +24,7 @@ Then(/^Submit button should be disabled$/, function () {
 Given(/^I'm in the homepage logged in as an user$/, function () {
   cy.visit('http://localhost:4200');
   cy.get('.nav-link').contains('Login').click();
-  cy.get('#username').type('user').blur();
+  cy.get('#username').type('test').blur();
   cy.get('#password').type('password').blur();
   cy.get('button').contains('Submit').click();
 });

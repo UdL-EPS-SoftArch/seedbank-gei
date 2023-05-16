@@ -24,7 +24,7 @@ Given(
 When(/^I go to seeds page and click on the last seed$/, function () {
   cy.get('.nav-link').contains('Seeds').click();
   cy.get('#listSeeds').click();
-  cy.get('.table').last().click();
+  cy.get('.card-block').last().click();
 });
 When(/^I click on edit$/, function () {
   cy.get('#editBtn').click();

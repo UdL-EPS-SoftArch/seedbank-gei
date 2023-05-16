@@ -4,8 +4,8 @@ import { DataTable } from '@cucumber/cucumber';
 When(/^I click the seeds list button$/, function () {
   cy.get('#listSeeds').click();
 });
-When(/^I click on the first item$/, function () {
-  cy.get('.table').first().click();
+When(/^I click on the first seed$/, function () {
+  cy.get('.card-block').first().click();
 });
 When(/^I click on the delete button$/, function () {
   cy.get('button').contains('Delete').click();

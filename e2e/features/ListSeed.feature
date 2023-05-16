@@ -12,7 +12,7 @@ Scenario: List seeds as a Admin
 
 Scenario: List seeds as a User
     Given I'm in the homepage
-    And I log in as "user1" with password "password"
-    When I'm logged in as user "user1"
+    And I log in as "test" with password "password"
+    When I'm logged in as user "test"
     And I go to the seeds list page
     Then I'm in the seeds list
