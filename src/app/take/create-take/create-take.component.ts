@@ -3,6 +3,7 @@ import {TakeService} from "../take.service";
 import {Router} from "@angular/router";
 import { Take } from '../take-model';
 import {DonationService} from "../../donation/donation.service";
+import {DonationInformation} from "../../donation/donation-list/donation-list.component";
 
 @Component({
   selector: 'app-create-take',
@@ -11,10 +12,14 @@ import {DonationService} from "../../donation/donation.service";
 })
 export class CreateTakeComponent {
   take = new Take();
+  currentDonation: DonationInformation;
 
   constructor(private takeService: TakeService, private router: Router, private donationService: DonationService) {
     console.log(this.take);
-    console.log(this.donationService.getCurrent())
+    this.currentDonation = donationService.getCurrent();
+    this.take.amount = this.currentDonation.amount;
+    this.take.weight = this.currentDonation.weight;
+    this.take.location = this.currentDonation.location;
   }
 
   onSubmit() {
