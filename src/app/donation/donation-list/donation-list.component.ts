@@ -17,6 +17,8 @@ export interface DonationInformation {
   donorName: string;
   propagatorName: string | undefined | null;
   amount: number;
+  weight: number;
+  location: string;
 }
 
 @Component({
@@ -59,12 +61,19 @@ export class DonationListComponent implements OnInit {
         donorName: donor.id,
         propagatorName: propagator?.id,
         amount: donation.amount,
+        weight: donation.weight,
+        location: donation.location,
       }
     }));
   }
 
   goToDonation(donation: DonationInformation): void {
+    this.setCurrentDonation(donation);
     this.router.navigate([donation.uri]).then();
+  }
+
+  setCurrentDonation(donation: DonationInformation) {
+    this.donationService.setCurrent(donation);
   }
 
 }
