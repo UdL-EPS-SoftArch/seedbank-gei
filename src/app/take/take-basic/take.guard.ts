@@ -14,6 +14,7 @@ export class TakeGuard {
     route: ActivatedRouteSnapshot) {
     let path = "";
     route.url[1] ? path = this.joinPath(route.url) : path = route.url[0].path;
+    console.log(path)
     if(path.includes("edit") || path.includes("delete")) {
       if(this.authenticationService.isRole('donor')) return false;
       else if(this.authenticationService.isRole('user')) return false
@@ -21,6 +22,7 @@ export class TakeGuard {
     }
     else if(path.includes("take")) {
       if(this.authenticationService.isRole('user')) return false;
+      else if (this.authenticationService.isRole('donor')) return false;
       else return true;
     }
     return true;
