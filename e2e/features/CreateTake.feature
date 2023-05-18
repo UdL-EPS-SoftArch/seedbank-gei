@@ -59,3 +59,13 @@ Feature: Create Take
     And I check if add take button exists
     Then I click the button
     And I check if were autofilled
+    
+  Scenario: I Add take a Take when logged in as propagator
+    Given I'm in the homepage
+    And I log in as "propagator" with password "password"
+    Then I'm logged in as user "propagator"
+    And I'm in donations take list page
+    And I click on the first element list
+    And I check if add take button exists
+    Then I click the button
+    And I check if were autofilled
