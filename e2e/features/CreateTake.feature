@@ -49,3 +49,13 @@ Feature: Create Take
       | location  | zaragoza    |
     And I click the "Submit" button
     Then The "Add Take" button is present
+
+  Scenario: I Add take a Take when logged in as admin
+    Given I'm in the homepage
+    And I log in as "admintest" with password "password"
+    Then I'm logged in as user "admintest"
+    And I'm in donations take list page
+    And I click on the first element list
+    And I check if add take button exists
+    Then I click the button
+    And I check if were autofilled
