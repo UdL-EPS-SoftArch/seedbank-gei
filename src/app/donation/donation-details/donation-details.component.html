@@ -1,0 +1,34 @@
+<h1>Donation from: {{donation?.donor?.id}} to propagator: {{donation?.takeBy?.propagator?.id}}</h1>
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark">
+  <tr>
+    <th>Amount</th>
+    <th>Weight</th>
+    <th>Location</th>
+    <th>Date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td id="amount">{{ donation?.amount }}</td>
+    <td id="weight">{{ donation?.weight}}</td>
+    <td id="location">{{ donation?.location }}</td>
+    <td>{{ donation?.date | date }}</td>
+  </tr>
+  </tbody>
+</table>
+<div class="card-footer text-right">
+  <button id="listBtn" type="button" [routerLink]="['/donations']" class="btn m-1 btn-outline-primary">See all donations
+  </button>
+  <button id="editBtn" type="button" *ngIf="(isRole('donor') && currentUserEdit()) || isRole('admin')"
+          [routerLink]="['edit']" class="btn m-1 btn-outline-success">Edit
+  </button>
+  <button id="deleteBtn" type="button" *ngIf="(isRole('donor') && currentUserEdit()) || isRole('admin')"
+          [routerLink]="['delete']" class="btn m-1 btn-outline-danger">Delete
+  </button>
+  <button id="addTakeBtn" type="button" *ngIf="isRole('propagator') || isRole('admin')"
+          [routerLink]="['/take/add']" class="btn m-1 btn-outline-success">Add Take
+  </button>
+</div>
+
+

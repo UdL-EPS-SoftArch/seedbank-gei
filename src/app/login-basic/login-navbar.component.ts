@@ -24,6 +24,16 @@ export class LoginNavbarComponent {
   isRole(role: string): boolean {
     return this.authenticationService.isRole(role);
   }
+  getProfileLink() {
+    if (this.isRole('user')) {
+      return ['/users', this.getCurrentUser().id];
+    } else if (this.isRole('propagator')) {
+      return ['/propagator', this.getCurrentUser().id];
+    } else {
+      return ['/users', this.getCurrentUser().id];
+    }
+  }
+
 
   logout(event): void {
     event.preventDefault();

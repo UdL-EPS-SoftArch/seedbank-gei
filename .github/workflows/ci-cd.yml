@@ -19,7 +19,7 @@ jobs:
           node-version: '14.x'
       - name: Test and build
         run: |
-          docker run --env PROFILE=test -d -p 8080:8080 udlepssoftarch/seedbank-gei-api
+          docker run --env PROFILE=prod -d -p 8080:8080 udlepssoftarch/seedbank-gei-api
           while ! nc -z localhost 8080; do sleep 10; done
           docker ps -a
           npm ci
