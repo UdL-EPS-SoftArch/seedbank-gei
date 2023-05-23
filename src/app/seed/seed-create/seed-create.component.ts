@@ -2,6 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Seed } from '../seed';
 import { Router } from '@angular/router';
 import { SeedService } from '../seed.service';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-seed-create',
@@ -11,11 +19,34 @@ import { SeedService } from '../seed.service';
 export class SeedCreateComponent implements OnInit {
   public seed: Seed;
   public commonNames: string = '';
-
+  public seedForm: FormGroup;
   constructor(private router: Router, private seedService: SeedService) {}
 
   ngOnInit(): void {
     this.seed = new Seed();
+    this.seedForm = new FormGroup({
+      scientificName: new FormControl(this.seed.scientificName, [
+        Validators.required,
+        this.scientificNameValidator(),
+      ]),
+      commonName: new FormControl(this.commonNames),
+    });
+  }
+
+  scientificNameValidator(): ValidatorFn {
+    const nameRe: RegExp = /^[A-Za-z]+(?:\s[A-Za-z]+)*$/;
+    return (control: AbstractControl): ValidationErrors | null => {
+      const invalid = !nameRe.test(control.value);
+      return invalid ? { invalidName: { value: control.value } } : null;
+    };
+  }
+
+  get scientificName() {
+    return this.seedForm.get('scientificName');
+  }
+
+  get commonName() {
+    return this.seedForm.get('commonName');
   }
 
   onSubmit(): void {

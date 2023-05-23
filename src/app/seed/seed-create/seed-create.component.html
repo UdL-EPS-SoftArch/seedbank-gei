@@ -1,21 +1,30 @@
-<form id="user-form" (ngSubmit)="onSubmit()" #form="ngForm">
+<form
+  id="seed-form"
+  (ngSubmit)="onSubmit()"
+  #form="ngForm"
+  [formGroup]="seedForm"
+>
   <fieldset>
     <!-- Scientific name input -->
-    <div
-      class="form-group mb-3"
-      [class.was-validated]="scientificName.dirty || scientificName.touched"
-    >
+    <div class="form-group mb-3">
       <label class="control-label" for="scientificName">Scientific name*</label>
       <input
         id="scientificName"
         name="scientificName"
+        formControlName="scientificName"
         type="text"
         class="form-control"
-        required
         [(ngModel)]="seed.scientificName"
-        #scientificName="ngModel"
       />
-      <div class="invalid-feedback">A scientific name is required</div>
+      <div class="form-error" *ngIf="scientificName.errors?.['required']">
+        Scientific name is required.
+      </div>
+      <div
+        class="form-error"
+        *ngIf="scientificName.errors?.['invalidName'] && !scientificName.errors?.['required']"
+      >
+        Invalid scientific name.
+      </div>
     </div>
 
     <!-- Common names input -->
@@ -24,10 +33,10 @@
       <input
         id="commonName"
         name="commonName"
+        formControlName="commonName"
         type="text"
         class="form-control"
         [(ngModel)]="commonNames"
-        #commonName="ngModel"
       />
     </div>
 
