@@ -17,9 +17,12 @@ export class CreateTakeComponent {
   constructor(private takeService: TakeService, private router: Router, private donationService: DonationService) {
     console.log(this.take);
     this.currentDonation = donationService.getCurrent();
-    this.take.amount = this.currentDonation.amount;
-    this.take.weight = this.currentDonation.weight;
-    this.take.location = this.currentDonation.location;
+    if (this.currentDonation) {
+      console.log(this.currentDonation);
+      this.take.amount = this.currentDonation.amount;
+      this.take.weight = this.currentDonation.weight;
+      this.take.location = this.currentDonation.location;
+    }
   }
 
   onSubmit() {
