@@ -34,8 +34,8 @@
     </div>
 
     <label for="seed-select">Seed:</label>
-    <select name="seeds" id="seed-select">
-      <option *ngFor="let seed of seeds" [value]="seed.scientificName">
+    <select name="seeds" id="seed-select" [(ngModel)]="selectedSeed">
+      <option *ngFor="let seed of seeds" [value]="seed.id">
         {{seed.scientificName}}
       </option>
     </select>

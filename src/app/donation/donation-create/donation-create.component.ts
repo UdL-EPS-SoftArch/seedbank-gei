@@ -16,6 +16,7 @@ import {PagedResourceCollection} from "@lagoshny/ngx-hateoas-client";
 export class DonationCreateComponent implements OnInit {
   public donation: Donation;
   public seeds: Seed[] = [];
+  public selectedSeed: String | undefined = undefined;
 
   constructor(
     private router: Router,
@@ -33,6 +34,18 @@ export class DonationCreateComponent implements OnInit {
 
   onSubmit(): void {
     this.donation.donor = this.authenticationBasicService.getCurrentUser();
+    const selectedSeedId = +this.selectedSeed
+    if (this.selectedSeed === undefined) {
+      this.createDonation();
+    } else {
+      this.seedService.getResource(selectedSeedId).subscribe((seed: Seed) => {
+        this.donation.of = seed;
+        this.createDonation();
+      });
+    }
+  }
+
+  createDonation(): void {
     this.donationService.createResource({body: this.donation}).subscribe((donation: Donation) => {
       const uri = (donation as any).uri;
       this.router.navigate([uri]).then();
