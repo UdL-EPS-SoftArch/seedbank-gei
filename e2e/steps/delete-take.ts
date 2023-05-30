@@ -1,15 +1,15 @@
 import { And, Then } from "cypress-cucumber-preprocessor/steps";
 
-And("I click the {string} dropdown menu", (option) => {
-  cy.get(".dropdown-item").contains(option).click();
-});
-
 Then("I'm in take list page", () => {
   cy.visit("http://localhost:4200/take");
 });
 
 And("I click on the first item list", () => {
   cy.get(".card-text").first().click();
+});
+
+And("I click on the last item list", () => {
+  cy.get(".card-text").last().click();
 });
 
 Then("The delete button exist", () => {

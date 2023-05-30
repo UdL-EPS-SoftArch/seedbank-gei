@@ -27,7 +27,11 @@ import {DonationListComponent} from "./donation/donation-list/donation-list.comp
 import {DonationDeleteComponent} from "./donation/donation-delete/donation-delete.component";
 import {DonationCreateComponent} from "./donation/donation-create/donation-create.component";
 import {DonationUpdateComponent} from "./donation/donation-update/donation-update.component";
-import {PropagatorListComponent} from "./propagator/propagator-list/propagator-list.component";
+import { SeedListComponent } from './seed/seed-list/seed-list.component';
+import { SeedDetailComponent } from './seed/seed-detail/seed-detail.component';
+import { SeedDeleteComponent } from './seed/seed-delete/seed-delete.component';
+import { SeedCreateComponent } from './seed/seed-create/seed-create.component';
+import { SeedUpdateComponent } from './seed/seed-update/seed-update.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -46,7 +50,6 @@ const routes: Routes = [
   { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'requests', component: RequestListComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
-  { path: 'propagator', component: PropagatorListComponent, canActivate: [LoggedInGuard]},
   { path: 'propagator/:id', component: PropagatorDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'propagator/:id/delete', component: PropagatorDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'propagator/:id/edit', component: PropagatorEditComponent, canActivate: [LoggedInGuard]},
@@ -55,6 +58,11 @@ const routes: Routes = [
   { path: 'take/:id/delete', component: TakeDeleteComponent, canActivate: [LoggedInGuard, TakeGuard]},
   { path: 'take/:id/edit', component: TakeUpdateComponent, canActivate: [LoggedInGuard, TakeGuard]},
   { path: 'take/:id', component: TakeDetailComponent, canActivate: [LoggedInGuard, TakeGuard]},
+  { path: 'seeds', component: SeedListComponent, canActivate: [LoggedInGuard]},
+  { path: 'seeds/create', component: SeedCreateComponent, canActivate: [LoggedInGuard]},
+  { path: 'seeds/:id', component: SeedDetailComponent, canActivate: [LoggedInGuard]},
+  { path: 'seeds/:id/delete', component: SeedDeleteComponent, canActivate: [LoggedInGuard]},
+  { path: 'seeds/:id/edit', component: SeedUpdateComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},

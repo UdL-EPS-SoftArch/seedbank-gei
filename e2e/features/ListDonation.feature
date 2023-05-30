@@ -8,5 +8,5 @@ Feature: List Donation
     And I log in as "propagator1" with password "password"
     When I'm logged in as user "propagator1"
     And I click the "Donations" menu
-    And I click the "List" dropdown menu
+    And I click the "List" dropdown
     Then I'm in the Donations list

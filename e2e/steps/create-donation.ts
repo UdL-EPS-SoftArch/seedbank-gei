@@ -27,6 +27,6 @@ Given(/^I'm in the homepage logged in as a propagator$/, function () {
   cy.get('#password').type('password').blur();
   cy.get('button').contains('Submit').click();
 });
-Then(/^I should not see the create button$/, function () {
-  cy.get('#createRequest').should('not.exist');
+Then(/^I should not see the donation create button$/, function () {
+  cy.get('#createDonation').should('not.exist');
 });

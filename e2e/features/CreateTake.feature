@@ -49,3 +49,31 @@ Feature: Create Take
       | location  | zaragoza    |
     And I click the "Submit" button
     Then The "Add Take" button is present
+
+  Scenario: I Add take a Take when logged in as admin
+    Given I'm in the homepage
+    And I log in as "admin1" with password "password"
+    Then I'm logged in as user "admin1"
+    And I'm in donations take list page
+    And I click on the first element list
+    And I check if add take button exists
+    Then I click the button
+    And I check if were autofilled
+
+  Scenario: I Add take a Take when logged in as propagator
+    Given I'm in the homepage
+    And I log in as "propagator1" with password "password"
+    Then I'm logged in as user "propagator1"
+    And I'm in donations take list page
+    And I click on the first element list
+    And I check if add take button exists
+    Then I click the button
+    And I check if were autofilled
+
+  Scenario: I try to add a Take when logged in as donor
+    Given I'm in the homepage
+    And I log in as "donor1" with password "password"
+    Then I'm logged in as user "donor1"
+    And I'm in donations take list page
+    And I click on the first element list
+    And I check if add take button not exists

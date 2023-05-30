@@ -10,6 +10,7 @@ export default defineConfig({
     },
     specPattern: './e2e/features/**/*.feature',
     excludeSpecPattern: '**/*.{js,ts}',
-    supportFile: false
+    supportFile: false,
+    experimentalRunAllSpecs: true
   },
 })

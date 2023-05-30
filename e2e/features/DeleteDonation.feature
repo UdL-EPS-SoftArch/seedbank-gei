@@ -10,9 +10,9 @@ Feature: Delete a donation
       | weight   | 123           |
       | location | Lleida        |
     When I click the donations dropdown
-    And I click the list button
+    And I click the donation list button
     And I click on the first item
-    And I click on the delete button
+    And I click on the donation delete button
     And I click on the confirm button
     Then I am redirected to the donation list page
 
@@ -25,5 +25,5 @@ Feature: Delete a donation
     And I logout
     And I log in as "donor1" with password "password"
     When I click the donations dropdown
-    And I click the list button
-    Then I should not see the delete button
+    And I click the donation list button
+    Then I should not see the donation delete button

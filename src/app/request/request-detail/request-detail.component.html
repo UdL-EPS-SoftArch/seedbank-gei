@@ -11,9 +11,9 @@
   </thead>
   <tbody>
   <tr>
-    <td>{{ request.amount }}</td>
-    <td>{{ request.weight }}</td>
-    <td>{{ request.location }}</td>
+    <td id="amount">{{ request.amount }}</td>
+    <td id="weight">{{ request.weight }}</td>
+    <td id="location">{{ request.location }}</td>
     <td>{{ request.date | date }}</td>
     <td *ngIf="request?.fulfilledBy, else not_fulfilled">Yes</td>
 
