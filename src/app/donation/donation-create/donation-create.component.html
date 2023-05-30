@@ -29,8 +29,16 @@
     <div class="form-group fa-pull-right">
       <button id="listBtn" type="button" (click)="onCancel()" class="btn btn-outline-primary pull-right">Back</button>
       <button id="submit" type="submit" [disabled]="!form.form.valid"
-              class="btn ms-3 btn-success pull-right">Submit</button>
+              class="btn ms-3 btn-success pull-right">Submit
+      </button>
     </div>
+
+    <label for="seed-select">Seed:</label>
+    <select name="seeds" id="seed-select" [(ngModel)]="selectedSeed">
+      <option *ngFor="let seed of seeds" [value]="seed.id">
+        {{seed.scientificName}}
+      </option>
+    </select>
 
   </fieldset>
 </form>
