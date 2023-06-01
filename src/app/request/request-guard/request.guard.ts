@@ -13,6 +13,8 @@ export class RequestGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
+    const LIST_PATH: string = "requests"
+    const DETAIL_PATH: RegExp = /requests\/\d+/
     return true
   }
 }
