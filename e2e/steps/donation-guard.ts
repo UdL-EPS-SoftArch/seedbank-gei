@@ -1,4 +1,4 @@
-import {Given, Then, When} from "@cucumber/cucumber";
+import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 
 When(/^I go to the create a new donation url$/, function () {
   cy.visit('http://localhost:4200/donations/create');
