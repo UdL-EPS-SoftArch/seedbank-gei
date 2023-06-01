@@ -7,6 +7,7 @@ import {Take} from "../../take";
 import {switchMap} from "rxjs/operators";
 import {RequestKeys} from "../request-keys";
 import {AuthenticationBasicService} from "../../login-basic/authentication-basic.service";
+import { DonationService } from 'src/app/donation/donation.service';
 
 @Component({
   selector: 'app-request-detail',
@@ -20,6 +21,7 @@ export class RequestDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private requestService: RequestService,
     private authenticationService: AuthenticationBasicService,
+    private donationService: DonationService,
   ) {
   }
   ngOnInit(): void {
@@ -48,5 +50,9 @@ export class RequestDetailComponent implements OnInit {
 
   currentUserEdit(){
     return this.getCurrentUserName() == this.request.propagator.id;
+  }
+
+  createDonation(request: Request) {
+    
   }
 }
