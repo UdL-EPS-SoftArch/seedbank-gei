@@ -9,9 +9,13 @@ Then(/^I should be redirected to the homepage$/, function () {
 });
 
 When(/^I go to the edit a donation url$/, function () {
-  cy.visit('http://localhost:4200/donations/edit/1');
+  cy.visit('http://localhost:4200/donations/1/edit');
 });
 
 Given(/^I log out$/, function () {
   cy.get('.nav-link').contains('Logout').click();
+});
+
+When(/^I go to the remove a donation url$/, function () {
+  cy.visit('http://localhost:4200/donations/1/delete');
 });
