@@ -17,13 +17,16 @@ export class DonationGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    const LIST_PATH: string = "donations";
-    const DETAIL_PATH: string = "donations/[0-9]+";
+
+    const LIST_PATH: string = "donations"
+    const DETAIL_PATH: RegExp = /donations\/\d+/
 
     let path: string = route.url ? joinPath(route.url) : route.url[0].path;
 
+    console.log(path)
+
     if (path.includes(ActionKeys.Create) || path.includes(ActionKeys.Edit) || path.includes(ActionKeys.Delete))
       return this.authenticationService.isRole(RoleKeys.Donor);
-    return (path === LIST_PATH || path === DETAIL_PATH);
+    return (path === LIST_PATH || DETAIL_PATH.test(path))
   }
 }
