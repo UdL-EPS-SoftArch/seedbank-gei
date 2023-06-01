@@ -1,26 +1,28 @@
 import { Injectable } from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlSegment, UrlTree} from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from '@angular/router';
 import { Observable } from 'rxjs';
+import {AuthenticationBasicService} from "../../login-basic/authentication-basic.service";
+import {RoleKeys} from "../../guards/role-keys";
+import {ActionKeys} from "../../guards/action-keys";
+import {joinPath} from "../../guards/join-path";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DonationGuard implements CanActivate {
+  constructor(private authenticationService: AuthenticationBasicService) {
+  }
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    let path: string = route.url ? this.joinPath(route.url) : route.url[0].path;
-    console.log(path)
-    return true
-  }
+    const LIST_PATH: string = "donations";
 
+    let path: string = route.url ? joinPath(route.url) : route.url[0].path;
 
-  private joinPath(url: UrlSegment[]) {
-    let finalPath: string = "";
-    url.forEach((segment: UrlSegment) => {
-      finalPath += segment.path + "/";
-    });
-    return finalPath.substring(0, finalPath.length - 1);
+    if (path.includes(ActionKeys.Create) || path.includes(ActionKeys.Edit) || path.includes(ActionKeys.Delete))
+      return this.authenticationService.isRole(RoleKeys.Donor);
+    return path === LIST_PATH;
   }
 }
