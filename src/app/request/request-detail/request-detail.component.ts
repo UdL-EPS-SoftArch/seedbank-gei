@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Request} from "../request";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {RequestService} from "../request.service";
 import {Propagator} from "../../propagator";
 import {Take} from "../../take";
@@ -8,6 +8,7 @@ import {switchMap} from "rxjs/operators";
 import {RequestKeys} from "../request-keys";
 import {AuthenticationBasicService} from "../../login-basic/authentication-basic.service";
 import { DonationService } from 'src/app/donation/donation.service';
+import { Donation } from 'src/app/donation/donation';
 
 @Component({
   selector: 'app-request-detail',
@@ -22,6 +23,7 @@ export class RequestDetailComponent implements OnInit {
     private requestService: RequestService,
     private authenticationService: AuthenticationBasicService,
     private donationService: DonationService,
+    private router: Router,
   ) {
   }
   ngOnInit(): void {
@@ -53,6 +55,17 @@ export class RequestDetailComponent implements OnInit {
   }
 
   createDonation(request: Request) {
-    
+    let donation: any = {
+      amount: request.amount,
+      weight: request.weight,
+      location: request.location,
+      donor: this.authenticationService.getCurrentUser(),
+      takeBy: null,
+      target: request
+    }
+    this.donationService.createResource({body: donation}).subscribe((donation: Donation) => {
+      const uri = (donation as any).uri;
+      this.router.navigate([uri]).then();
+    });
   }
 }
