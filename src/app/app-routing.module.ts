@@ -33,23 +33,24 @@ import { SeedDeleteComponent } from './seed/seed-delete/seed-delete.component';
 import { SeedCreateComponent } from './seed/seed-create/seed-create.component';
 import { SeedUpdateComponent } from './seed/seed-update/seed-update.component';
 import {DonationGuard} from "./donation/donation-guard/donation.guard";
+import {RequestGuard} from "./request/request-guard/request.guard";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
   { path: 'users/:id/delete', component: UserDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id/edit', component: UserEditComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
-  { path: 'requests/create', component: RequestCreateComponent, canActivate: [LoggedInGuard] },
   { path: 'donations', component: DonationListComponent, canActivate: [LoggedInGuard, DonationGuard]},
   { path: 'donations/create', component: DonationCreateComponent, canActivate: [LoggedInGuard, DonationGuard]},
   { path: 'donations/:id/delete', component: DonationDeleteComponent, canActivate: [LoggedInGuard, DonationGuard]},
   { path: 'donations/:id/edit', component: DonationUpdateComponent, canActivate: [LoggedInGuard, DonationGuard]},
   { path: 'donations/:id', component: DonationDetailsComponent, canActivate: [LoggedInGuard, DonationGuard]},
   { path: 'donations', component: DonationListComponent, canActivate: [LoggedInGuard, DonationGuard]},
-  { path: 'requests/:id/delete', component: RequestDeleteComponent, canActivate: [LoggedInGuard]},
-  { path: 'requests/:id/edit', component: RequestUpdateComponent, canActivate: [LoggedInGuard] },
-  { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard]},
-  { path: 'requests', component: RequestListComponent, canActivate: [LoggedInGuard]},
+  { path: 'requests/create', component: RequestCreateComponent, canActivate: [LoggedInGuard, RequestGuard] },
+  { path: 'requests/:id/delete', component: RequestDeleteComponent, canActivate: [LoggedInGuard, RequestGuard]},
+  { path: 'requests/:id/edit', component: RequestUpdateComponent, canActivate: [LoggedInGuard, RequestGuard] },
+  { path: 'requests/:id', component: RequestDetailComponent, canActivate: [LoggedInGuard, RequestGuard]},
+  { path: 'requests', component: RequestListComponent, canActivate: [LoggedInGuard, RequestGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
   { path: 'propagator/:id', component: PropagatorDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'propagator/:id/delete', component: PropagatorDeleteComponent, canActivate: [LoggedInGuard]},
