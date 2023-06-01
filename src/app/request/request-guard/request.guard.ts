@@ -23,6 +23,6 @@ export class RequestGuard implements CanActivate {
 
     if (path.includes(ActionKeys.Create) || path.includes(ActionKeys.Edit) || path.includes(ActionKeys.Delete))
       return this.authenticationService.isRole(RoleKeys.Propagator);
-    return true
+    return (path === LIST_PATH || DETAIL_PATH.test(path))
   }
 }
