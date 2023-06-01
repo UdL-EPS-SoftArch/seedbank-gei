@@ -23,8 +23,6 @@ export class DonationGuard implements CanActivate {
 
     let path: string = route.url ? joinPath(route.url) : route.url[0].path;
 
-    console.log(path)
-
     if (path.includes(ActionKeys.Create) || path.includes(ActionKeys.Edit) || path.includes(ActionKeys.Delete))
       return this.authenticationService.isRole(RoleKeys.Donor);
     return (path === LIST_PATH || DETAIL_PATH.test(path))
