@@ -8,14 +8,14 @@ Feature: Update a seed
     When I go to seeds page and click on the last seed
     And I click on edit
     And I clear each field and fill the form with
-      | FIELD            | VALUE          |
-      | scientificName   | Allium sativum |
-      | commonName       | Garlic         |
+      | FIELD          | VALUE       |
+      | scientificName | Allium cepa |
+      | commonName     | Onion       |
     Then I am redirected to the seed details page
     And I should see the seed with
-      | FIELD            | VALUE          |
-      | scientificName   | Allium sativum |
-      | commonName       | Garlic         |
+      | FIELD          | VALUE       |
+      | scientificName | Allium cepa |
+      | commonName     | Onion       |
 
 #  TODO: form validation not implemented yet
 #  Scenario: Update a seed with invalid data
