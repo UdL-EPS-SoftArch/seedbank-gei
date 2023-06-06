@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
+import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps';
 import { DataTable } from '@cucumber/cucumber';
 
 Given(/^I'm in the homepage logged in as a donor$/, function () {
@@ -29,4 +29,14 @@ Given(/^I'm in the homepage logged in as a propagator$/, function () {
 });
 Then(/^I should not see the donation create button$/, function () {
   cy.get('#createDonation').should('not.exist');
+});
+And(/^I'm in request list page$/, function () {
+  cy.visit('http://localhost:4200/requests');
+});
+And(/^I click first request$/, function () {
+  cy.get("#date").first().click();
+});
+Then(/^I should not see the donate button$/, function () {
+  cy.wait(1000);
+  cy.get('#donateBtn').should('not.exist');
 });

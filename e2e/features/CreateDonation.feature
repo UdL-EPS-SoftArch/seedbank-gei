@@ -62,6 +62,9 @@ Feature: Create a donation
     Then I should not see the donation create button
 
   Scenario: Create a donation from a request
-    Given I'm in the homepage logged in as a donor
+    Given I'm in the homepage
+    And I log in as "donor1" with password "password"
+    When I'm logged in as user "donor1"
     And I'm in request list page
-    Then I should not see the donation create button
+    And I click first request
+    Then I should not see the donate button
