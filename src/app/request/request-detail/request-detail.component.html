@@ -30,6 +30,6 @@
   </button>
   <button id="deleteBtn" type="button" *ngIf="(isRole('propagator') && currentUserEdit()) || isRole('admin')" [routerLink]="['delete']" class="btn m-1 btn-outline-danger">Delete
   </button>
-  <button id="donateBtn" type="button" *ngIf="isRole('donor') || isRole('admin')" (click)="createDonation(request)" class="btn m-1 btn-outline-success">Donate
+  <button id="donateBtn" type="button" *ngIf="(isRole('donor') || isRole('admin')) && request.fulfilledBy == null" (click)="createDonation(request)" class="btn m-1 btn-outline-success">Donate
   </button>
 </div>
