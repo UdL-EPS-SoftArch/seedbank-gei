@@ -60,3 +60,11 @@ Feature: Create a donation
     Given I'm in the homepage logged in as a propagator
     When I click the donations dropdown
     Then I should not see the donation create button
+
+  Scenario: Create a donation from a request
+    Given I'm in the homepage
+    And I log in as "donor1" with password "password"
+    When I'm logged in as user "donor1"
+    And I'm in request list page
+    And I click first request
+    Then I should not see the donate button
