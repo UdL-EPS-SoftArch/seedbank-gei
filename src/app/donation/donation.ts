@@ -8,4 +8,5 @@ import {donationsResource} from "./donation-keys";
 export class Donation extends Batch {
   donor: Donor
   takeBy: Take | null
+  target: Request | null
 }
