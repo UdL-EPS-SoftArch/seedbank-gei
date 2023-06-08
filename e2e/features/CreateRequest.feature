@@ -62,8 +62,8 @@ Feature: Create a request
     And I click on create new request
     And I fill the form with
       | FIELD    | VALUE         |
-      | amount   | abc           |
-      | weight   | 123           |
+      | amount   | 123           |
+      | weight   | abc           |
       | location | Lleida        |
     Then Submit button should be disabled
 
