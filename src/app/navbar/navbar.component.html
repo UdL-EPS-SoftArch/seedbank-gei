@@ -10,7 +10,7 @@
       <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
         <a class="nav-link" [routerLink]="['/about']">About</a>
       </li>
-      <li class="nav-item" *ngIf="isRole('user') || isRole('propagator') || isRole('admin')" ngbDropdown>
+      <li class="nav-item" *ngIf="isRole('user') || isRole('propagator') || isRole('admin') || isRole('donor')" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="playerDropdown" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Users</a>
         <div class="dropdown-menu" aria-labelledby="listUsersDropdown" ngbDropdownMenu>
@@ -19,7 +19,7 @@
         </div>
       </li>
 
-      <li class="nav-item" *ngIf="isRole('donor') || isRole('admin') || isRole('propagator')" ngbDropdown>
+      <li class="nav-item" *ngIf="isRole('donor') || isRole('admin') || isRole('propagator') || isRole('donor')" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="takesDropdown" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Takes</a>
         <div class="dropdown-menu" aria-labelledby="listTakesDropdown" ngbDropdownMenu>
@@ -28,7 +28,7 @@
         </div>
       </li>
 
-      <li class="nav-item" *ngIf="isRole('propagator') || isRole('admin') || isRole('donor') || isRole('user')" ngbDropdown>
+      <li class="nav-item" *ngIf="isRole('admin') || isRole('donor') " ngbDropdown>
         <a class="nav-link dropdown-toggle" id="requestsDropdown" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Requests</a>
         <div class="dropdown-menu" aria-labelledby="listTakesDropdown" ngbDropdownMenu>
@@ -40,7 +40,7 @@
       </li>
 
 
-      <li class="nav-item" *ngIf="isRole('propagator') || isRole('admin') || isRole('donor') || isRole('user')" ngbDropdown>
+      <li class="nav-item" *ngIf="isRole('propagator') || isRole('admin') || isRole('donor')" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="donationsDropdown" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Donations</a>
         <div class="dropdown-menu" aria-labelledby="listDonationsDropdown" ngbDropdownMenu>
@@ -51,7 +51,7 @@
         </div>
       </li>
 
-      <li class="nav-item" *ngIf="isRole('propagator') || isRole('admin') || isRole('donor') || isRole('user')" ngbDropdown>
+      <li class="nav-item" *ngIf="isRole('propagator') || isRole('admin') || isRole('donor')" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="seedsDropdown" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Seeds</a>
         <div class="dropdown-menu" aria-labelledby="listSeedsDropdown" ngbDropdownMenu>
