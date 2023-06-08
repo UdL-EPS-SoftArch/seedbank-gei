@@ -8,6 +8,6 @@ Feature: List Donation
     And I log in as "propagator1" with password "password"
     When I'm logged in as user "propagator1"
     And I click the "Donations" menu
-    And I search the Donation by location name "Lleida"
+    And I search the Donation by location name "Barcelona"
     When I click the Donation hint
     Then I'm in the specific Donation
