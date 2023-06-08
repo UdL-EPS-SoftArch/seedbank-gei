@@ -48,8 +48,8 @@ Feature: Create a request
     And I click on edit
     And I clear each field and fill the form with and I don't submit
       | FIELD    | VALUE         |
-      | amount   | abc           |
-      | weight   | 456           |
+      | amount   | 123           |
+      | weight   | abc           |
       | location | Barcelona     |
     Then Submit button should be disabled
 
