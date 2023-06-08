@@ -75,7 +75,7 @@ Feature: Create a donation
       | FIELD    | VALUE         |
       | amount   | 123           |
       | weight   | 123           |
-      | location | abc           |
+      | location |               |
     Then Submit button should be disabled
 
   Scenario: Create a new request without being a donor
