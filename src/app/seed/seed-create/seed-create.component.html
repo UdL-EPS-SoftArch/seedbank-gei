@@ -47,10 +47,15 @@
     <!-- Added common names section -->
 
     <div *ngIf="commonNamesList.length > 0" class="added-commonNames-wrapper">
-      <div *ngFor="let commonName of commonNamesList" class="commonName-card">
+      <div
+        *ngFor="let commonName of commonNamesList; let i = index"
+        class="commonName-card"
+      >
         <div class="commonName-wrapper">
           <p>{{ commonName }}</p>
-          <div class="delete-commonName-btn">X</div>
+          <div class="delete-commonName-btn" (click)="removeCommonName(i)">
+            X
+          </div>
         </div>
       </div>
     </div>

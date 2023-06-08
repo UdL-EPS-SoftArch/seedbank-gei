@@ -53,11 +53,13 @@ export class SeedCreateComponent implements OnInit {
   addCommonName() {
     this.commonNamesList.push(this.commonName.value);
     this.commonNameInput = '';
-    console.log(this.commonNamesList);
+  }
+
+  removeCommonName(index: number) {
+    this.commonNamesList.splice(index, 1);
   }
 
   onSubmit(): void {
-    /* this.seed.commonName = this.commonNames.split(','); */
     this.seed.commonName = this.commonNamesList;
     this.seed.beneficialFor = [];
     this.seedService
