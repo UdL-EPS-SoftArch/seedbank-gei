@@ -56,6 +56,17 @@ Feature: Create a donation
       | location | Lleida        |
     Then Submit button should be disabled
 
+  Scenario: Create a new donation with badly formatted weight
+    Given I'm in the homepage logged in as a donor
+    When I click the donations dropdown
+    And I click on create
+    And I fill the form with
+      | FIELD    | VALUE         |
+      | amount   | 123           |
+      | weight   | abc           |
+      | location | Lleida        |
+    Then Submit button should be disabled
+
   Scenario: Create a new request without being a donor
     Given I'm in the homepage logged in as a propagator
     When I click the donations dropdown
