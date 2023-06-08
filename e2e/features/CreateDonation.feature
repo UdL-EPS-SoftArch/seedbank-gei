@@ -45,7 +45,7 @@ Feature: Create a donation
       | weight   | 123           |
     Then Submit button should be disabled
 
-  Scenario: Create a new donation with badly formatted field
+  Scenario: Create a new donation with badly formatted amount
     Given I'm in the homepage logged in as a donor
     When I click the donations dropdown
     And I click on create
