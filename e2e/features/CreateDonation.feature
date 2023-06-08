@@ -74,7 +74,7 @@ Feature: Create a donation
     And I fill the form with
       | FIELD    | VALUE         |
       | amount   | 123           |
-      | weight   | abc           |
+      | weight   | 123           |
       | location | abc           |
     Then Submit button should be disabled
 
