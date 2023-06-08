@@ -30,17 +30,33 @@
     <!-- Common names input -->
     <div class="form-group mb-3">
       <label class="control-label" for="commonName">Common names</label>
-      <input
-        id="commonName"
-        name="commonName"
-        formControlName="commonName"
-        type="text"
-        class="form-control"
-        [(ngModel)]="commonNames"
-      />
+      <div class="commonName-input">
+        <input
+          id="commonName"
+          name="commonName"
+          formControlName="commonName"
+          type="text"
+          class="form-control"
+          [(ngModel)]="commonNameInput"
+        />
+
+        <div id="add-commonName" (click)="addCommonName()">+</div>
+      </div>
     </div>
 
-    <div class="form-group fa-pull-right">
+    <!-- Added common names section -->
+
+    <div *ngIf="commonNamesList.length > 0" class="added-commonNames-wrapper">
+      <div *ngFor="let commonName of commonNamesList" class="commonName-card">
+        <div class="commonName-wrapper">
+          <p>{{ commonName }}</p>
+          <div class="delete-commonName-btn">X</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Save and back buttons -->
+    <div class="form-group fa-pull-right mt-3">
       <button
         id="listBtn"
         type="button"

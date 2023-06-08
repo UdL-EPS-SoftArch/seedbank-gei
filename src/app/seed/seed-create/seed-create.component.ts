@@ -18,7 +18,8 @@ import {
 })
 export class SeedCreateComponent implements OnInit {
   public seed: Seed;
-  public commonNames: string = '';
+  public commonNameInput: string = '';
+  public commonNamesList: any = [];
   public seedForm: FormGroup;
   constructor(private router: Router, private seedService: SeedService) {}
 
@@ -29,7 +30,7 @@ export class SeedCreateComponent implements OnInit {
         Validators.required,
         this.scientificNameValidator(),
       ]),
-      commonName: new FormControl(this.commonNames),
+      commonName: new FormControl(this.commonNameInput),
     });
   }
 
@@ -49,8 +50,15 @@ export class SeedCreateComponent implements OnInit {
     return this.seedForm.get('commonName');
   }
 
+  addCommonName() {
+    this.commonNamesList.push(this.commonName.value);
+    this.commonNameInput = '';
+    console.log(this.commonNamesList);
+  }
+
   onSubmit(): void {
-    this.seed.commonName = this.commonNames.split(',');
+    /* this.seed.commonName = this.commonNames.split(','); */
+    this.seed.commonName = this.commonNamesList;
     this.seed.beneficialFor = [];
     this.seedService
       .createResource({ body: this.seed })
