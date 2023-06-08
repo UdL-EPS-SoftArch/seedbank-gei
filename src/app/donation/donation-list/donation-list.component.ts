@@ -76,4 +76,8 @@ export class DonationListComponent implements OnInit {
     this.donationService.setCurrent(donation);
   }
 
+  detail(donation: Donation): void {
+      this.router.navigate(['donations', donation.amount]);
+    }
+
 }

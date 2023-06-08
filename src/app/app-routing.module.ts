@@ -27,6 +27,7 @@ import {DonationListComponent} from "./donation/donation-list/donation-list.comp
 import {DonationDeleteComponent} from "./donation/donation-delete/donation-delete.component";
 import {DonationCreateComponent} from "./donation/donation-create/donation-create.component";
 import {DonationUpdateComponent} from "./donation/donation-update/donation-update.component";
+import {DonationSearchComponent} from "./donation/donation-search/donation-search.component";
 import { SeedListComponent } from './seed/seed-list/seed-list.component';
 import { SeedDetailComponent } from './seed/seed-detail/seed-detail.component';
 import { SeedDeleteComponent } from './seed/seed-delete/seed-delete.component';
