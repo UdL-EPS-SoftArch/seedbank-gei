@@ -23,7 +23,7 @@ Feature: Create a request
       | weight   | 456           |
       | location | Barcelona     |
 
-  Scenario: Update a request with invalid data
+  Scenario: Update a request with invalid amount
     Given I'm in the homepage logged in as a propagator and I create a request with
       | FIELD    | VALUE         |
       | amount   | 123           |
