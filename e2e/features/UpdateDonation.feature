@@ -23,7 +23,7 @@ Feature: Create a request
       | weight   | 456           |
       | location | Barcelona     |
 
-  Scenario: Update a donation with invalid data
+  Scenario: Update a donation with invalid amount
     Given I'm in the homepage logged in as a donor and I create a donation with
       | FIELD    | VALUE         |
       | amount   | 123           |
