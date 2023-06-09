@@ -17,4 +17,10 @@ Then("I'm in the specific Donation", () => {
       cy.visit(`http://localhost:4200/donations${uri}`);
     });*/
     cy.visit('http://localhost:4200/donations/2')
+    cy.get('#amount').should('exist');
 });
+
+Then("I can't see the Donations searcher", () => {
+  cy.visit('http://localhost:4200/donations');
+  cy.get('#typeahead-http').should('not.exist');
+}
