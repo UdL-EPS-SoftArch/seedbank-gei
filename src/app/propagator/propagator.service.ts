@@ -5,7 +5,7 @@ import { Propagator } from './propagator';
 import {User} from "../login-basic/user";
 
 @Injectable({providedIn: 'root'})
-export class PropagatorService extends HateoasResourceOperation<User> {
+export class PropagatorService extends HateoasResourceOperation<Propagator> {
 
   constructor() {
     super(Propagator);
