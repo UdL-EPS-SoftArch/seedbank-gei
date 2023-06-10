@@ -55,6 +55,7 @@ import { SeedDetailComponent } from './seed/seed-detail/seed-detail.component';
 import { SeedDeleteComponent } from './seed/seed-delete/seed-delete.component';
 import { SeedCreateComponent } from './seed/seed-create/seed-create.component';
 import { SeedUpdateComponent } from './seed/seed-update/seed-update.component';
+import { SeedSearchComponent } from './seed/seed-search/seed-search.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { SeedUpdateComponent } from './seed/seed-update/seed-update.component';
     SeedDeleteComponent,
     SeedCreateComponent,
     SeedUpdateComponent,
+    SeedSearchComponent,
   ],
   imports: [
     TakeComponentsModule,

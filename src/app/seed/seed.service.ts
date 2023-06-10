@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Seed } from './seed';
-import { HateoasResourceOperation } from '@lagoshny/ngx-hateoas-client';
+import { Observable } from 'rxjs/internal/Observable';
+import {
+  HateoasResourceOperation,
+  ResourceCollection,
+} from '@lagoshny/ngx-hateoas-client';
 
 @Injectable({
   providedIn: 'root',
@@ -8,5 +12,13 @@ import { HateoasResourceOperation } from '@lagoshny/ngx-hateoas-client';
 export class SeedService extends HateoasResourceOperation<Seed> {
   constructor() {
     super(Seed);
+  }
+
+  public findByScientificName(
+    query: string
+  ): Observable<ResourceCollection<Seed>> {
+    return this.searchCollection('findByScientificNameContaining', {
+      params: { text: query },
+    });
   }
 }

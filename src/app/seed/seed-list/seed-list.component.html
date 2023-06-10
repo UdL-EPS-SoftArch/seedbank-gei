@@ -1,15 +1,16 @@
 <h1>Seeds</h1>
 
 <div class="jumbotron" *ngIf="isRole('admin')">
-  <p class="takes-text">Create new seed</p>
   <button
-    class="btn btn-success pull-right add-take"
+    class="btn btn-success pull-right add-take mb-3"
     id="createSeed"
     [routerLink]="['/seeds/create']"
   >
     Add Seed
   </button>
 </div>
+
+<app-seed-search (emitResults)="searchSeeds($event)"></app-seed-search>
 
 <div class="card mb-1 mt-3" *ngFor="let seed of seeds">
   <div class="card-block row m-1 col-12" (click)="detail(seed)">
