@@ -117,6 +117,7 @@ export class SeedCreateComponent implements OnInit {
 
   addCommonName() {
     this.commonNamesList.push(this.commonName.value);
+    this.commonNamesList.sort();
     this.commonNameInput = '';
   }
 
@@ -130,7 +131,9 @@ export class SeedCreateComponent implements OnInit {
 
   onSubmit(): void {
     this.seed.commonName = this.commonNamesList;
-    this.seed.beneficialFor = this.benefitialForList;
+    this.seed.beneficialFor = this.benefitialForList.sort((a, b) =>
+      a.scientificName.localeCompare(b.scientificName)
+    );
     this.seedService
       .createResource({ body: this.seed })
       .subscribe((seed: Seed) => {
