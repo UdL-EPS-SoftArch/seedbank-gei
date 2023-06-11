@@ -78,6 +78,7 @@ export class SeedListComponent {
   }
 
   sortSeeds(): void {
+    const returnValue = this.sortOrder === 'A-Z' ? -1 : 1;
     if (this.sortBy === 'Common name') {
       this.seeds.sort((a, b) => {
         const commonNamesA = a.commonName.join().toUpperCase();
@@ -93,17 +94,11 @@ export class SeedListComponent {
           return -1;
         }
 
-        if (
-          (commonNamesA < commonNamesB && this.sortOrder === 'A-Z') ||
-          (commonNamesA > commonNamesB && this.sortOrder === 'Z-A')
-        ) {
-          return -1;
+        if (commonNamesA < commonNamesB) {
+          return returnValue;
         }
-        if (
-          (commonNamesA > commonNamesB && this.sortOrder === 'A-Z') ||
-          (commonNamesA < commonNamesB && this.sortOrder === 'Z-A')
-        ) {
-          return 1;
+        if (commonNamesA > commonNamesB) {
+          return -returnValue;
         }
         return 0;
       });
@@ -112,17 +107,34 @@ export class SeedListComponent {
         const scientificNameA = a.scientificName.toUpperCase();
         const scientificNameB = b.scientificName.toUpperCase();
 
-        if (
-          (scientificNameA < scientificNameB && this.sortOrder === 'A-Z') ||
-          (scientificNameA > scientificNameB && this.sortOrder === 'Z-A')
-        ) {
+        if (scientificNameA < scientificNameB) {
+          return returnValue;
+        }
+        if (scientificNameA > scientificNameB) {
+          return -returnValue;
+        }
+        return 0;
+      });
+    } else if (this.sortBy === 'Beneficial for') {
+      this.seeds.sort((a, b) => {
+        const beneficialForA = a.beneficialFor.join().toUpperCase();
+        const beneficialForB = b.beneficialFor.join().toUpperCase();
+
+        if (beneficialForA === '' && beneficialForB === '') {
+          return 0;
+        }
+        if (beneficialForA === '') {
+          return 1;
+        }
+        if (beneficialForB === '') {
           return -1;
         }
-        if (
-          (scientificNameA > scientificNameB && this.sortOrder === 'A-Z') ||
-          (scientificNameA < scientificNameB && this.sortOrder === 'Z-A')
-        ) {
-          return 1;
+
+        if (beneficialForA < beneficialForB) {
+          return returnValue;
+        }
+        if (beneficialForA > beneficialForB) {
+          return -returnValue;
         }
         return 0;
       });
