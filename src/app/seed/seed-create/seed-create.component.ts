@@ -10,11 +10,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-import {
-  ModalDismissReasons,
-  NgbDatepickerModule,
-  NgbModal,
-} from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
 
 @Component({
@@ -45,10 +41,10 @@ export class SeedCreateComponent implements OnInit {
     this.seedForm = new FormGroup({
       scientificName: new FormControl(this.seed.scientificName, [
         Validators.required,
-        this.inputValidator(),
+        this.scientificNameValidator(),
       ]),
       commonName: new FormControl(this.commonNameInput, [
-        this.inputValidator(),
+        this.commonNameValidator(),
       ]),
     });
     this.loadSeedList();
@@ -108,8 +104,16 @@ export class SeedCreateComponent implements OnInit {
     modal.close('Save click');
   }
 
-  inputValidator(): ValidatorFn {
+  scientificNameValidator(): ValidatorFn {
     const nameRe: RegExp = /^[A-Za-z]+(?:\s[A-Za-z]+)*$/;
+    return (control: AbstractControl): ValidationErrors | null => {
+      const invalid = !nameRe.test(control.value);
+      return invalid ? { invalidName: { value: control.value } } : null;
+    };
+  }
+
+  commonNameValidator(): ValidatorFn {
+    const nameRe: RegExp = /^$|^[A-Za-z]+(?:\s[A-Za-z]+)*$/;
     return (control: AbstractControl): ValidationErrors | null => {
       const invalid = !nameRe.test(control.value);
       return invalid ? { invalidName: { value: control.value } } : null;

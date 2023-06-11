@@ -3,7 +3,14 @@ import { Seed } from '../seed';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SeedService } from '../seed.service';
 import { PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
-import { FormGroup } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -11,8 +18,9 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './seed-update.component.html',
   styleUrls: ['./seed-update.component.css'],
 })
-export class SeedUpdateComponent {
+export class SeedUpdateComponent implements OnInit {
   closeResult = '';
+  public id: string = '';
   public isModalSaved: boolean = false;
   public seed: Seed = new Seed();
   public seeds: Seed[] = [];
@@ -31,12 +39,23 @@ export class SeedUpdateComponent {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.seedService.getResource(id).subscribe((seed: Seed) => {
+    this.id = this.route.snapshot.paramMap.get('id');
+    console.log(this.id);
+    this.seedService.getResource(this.id).subscribe((seed: Seed) => {
       this.seed = seed;
       this.commonNamesList = this.seed.commonName;
       this.loadSeedList();
-      this.loadBeneficialSeeds(id);
+      this.loadBeneficialSeeds(this.id);
+    });
+    this.seedForm = new FormGroup({
+      id: new FormControl(this.id),
+      scientificName: new FormControl(this.seed.scientificName, [
+        Validators.required,
+        this.scientificNameValidator(),
+      ]),
+      commonName: new FormControl(this.commonNameInput, [
+        this.commonNameValidator(),
+      ]),
     });
   }
 
@@ -70,6 +89,29 @@ export class SeedUpdateComponent {
     });
   }
 
+  scientificNameValidator(): ValidatorFn {
+    const nameRe: RegExp = /^[A-Za-z]+(?:\s[A-Za-z]+)*$/;
+    return (control: AbstractControl): ValidationErrors | null => {
+      const invalid = !nameRe.test(control.value);
+      return invalid ? { invalidName: { value: control.value } } : null;
+    };
+  }
+
+  commonNameValidator(): ValidatorFn {
+    const nameRe: RegExp = /^$|^[A-Za-z]+(?:\s[A-Za-z]+)*$/;
+    return (control: AbstractControl): ValidationErrors | null => {
+      const invalid = !nameRe.test(control.value);
+      return invalid ? { invalidName: { value: control.value } } : null;
+    };
+  }
+
+  get scientificName() {
+    return this.seedForm.get('scientificName');
+  }
+
+  get commonName() {
+    return this.seedForm.get('commonName');
+  }
   open(content) {
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
@@ -109,8 +151,10 @@ export class SeedUpdateComponent {
   }
 
   addCommonName(commonNameInput: string) {
-    this.commonNamesList.push(commonNameInput);
-    this.commonNameInput = '';
+    if (commonNameInput !== '' && this.seedForm.controls['commonName'].valid) {
+      this.commonNamesList.push(commonNameInput);
+      this.commonNameInput = '';
+    }
   }
 
   removeCommonName(index: number) {
