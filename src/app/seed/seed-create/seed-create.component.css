@@ -30,14 +30,14 @@
   color: white;
 }
 
-.added-commonNames-wrapper {
+.added-cards-section {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #d4d4d4;
   border-radius: 5px;
 }
 
-.commonName-card {
+.card {
   background-color: #daf4ff;
   display: inline-block;
   height: auto;
@@ -46,20 +46,20 @@
   margin: 0 6px;
 }
 
-.commonName-wrapper {
+.card-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.commonName-wrapper p {
+.card-wrapper p {
   margin-bottom: 0;
   color: #17465a;
   text-align: center;
 }
 
-.delete-commonName-btn {
+.remove-card-btn {
   color: #17465a;
   font-size: 0.9rem;
   margin-left: 20px;

@@ -46,16 +46,14 @@
 
     <!-- Added common names section -->
 
-    <div *ngIf="commonNamesList.length > 0" class="added-commonNames-wrapper">
+    <div *ngIf="commonNamesList.length > 0" class="added-cards-section mb-3">
       <div
         *ngFor="let commonName of commonNamesList; let i = index"
-        class="commonName-card"
+        class="card"
       >
-        <div class="commonName-wrapper">
+        <div class="card-wrapper">
           <p>{{ commonName }}</p>
-          <div class="delete-commonName-btn" (click)="removeCommonName(i)">
-            X
-          </div>
+          <div class="remove-card-btn" (click)="removeCommonName(i)">X</div>
         </div>
       </div>
     </div>
@@ -76,15 +74,12 @@
 
       <div
         *ngIf="benefitialForList.length > 0 && isModalSaved"
-        class="added-commonNames-wrapper mt-3"
+        class="added-cards-section mt-3"
       >
-        <div
-          *ngFor="let seed of benefitialForList; let i = index"
-          class="commonName-card"
-        >
-          <div class="commonName-wrapper">
+        <div *ngFor="let seed of benefitialForList; let i = index" class="card">
+          <div class="card-wrapper">
             <p>{{ seed.scientificName }}</p>
-            <div class="delete-commonName-btn" (click)="removeCommonName(i)">
+            <div class="remove-card-btn" (click)="removeBenefitialFor(i)">
               X
             </div>
           </div>

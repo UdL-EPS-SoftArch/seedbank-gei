@@ -124,6 +124,10 @@ export class SeedCreateComponent implements OnInit {
     this.commonNamesList.splice(index, 1);
   }
 
+  removeBenefitialFor(index: number) {
+    this.benefitialForList.splice(index, 1);
+  }
+
   onSubmit(): void {
     this.seed.commonName = this.commonNamesList;
     this.seed.beneficialFor = this.benefitialForList;
