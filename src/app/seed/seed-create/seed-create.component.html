@@ -60,6 +60,81 @@
       </div>
     </div>
 
+    <!-- Benefitial for -->
+    <div class="form-group mb-3">
+      <label class="control-label" for="benefitialFor">Benefitial for</label>
+      <button
+        (click)="open(content)"
+        id="add-benefitialFor"
+        type="button"
+        class="btn btn-success ms-3"
+      >
+        Add benefitial seeds
+      </button>
+
+      <!-- Added benefitial for seeds section -->
+
+      <div
+        *ngIf="benefitialForList.length > 0 && isModalSaved"
+        class="added-commonNames-wrapper mt-3"
+      >
+        <div
+          *ngFor="let seed of benefitialForList; let i = index"
+          class="commonName-card"
+        >
+          <div class="commonName-wrapper">
+            <p>{{ seed.scientificName }}</p>
+            <div class="delete-commonName-btn" (click)="removeCommonName(i)">
+              X
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal popup -->
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">
+            Add benefitial seeds
+          </h4>
+          <button
+            type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <div class="checkbox-group">
+                <label
+                  *ngFor="let seed of seeds"
+                  class="checkbox-benefitialFor"
+                >
+                  <input
+                    (change)="onChangeBenefitialFor(seed)"
+                    type="checkbox"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                  {{ seed.scientificName }}
+                </label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-outline-dark"
+            (click)="saveAndClose(modal)"
+          >
+            Save
+          </button>
+        </div>
+      </ng-template>
+    </div>
+
     <!-- Save and back buttons -->
     <div class="form-group fa-pull-right mt-3">
       <button

@@ -1,0 +1,13 @@
+<div class="modal">
+  <div class="modal-wrapper">
+    <p class="modal-tittle">List of seeds</p>
+    <div class="checkbox-group">
+      <label *ngFor="let seed of seeds">
+        <input type="checkbox" [(ngModel)]="seed.selected" /> {{ seed }}
+      </label>
+    </div>
+    <button id="submit" type="button" class="btn btn-success ms-3">
+      Add selection
+    </button>
+  </div>
+</div>

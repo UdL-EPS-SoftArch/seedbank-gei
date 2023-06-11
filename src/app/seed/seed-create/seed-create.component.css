@@ -66,3 +66,7 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.checkbox-benefitialFor {
+  display: block;
+}

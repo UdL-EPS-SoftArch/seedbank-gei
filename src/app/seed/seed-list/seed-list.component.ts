@@ -31,6 +31,14 @@ export class SeedListComponent {
       .subscribe((page: PagedResourceCollection<Seed>) => {
         this.seeds = page.resources;
         this.totalSeeds = page.totalElements;
+
+        for (let seed of this.seeds) {
+          this.seedService.getBeneficialFor(seed.id).subscribe((response) => {
+            seed.beneficialFor = response._embedded.seeds.map(
+              (seed) => seed.scientificName
+            );
+          });
+        }
       });
   }
 
