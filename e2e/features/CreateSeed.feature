@@ -10,7 +10,12 @@ Feature: Create a seed
     And I fill the form with
       | FIELD            | VALUE          |
       | scientificName   | Allium Cepa    |
-      | commonName       | Onion, Cebolla |
+      | commonName       | Onion |
+    And I click the add common name button
+    And I fill the form with
+      | FIELD            | VALUE          |
+      | commonName       | Cebolla |
+    And I click the add common name button
     And I click the "Submit" button
     Then I am redirected to the seed details page
 
