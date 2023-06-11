@@ -68,23 +68,6 @@
       >
         Beneficial seeds
       </button>
-
-      <!-- Added benefitial for seeds section -->
-
-      <div
-        *ngIf="benefitialForList.length > 0 && isModalSaved"
-        class="added-cards-section mt-3"
-      >
-        <div *ngFor="let seed of benefitialForList; let i = index" class="card">
-          <div class="card-wrapper">
-            <p>{{ seed.scientificName }}</p>
-            <div class="remove-card-btn" (click)="removeBenefitialFor(i)">
-              X
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- Modal popup -->
       <ng-template #content let-modal>
         <div class="modal-header">
@@ -103,12 +86,13 @@
             <div class="mb-3">
               <div class="checkbox-group">
                 <label
-                  *ngFor="let seed of seeds"
+                  *ngFor="let seed of beneficialSeeds"
                   class="checkbox-benefitialFor"
                 >
                   <input
                     (change)="onChangeBenefitialFor(seed)"
                     type="checkbox"
+                    [(ngModel)]="seed.isChecked"
                     [ngModelOptions]="{ standalone: true }"
                   />
                   {{ seed.scientificName }}
@@ -123,7 +107,7 @@
             class="btn btn-outline-dark"
             (click)="saveAndClose(modal)"
           >
-            Save
+            Close
           </button>
         </div>
       </ng-template>

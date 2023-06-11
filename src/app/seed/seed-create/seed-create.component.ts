@@ -33,6 +33,7 @@ export class SeedCreateComponent implements OnInit {
   public selectedSeed: String | undefined = undefined;
   public showModal: boolean = false;
   public seedForm: FormGroup;
+  public beneficialSeeds: any = [];
   constructor(
     private router: Router,
     private seedService: SeedService,
@@ -57,7 +58,13 @@ export class SeedCreateComponent implements OnInit {
         sort: { scientificName: 'ASC' },
       })
       .subscribe((seeds: PagedResourceCollection<Seed>) => {
-        this.seeds = seeds.resources;
+        this.seeds = seeds.resources.sort((a, b) =>
+          a.scientificName.localeCompare(b.scientificName)
+        );
+        this.beneficialSeeds = this.seeds.map((obj) => ({
+          ...obj,
+          isChecked: false,
+        }));
       });
   }
 
