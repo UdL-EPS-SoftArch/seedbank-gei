@@ -56,6 +56,7 @@ import { SeedDeleteComponent } from './seed/seed-delete/seed-delete.component';
 import { SeedCreateComponent } from './seed/seed-create/seed-create.component';
 import { SeedUpdateComponent } from './seed/seed-update/seed-update.component';
 import { SeedModalComponent } from './seed/seed-modal/seed-modal.component';
+import { SeedSearchComponent } from './seed/seed-search/seed-search.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { SeedModalComponent } from './seed/seed-modal/seed-modal.component';
     SeedCreateComponent,
     SeedUpdateComponent,
     SeedModalComponent,
+    SeedSearchComponent,
   ],
   imports: [
     TakeComponentsModule,

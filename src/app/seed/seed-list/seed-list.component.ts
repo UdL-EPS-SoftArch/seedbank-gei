@@ -42,6 +42,10 @@ export class SeedListComponent {
       });
   }
 
+  searchSeeds(seed: Seed): void {
+    this.router.navigate(['seeds', seed.id]);
+  }
+
   changePage(): void {
     this.seedService
       .getPage({
