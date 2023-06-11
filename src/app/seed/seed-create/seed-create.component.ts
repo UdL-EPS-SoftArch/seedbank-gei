@@ -45,9 +45,11 @@ export class SeedCreateComponent implements OnInit {
     this.seedForm = new FormGroup({
       scientificName: new FormControl(this.seed.scientificName, [
         Validators.required,
-        this.scientificNameValidator(),
+        this.inputValidator(),
       ]),
-      commonName: new FormControl(this.commonNameInput),
+      commonName: new FormControl(this.commonNameInput, [
+        this.inputValidator(),
+      ]),
     });
     this.loadSeedList();
   }
@@ -106,7 +108,7 @@ export class SeedCreateComponent implements OnInit {
     modal.close('Save click');
   }
 
-  scientificNameValidator(): ValidatorFn {
+  inputValidator(): ValidatorFn {
     const nameRe: RegExp = /^[A-Za-z]+(?:\s[A-Za-z]+)*$/;
     return (control: AbstractControl): ValidationErrors | null => {
       const invalid = !nameRe.test(control.value);

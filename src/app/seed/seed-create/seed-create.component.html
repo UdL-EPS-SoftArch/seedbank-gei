@@ -42,6 +42,9 @@
 
         <div id="add-commonName" (click)="addCommonName()">+</div>
       </div>
+      <div class="form-error" *ngIf="commonName.errors?.['invalidName']">
+        Invalid name.
+      </div>
     </div>
 
     <!-- Added common names section -->
