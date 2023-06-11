@@ -10,6 +10,12 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import {
+  ModalDismissReasons,
+  NgbDatepickerModule,
+  NgbModal,
+} from '@ng-bootstrap/ng-bootstrap';
+import { PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
 
 @Component({
   selector: 'app-seed-create',
@@ -17,11 +23,21 @@ import {
   styleUrls: ['./seed-create.component.css'],
 })
 export class SeedCreateComponent implements OnInit {
+  closeResult = '';
+  public isModalSaved: boolean = false;
+  public seeds: Seed[] = [];
   public seed: Seed;
   public commonNameInput: string = '';
   public commonNamesList: any = [];
+  public benefitialForList: any = [];
+  public selectedSeed: String | undefined = undefined;
+  public showModal: boolean = false;
   public seedForm: FormGroup;
-  constructor(private router: Router, private seedService: SeedService) {}
+  constructor(
+    private router: Router,
+    private seedService: SeedService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.seed = new Seed();
@@ -32,6 +48,55 @@ export class SeedCreateComponent implements OnInit {
       ]),
       commonName: new FormControl(this.commonNameInput),
     });
+    this.loadSeedList();
+  }
+
+  loadSeedList() {
+    this.seedService
+      .getPage({
+        sort: { scientificName: 'ASC' },
+      })
+      .subscribe((seeds: PagedResourceCollection<Seed>) => {
+        this.seeds = seeds.resources;
+      });
+  }
+
+  open(content) {
+    this.modalService
+      .open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
+  onChangeBenefitialFor(seed) {
+    if (this.benefitialForList.includes(seed)) {
+      this.benefitialForList = this.benefitialForList.filter(
+        (item) => item !== seed
+      );
+    } else {
+      this.benefitialForList.push(seed);
+    }
+  }
+
+  saveAndClose(modal: any) {
+    this.isModalSaved = true;
+    modal.close('Save click');
   }
 
   scientificNameValidator(): ValidatorFn {
@@ -59,9 +124,13 @@ export class SeedCreateComponent implements OnInit {
     this.commonNamesList.splice(index, 1);
   }
 
+  removeBenefitialFor(index: number) {
+    this.benefitialForList.splice(index, 1);
+  }
+
   onSubmit(): void {
     this.seed.commonName = this.commonNamesList;
-    this.seed.beneficialFor = [];
+    this.seed.beneficialFor = this.benefitialForList;
     this.seedService
       .createResource({ body: this.seed })
       .subscribe((seed: Seed) => {

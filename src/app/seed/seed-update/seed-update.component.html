@@ -1,4 +1,4 @@
-<form id="user-form" (ngSubmit)="onSubmit()" #form="ngForm">
+<form id="seed-form" (ngSubmit)="onSubmit()" #form="ngForm">
   <fieldset>
     <div class="form-group mb-3">
       <label class="control-label" for="id">Seed ID</label>
@@ -29,16 +29,36 @@
       <div class="invalid-feedback">A scientific name is required</div>
     </div>
 
+    <!-- Common names input -->
     <div class="form-group mb-3">
       <label class="control-label" for="commonName">Common names</label>
-      <input
-        id="commonName"
-        name="commonName"
-        type="text"
-        class="form-control"
-        [(ngModel)]="commonNames"
-        #commonName="ngModel"
-      />
+      <div class="commonName-input">
+        <input
+          id="commonName"
+          name="commonName"
+          type="text"
+          class="form-control"
+          [(ngModel)]="commonNameInput"
+        />
+
+        <div id="add-commonName" (click)="addCommonName(commonNameInput)">
+          +
+        </div>
+      </div>
+    </div>
+
+    <!-- Added common names section -->
+
+    <div *ngIf="commonNamesList.length > 0" class="added-cards-section mb-3">
+      <div
+        *ngFor="let commonName of commonNamesList; let i = index"
+        class="card"
+      >
+        <div class="card-wrapper">
+          <p>{{ commonName }}</p>
+          <div class="remove-card-btn" (click)="removeCommonName(i)">X</div>
+        </div>
+      </div>
     </div>
 
     <div class="form-group fa-pull-right">
