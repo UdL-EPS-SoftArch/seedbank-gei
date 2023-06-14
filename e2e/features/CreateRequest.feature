@@ -45,7 +45,7 @@ Feature: Create a request
       | weight   | 123           |
     Then Submit button should be disabled
 
-  Scenario: Create a new request with badly formatted field
+  Scenario: Create a new request with badly formatted amount
     Given I'm in the homepage logged in as a propagator
     When I click the requests dropdown
     And I click on create new request
@@ -53,6 +53,17 @@ Feature: Create a request
       | FIELD    | VALUE         |
       | amount   | abc           |
       | weight   | 123           |
+      | location | Lleida        |
+    Then Submit button should be disabled
+
+  Scenario: Create a new request with badly formatted weight
+    Given I'm in the homepage logged in as a propagator
+    When I click the requests dropdown
+    And I click on create new request
+    And I fill the form with
+      | FIELD    | VALUE         |
+      | amount   | 123           |
+      | weight   | abc           |
       | location | Lleida        |
     Then Submit button should be disabled
 

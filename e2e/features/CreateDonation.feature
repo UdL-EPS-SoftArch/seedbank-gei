@@ -45,7 +45,7 @@ Feature: Create a donation
       | weight   | 123           |
     Then Submit button should be disabled
 
-  Scenario: Create a new donation with badly formatted field
+  Scenario: Create a new donation with badly formatted amount
     Given I'm in the homepage logged in as a donor
     When I click the donations dropdown
     And I click on create
@@ -53,6 +53,17 @@ Feature: Create a donation
       | FIELD    | VALUE         |
       | amount   | abc           |
       | weight   | 123           |
+      | location | Lleida        |
+    Then Submit button should be disabled
+
+  Scenario: Create a new donation with badly formatted weight
+    Given I'm in the homepage logged in as a donor
+    When I click the donations dropdown
+    And I click on create
+    And I fill the form with
+      | FIELD    | VALUE         |
+      | amount   | 123           |
+      | weight   | abc           |
       | location | Lleida        |
     Then Submit button should be disabled
 
