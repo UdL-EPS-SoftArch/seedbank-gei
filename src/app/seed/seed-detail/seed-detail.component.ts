@@ -18,10 +18,16 @@ export class SeedDetailComponent {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.seedService.getResource(id).subscribe((take) => {
-      this.seedDetail = take;
+    this.seedService.getResource(id).subscribe((seed) => {
+      this.seedDetail = seed;
+      this.seedService.getBeneficialFor(id).subscribe((response) => {
+        this.seedDetail.beneficialFor = response._embedded.seeds.map(
+          (seed) => seed.scientificName
+        );
+      });
     });
   }
+
   isRole(role: string): boolean {
     return this.authenticationService.isRole(role);
   }

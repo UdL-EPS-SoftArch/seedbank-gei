@@ -1,44 +1,132 @@
-<form id="user-form" (ngSubmit)="onSubmit()" #form="ngForm">
+<form
+  id="seed-form"
+  (ngSubmit)="onSubmit()"
+  #form="ngForm"
+  [formGroup]="seedForm"
+>
   <fieldset>
     <div class="form-group mb-3">
       <label class="control-label" for="id">Seed ID</label>
       <input
         id="id"
         name="id"
+        formControlName="id"
         type="text"
         class="form-control"
         readonly
-        [ngModel]="seed.id"
+        [(ngModel)]="id"
       />
     </div>
 
-    <div
-      class="form-group mb-3"
-      [class.was-validated]="scientificName.dirty || scientificName.touched"
-    >
+    <div class="form-group mb-3">
       <label class="control-label" for="scientificName">Scientific name*</label>
       <input
         id="scientificName"
         name="scientificName"
+        formControlName="scientificName"
         type="text"
         class="form-control"
-        required
         [(ngModel)]="seed.scientificName"
-        #scientificName="ngModel"
       />
-      <div class="invalid-feedback">A scientific name is required</div>
+      <div class="form-error" *ngIf="scientificName.errors?.['required']">
+        Scientific name is required.
+      </div>
+      <div
+        class="form-error"
+        *ngIf="scientificName.errors?.['invalidName'] && !scientificName.errors?.['required']"
+      >
+        Invalid scientific name.
+      </div>
+    </div>
+
+    <!-- Common names input -->
+    <div class="form-group mb-3">
+      <label class="control-label" for="commonName">Common names</label>
+      <div class="commonName-input">
+        <input
+          id="commonName"
+          name="commonName"
+          formControlName="commonName"
+          type="text"
+          class="form-control"
+          [(ngModel)]="commonNameInput"
+        />
+
+        <div id="add-commonName" (click)="addCommonName(commonNameInput)">
+          +
+        </div>
+      </div>
+      <div class="form-error" *ngIf="commonName.errors?.['invalidName']">
+        Invalid name.
+      </div>
+    </div>
+
+    <!-- Added common names section -->
+
+    <div *ngIf="commonNamesList.length > 0" class="added-cards-section mb-3">
+      <div
+        *ngFor="let commonName of commonNamesList; let i = index"
+        class="card"
+      >
+        <div class="card-wrapper">
+          <p>{{ commonName }}</p>
+          <div class="remove-card-btn" (click)="removeCommonName(i)">X</div>
+        </div>
+      </div>
     </div>
 
     <div class="form-group mb-3">
-      <label class="control-label" for="commonName">Common names</label>
-      <input
-        id="commonName"
-        name="commonName"
-        type="text"
-        class="form-control"
-        [(ngModel)]="commonNames"
-        #commonName="ngModel"
-      />
+      <button
+        (click)="open(content)"
+        id="add-benefitialFor"
+        type="button"
+        class="btn btn-success ms-3"
+      >
+        Beneficial seeds
+      </button>
+      <!-- Modal popup -->
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">
+            Edit beneficial seeds
+          </h4>
+          <button
+            type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <div class="checkbox-group">
+                <label
+                  *ngFor="let seed of beneficialSeeds"
+                  class="checkbox-benefitialFor"
+                >
+                  <input
+                    (change)="onChangeBeneficialFor(seed)"
+                    type="checkbox"
+                    [(ngModel)]="seed.isChecked"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                  {{ seed.scientificName }}
+                </label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-outline-dark"
+            (click)="saveAndClose(modal)"
+          >
+            Close
+          </button>
+        </div>
+      </ng-template>
     </div>
 
     <div class="form-group fa-pull-right">

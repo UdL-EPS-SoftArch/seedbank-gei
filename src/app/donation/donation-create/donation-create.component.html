@@ -1,44 +1,84 @@
 <form id="donation-form" (ngSubmit)="onSubmit()" #form="ngForm">
   <fieldset>
-
     <!-- Amount input -->
-    <div class="form-group mb-3" [class.was-validated]="amount.dirty || amount.touched">
+    <div
+      class="form-group mb-3"
+      [class.was-validated]="amount.dirty || amount.touched"
+    >
       <label class="control-label" for="amount">Amount*</label>
-      <input id="amount" name="amount" type="number" class="form-control" required [(ngModel)]="donation.amount"
-             #amount="ngModel">
+      <input
+        id="amount"
+        name="amount"
+        type="number"
+        class="form-control"
+        required
+        [(ngModel)]="donation.amount"
+        #amount="ngModel"
+      />
       <div class="invalid-feedback">An amount is required</div>
     </div>
 
     <!-- Weight input -->
-    <div class="form-group mb-3" [class.was-validated]="weight.dirty || weight.touched">
+    <div
+      class="form-group mb-3"
+      [class.was-validated]="weight.dirty || weight.touched"
+    >
       <label class="control-label" for="weight">Weight*</label>
-      <input id="weight" name="weight" type="number" class="form-control" required [(ngModel)]="donation.weight"
-             #weight="ngModel">
+      <input
+        id="weight"
+        name="weight"
+        type="number"
+        class="form-control"
+        required
+        [(ngModel)]="donation.weight"
+        #weight="ngModel"
+      />
       <div class="invalid-feedback">A weight is required</div>
     </div>
 
     <!-- Location input -->
-    <div class="form-group mb-3" [class.was-validated]="location.dirty || location.touched">
+    <div
+      class="form-group mb-3"
+      [class.was-validated]="location.dirty || location.touched"
+    >
       <label class="control-label" for="location">Location*</label>
-      <input id="location" name="location" type="text" class="form-control" required [(ngModel)]="donation.location"
-             #location="ngModel">
+      <input
+        id="location"
+        name="location"
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="donation.location"
+        #location="ngModel"
+      />
       <div class="invalid-feedback">A location is required</div>
     </div>
 
     <!-- Button -->
     <div class="form-group fa-pull-right">
-      <button id="listBtn" type="button" (click)="onCancel()" class="btn btn-outline-primary pull-right">Back</button>
-      <button id="submit" type="submit" [disabled]="!form.form.valid"
-              class="btn ms-3 btn-success pull-right">Submit
+      <button
+        id="listBtn"
+        type="button"
+        (click)="onCancel()"
+        class="btn btn-outline-primary pull-right"
+      >
+        Back
+      </button>
+      <button
+        id="submit"
+        type="submit"
+        [disabled]="!form.form.valid"
+        class="btn ms-3 btn-success pull-right"
+      >
+        Submit
       </button>
     </div>
 
     <label for="seed-select">Seed:</label>
     <select name="seeds" id="seed-select" [(ngModel)]="selectedSeed">
       <option *ngFor="let seed of seeds" [value]="seed.id">
-        {{seed.scientificName}}
+        {{ seed.scientificName }}
       </option>
     </select>
-
   </fieldset>
 </form>

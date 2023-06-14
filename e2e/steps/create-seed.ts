@@ -39,3 +39,6 @@ When(/^I fill the form with$/, function (table: DataTable) {
       .blur()
   );
 });
+When(/^I click the add common name button$/, function () {
+  cy.get('#add-commonName').click();
+});
